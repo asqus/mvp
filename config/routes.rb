@@ -1,4 +1,16 @@
 Mvp::Application.routes.draw do
+  resources :votes
+
+  resources :polls
+
+  resources :responses
+
+  resources :questions
+
+  resources :officials
+
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
