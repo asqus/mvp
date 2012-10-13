@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Position:</b>
+  <%= @official.position %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @official.name %>
+</p>
+
+<p>
+  <b>District:</b>
+  <%= @official.district_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_official_path(@official) %> |
+<%= link_to 'Back', officials_path %>
