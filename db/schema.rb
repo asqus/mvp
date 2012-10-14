@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121012023813) do
+ActiveRecord::Schema.define(:version => 20121014034129) do
 
   create_table "officials", :force => true do |t|
     t.string   "position"
@@ -33,12 +33,14 @@ ActiveRecord::Schema.define(:version => 20121012023813) do
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "responses", :force => true do |t|
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "question_id"
   end
 
   create_table "users", :force => true do |t|
