@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :responses
-  has_many :questions
+  has_many :questions, dependent: :destroy
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token

@@ -11,8 +11,12 @@
 #
 
 class Question < ActiveRecord::Base
-  attr_accessible :body, :title, :user_id
+  attr_accessible :body, :title
 
   belongs_to :user
   has_many :responses
+
+  validates :user_id, presence: true
+  
+  default_scope order: 'questions.created_at DESC'
 end

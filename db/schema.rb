@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015011656) do
+ActiveRecord::Schema.define(:version => 20121016014407) do
 
   create_table "officials", :force => true do |t|
     t.string   "position"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20121015011656) do
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
   end
+
+  add_index "questions", ["user_id", "created_at"], :name => "index_questions_on_user_id_and_created_at"
 
   create_table "responses", :force => true do |t|
     t.text     "body"
