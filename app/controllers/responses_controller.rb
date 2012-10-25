@@ -24,11 +24,12 @@ class ResponsesController < ApplicationController
   # GET /responses/new
   # GET /responses/new.json
   def new
+    @question = Question.find(params[:id])
     @response = Response.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @response }
+      format.json { render :json => { :response => @response, :question => @question } }
     end
   end
 
@@ -41,7 +42,8 @@ class ResponsesController < ApplicationController
   # POST /responses.json
   def create
     @response = Response.new(params[:response])
-
+    @response.user_id = current_user.id
+    @response.question_id = @question.id
     respond_to do |format|
       if @response.save
         format.html { redirect_to @response, notice: 'Response was successfully created.' }

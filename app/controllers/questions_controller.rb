@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+  
+  before_filter :signed_in_user, only: [:create, :destroy]
+
   # GET /questions
   # GET /questions.json
   def index
@@ -32,26 +35,33 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def create
+    @question = current_user.questions.build(params[:question])
+    if @question.save
+      flash[:success] = "question created!"
+    end
+  end
+  
   # GET /questions/1/edit
   def edit
     @question = Question.find(params[:id])
   end
 
-  # POST /questions
-  # POST /questions.json
-  def create
-    @question = Question.new(params[:question])
+  # # POST /questions
+  # # POST /questions.json
+  # def create
+  #   @question = Question.new(params[:question])
 
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render json: @question, status: :created, location: @question }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @question.save
+  #       format.html { redirect_to @question, notice: 'Question was successfully created.' }
+  #       format.json { render json: @question, status: :created, location: @question }
+  #     else
+  #       format.html { render action: "new" }
+  #       format.json { render json: @question.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PUT /questions/1
   # PUT /questions/1.json

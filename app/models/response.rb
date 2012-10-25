@@ -11,8 +11,11 @@
 #
 
 class Response < ActiveRecord::Base
-  attr_accessible :body, :question_id, :user_id
+  attr_accessible :body
 
   belongs_to :user
   belongs_to :question
+
+  validates :user_id, presence: true
+  validates :question_id, presence: true
 end

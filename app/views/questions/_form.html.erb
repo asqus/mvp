@@ -19,10 +19,6 @@
     <%= f.label :body %><br />
     <%= f.text_area :body %>
   </div>
-  <div class="field">
-    <%= f.label :user %> <br />
-    <%= select("question", "user_id", User.all.collect {|u| [ u.name, u.id ] }, {:include_blank => 'None'}) %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
