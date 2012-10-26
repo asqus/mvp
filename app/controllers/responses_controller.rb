@@ -24,9 +24,9 @@ class ResponsesController < ApplicationController
   # GET /responses/new
   # GET /responses/new.json
   def new
-    @question = Question.find(params[:id])
+    @question = Question.find(params[:questionID])
     @response = Response.new
-
+    session[:currentQuestion] = params[:questionID]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => { :response => @response, :question => @question } }
@@ -43,6 +43,7 @@ class ResponsesController < ApplicationController
   def create
     @response = Response.new(params[:response])
     @response.user_id = current_user.id
+    @question = Question.find(session[:currentQuestion])
     @response.question_id = @question.id
     respond_to do |format|
       if @response.save
