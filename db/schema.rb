@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121025020935) do
+ActiveRecord::Schema.define(:version => 20121028203736) do
 
   create_table "officials", :force => true do |t|
     t.string   "position"
@@ -48,6 +48,18 @@ ActiveRecord::Schema.define(:version => 20121025020935) do
 
   add_index "responses", ["question_id", "created_at"], :name => "index_responses_on_question_id_and_created_at"
   add_index "responses", ["user_id", "created_at"], :name => "index_responses_on_user_id_and_created_at"
+
+  create_table "user_question_relation_yay_nays", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.boolean  "yaynay"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "user_question_relation_yay_nays", ["question_id"], :name => "index_user_question_relation_yay_nays_on_question_id"
+  add_index "user_question_relation_yay_nays", ["user_id", "question_id"], :name => "index_user_question_relation_yay_nays_on_user_id_and_question_id", :unique => true
+  add_index "user_question_relation_yay_nays", ["user_id"], :name => "index_user_question_relation_yay_nays_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
