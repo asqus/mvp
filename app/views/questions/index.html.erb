@@ -13,9 +13,12 @@
   <tr>
     <td><%= question.title %></td>
     <td><%= question.body %></td>
+
     <td><%= link_to 'Show', question %></td>
     <td><%= link_to 'Edit', edit_question_path(question) %></td>
-    <td><%= link_to 'Destroy', question, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', question, confirm: 'Are you sure?', method: :delete %>
+    <td><h>By:  </h><%= User.find(question.user_id).name %></td>
+    </td>
   </tr>
 <% end %>
 </table>
