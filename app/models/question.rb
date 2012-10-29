@@ -14,6 +14,7 @@ class Question < ActiveRecord::Base
   attr_accessible :body, :title
 
   belongs_to :user
+
   has_many :responses, dependent: :destroy
   has_many :uq_relations, foreign_key: "user_id", dependent: :destroy
   has_many :voters, through: :uq_relations, source: :user
