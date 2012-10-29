@@ -4,6 +4,10 @@
 	<%= render 'upvote', :question => question %>
 <% end %>
 
+<div class="stats">
+	<%= render 'stats', :question => question %>
+</div>
+
 <% if question.didvote?(current_user, false) %>
 	<%= render 'undodownvote', :question => question %>
 <% else %>
