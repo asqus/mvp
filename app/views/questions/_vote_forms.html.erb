@@ -1,0 +1,11 @@
+<% if question.didvote?(current_user, true) %>
+	<%= render 'undoupvote', :question => question %>
+<% else %>
+	<%= render 'upvote', :question => question %>
+<% end %>
+
+<% if question.didvote?(current_user, false) %>
+	<%= render 'undodownvote', :question => question %>
+<% else %>
+	<%= render 'downvote', :question => question %>
+<% end %>

@@ -1,0 +1,7 @@
+#?!
+<div class="totals">
+	<strong>
+		<%= (Question.where("yaynay = true AND question_id = ?", question.id).count - 
+			Question.where("yaynay = false AND question_id = ?", question.id).count) %>
+	</strong>
+</div>
