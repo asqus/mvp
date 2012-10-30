@@ -49,6 +49,7 @@ class User < ActiveRecord::Base
   def unvote!(question)
     uq_relations.find_by_question_id(question.id).destroy
   end
+  
   private
 
     def create_remember_token
