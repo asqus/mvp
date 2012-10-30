@@ -3,9 +3,9 @@
 one:
   user_id: 1
   question_id: 1
-  yaynay: 
+  yaynay: false
 
 two:
   user_id: 1
   question_id: 1
-  yaynay: 
+  yaynay: false

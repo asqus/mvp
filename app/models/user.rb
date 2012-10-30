@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 
   has_many :responses
   has_many :questions, dependent: :destroy
+  has_many :uq_relations, dependent: :destroy
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
