@@ -46,13 +46,6 @@ class User < ActiveRecord::Base
     uq_relations.create!(yaynay: yaynay, user_id: id, question_id: question.id)
   end
 
-<<<<<<< HEAD
-=======
-  def unvote!(question)
-    uq_relations.find_by_question_id(question.id).destroy
-  end
-  
->>>>>>> f69a0e9bf3f022cd3092b2d24bfa55fe0030571f
   private
 
     def create_remember_token
