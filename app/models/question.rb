@@ -21,22 +21,5 @@ class Question < ActiveRecord::Base
 
   validates :user_id, presence: true
   
-  def didvote?(user, yaynay)
-  	uqrel = uq_relations.find_by_user_id(user.id)
-    if(uqrel == nil || uqrel.yaynay != yaynay)
-      return false
-    else
-      return true
-    end
-  end
-
-  def vote!(user,yaynay)
-  	uq_relations.create!(yaynay: yaynay, user_id: user.id, question_id: id)
-  end
-
-  def unvote!(user)
-  	uq_relations.find_by_user_id(user.id).destroy
-  end
-  
   default_scope order: 'questions.created_at DESC'
 end

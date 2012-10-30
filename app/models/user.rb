@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :responses
   has_many :questions, dependent: :destroy
   has_many :uq_relations, dependent: :destroy
+  has_many :voted_questions, through: :uq_relations, source: :question
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
@@ -32,7 +33,23 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  def didvote?(question, yaynay)
+    uqrel = uq_relations.find_by_question_id(question.id)
+    if(uqrel == nil || uqrel.yaynay != yaynay)
+      return false
+    else
+      return true
+    end
+  end
 
+  def vote!(question,yaynay)
+    uq_relations.create!(yaynay: yaynay, user_id: id, question_id: question.id)
+  end
+
+  def unvote!(question)
+    uq_relations.find_by_question_id(question.id).destroy
+  end
+  
   private
 
     def create_remember_token
