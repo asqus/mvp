@@ -1,3 +1,3 @@
-<%= form_for(current_user.uq_relations.find_by_user_id(current_user.id), html: {method: :delete}) do |f| %>
+<%= form_for(current_user.uq_relations.find_by_question_id(question.id), html: {method: :delete}) do |f| %>
   <%= f.submit "", type: :image, src: "/assets/images/arrows/up-fill.gif", class: "imgButton" %>
 <% end %>

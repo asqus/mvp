@@ -16,7 +16,7 @@ Mvp::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :uq_relations, only: [:create, :destroy]
+  resources :uq_relations, only: [:create, :update, :destroy]
   
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

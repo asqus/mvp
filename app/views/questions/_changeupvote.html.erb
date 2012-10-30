@@ -1,0 +1,4 @@
+<%= form_for(current_user.uq_relations.find_by_question_id(question.id), html: {method: :put}) do |f| %>
+	<div><%= f.hidden_field :yaynay, value: true %></div>
+	<%= f.submit "", type: :image, src: "/assets/images/arrows/up.gif", class: "imgButton" %>
+<% end %>
