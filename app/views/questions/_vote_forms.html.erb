@@ -1,15 +1,27 @@
-<% if current_user.didvote?(question, true) %>
-	<%= render 'undoupvote', :question => question %>
-<% else %>
-	<%= render 'upvote', :question => question %>
-<% end %>
+<div id="upvote_<%= question.id %>">
+	<% if current_user.didvote?(question, true) %>
+		<%= render 'undoupvote', :question => question %>
+	<% else %>
+		<% if current_user.didvote?(question, false) %>
+			<%= render 'changeupvote', question: question %>
+		<% else %>
+			<%= render 'upvote', :question => question %>
+		<% end %>
+	<% end %>
+</div>
 
-<div class="stats">
+<div id="stats">
 	<%= render 'stats', :question => question %>
 </div>
 
-<% if current_user.didvote?(question, false) %>
-	<%= render 'undodownvote', :question => question %>
-<% else %>
-	<%= render 'downvote', :question => question %>
-<% end %>
+<div id="downvote_<%= question.id %>">
+	<% if current_user.didvote?(question, false) %>
+		<%= render 'undodownvote', :question => question %>
+	<% else %>
+		<% if current_user.didvote?(question, true) %>
+			<%= render 'changedownvote', question: question %>
+		<% else %>
+			<%= render 'downvote', :question => question %>
+		<% end %>
+	<% end %>
+</div>
