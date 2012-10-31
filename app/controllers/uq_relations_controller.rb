@@ -4,20 +4,30 @@ class UqRelationsController < ApplicationController
 		@yaynay = params[:uq_relation][:yaynay]
 		current_user.vote!(@question, @yaynay)
 
-		redirect_to questions_path
+		respond_to do |format|
+			format.html { redirect_to questions_path }
+			format.js
+		end
 	end
 
 	def update
 		@uq = UqRelation.find(params[:id])
 
 		@uq.update_attributes(params[:uq_relation])
-		redirect_to questions_path
+		
+		respond_to do |format|
+			format.html { redirect_to questions_path }
+			format.js
+		end
 	end
 
 	def destroy
 		@uq = UqRelation.find(params[:id])
 		@uq.destroy
 
-		redirect_to questions_path
+		respond_to do |format|
+			format.html { redirect_to questions_path }
+			format.js
+		end
 	end
 end

@@ -1,4 +1,4 @@
-<div id="upvote">
+<div id="upvote_<%= question.id %>">
 	<% if current_user.didvote?(question, true) %>
 		<%= render 'undoupvote', :question => question %>
 	<% else %>
@@ -14,7 +14,7 @@
 	<%= render 'stats', :question => question %>
 </div>
 
-<div id="downvote">
+<div id="downvote_<%= question.id %>">
 	<% if current_user.didvote?(question, false) %>
 		<%= render 'undodownvote', :question => question %>
 	<% else %>
