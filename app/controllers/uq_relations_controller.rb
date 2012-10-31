@@ -6,28 +6,29 @@ class UqRelationsController < ApplicationController
 
 		respond_to do |format|
 			format.html { redirect_to questions_path }
-			format.js
+			format.js { render "render"}
 		end
 	end
 
 	def update
 		@uq = UqRelation.find(params[:id])
-
+		@question = Question.find(@uq.question_id)
 		@uq.update_attributes(params[:uq_relation])
 		
 		respond_to do |format|
 			format.html { redirect_to questions_path }
-			format.js
+			format.js { render "render"}
 		end
 	end
 
 	def destroy
 		@uq = UqRelation.find(params[:id])
+		@question = Question.find(@uq.question_id)
 		@uq.destroy
 
 		respond_to do |format|
 			format.html { redirect_to questions_path }
-			format.js
+			format.js { render "render"}
 		end
 	end
 end
