@@ -1,31 +1,14 @@
 <h1>Listing users</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Birthdate</th>
-    <th>Email</th>
-    <th>Address</th>
-    <th>Password</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<div class="user_list">
 <% @users.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
-    <td><%= user.birthdate %></td>
-    <td><%= user.email %></td>
-    <td><%= user.address %></td>
-    <td><%= user.password %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <div class="user_block">
+    <div class="u_picture"><%= image_tag "fb_user.png" %></div>
+    <div class="u_name"><%= link_to user.name, user %></div>
+    <div class="u_email"><%= link_to user.email, "mailto:"+user.email %></div>
+  </div>
 <% end %>
-</table>
+</div>
 
 <br />
-
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path, :class => 'btn btn-large btn-primary' %>

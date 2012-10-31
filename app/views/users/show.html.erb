@@ -1,18 +1,13 @@
 <% provide(:title, @user.name) %>
 <div class="row">
 
-  <div class="span8">
+  <div class="user_show_block span8">
     <p id="notice"><%= notice %></p>
 
-    <p>
-      <b>Name:</b>
+    <div class="u_picture"><%= image_tag "fb_user.png" %></div>
+    <h2>
       <%= @user.name %>
-    </p>
-
-    <p>
-      <b>Birthdate:</b>
-      <%= @user.birthdate %>
-    </p>
+    </h2>
 
     <p>
       <b>Email:</b>
@@ -22,6 +17,11 @@
     <p>
       <b>Address:</b>
       <%= @user.address %>
+    </p>
+
+    <p>
+      <b>Birthdate:</b>
+      <%= @user.birthdate %>
     </p>
 
     <%= link_to 'Edit', edit_user_path(@user) %> |

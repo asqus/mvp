@@ -1,28 +1,28 @@
-<h1>Listing questions</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="question_list">
+<h1>Recent Questions</h1>
 
 <% @questions.each do |question| %>
-  <tr>
-    <td><%= question.title %></td>
-    <td><%= question.body %></td>
-    <td><%= render 'vote_forms', question: question %></td>
-    <td><%= link_to 'Show', question %></td>
-    <td><%= link_to 'Edit', edit_question_path(question) %></td>
-    <td><%= link_to 'Destroy', question, confirm: 'Are you sure?', method: :delete %>
-    <td><h>By:  </h><%= User.find(question.user_id).name %></td>
-    </td>
-  </tr>
+  <div class="question_block">
+    <div class="q_vote_form"><%= render 'vote_forms', question: question %></div>
+    <div class="q_title"><%= link_to question.title, question %></div>
+    <div class="q_body"><%= question.body %></div>
+    <div class="q_respond">
+    <%= link_to 'New Response', new_response_path(:questionID => question.id), :class => 'btn' %>
+    </div>
+    <div class="q_asked_by"><h>Asked by:  </h>
+        <%= link_to(User.find(question.user_id)) do %>
+        <%= User.find(question.user_id).name %>
+        <% end %>
+        </div>
+    <div class="q_edit_block"> 
+      <p><%= link_to 'Show', question %>
+      <%= link_to 'Edit', edit_question_path(question) %>
+      <%= link_to 'Destroy', question, confirm: 'Are you sure?', method: :delete %>
+      </p>
+    </div>
+  </div>
 <% end %>
-</table>
 
 <br />
-
-<%= link_to 'New Question', new_question_path %>
+<%= link_to 'New Question', new_question_path, :class => 'btn btn-large btn-primary' %>
+</div>

@@ -1,5 +1,17 @@
 @import "bootstrap";
 
+.nav_logo {
+  font-size: 20px;
+  color: white;
+  width: 300px;
+  float: left;
+  padding-top: 10px;
+}
+
+.nav_logo a {
+  color: white;
+}
+
 body {
   padding-top: 100px;
 }
