@@ -60,13 +60,13 @@ Bottom = Question.create!({	:user => JKenn,
 					:title => "Blondes or Brunettes?",
 					})
 
-Question.create!({	:user => AbrahamLincoln,
+Q1 = Question.create!({	:user => AbrahamLincoln,
 					:user_id => AbrahamLincoln.id,
 					:body => "Does my tophat make me look too tall?",
 					:title => "A Question About Tophats?",
 					})
 
-Question.create!({	:user => BFrank,
+Q2 = Question.create!({	:user => BFrank,
 					:user_id => BFrank.id,
 					:body => "Not to be snob, but my face is featured on the largest bill.",
 					:title => "How many of you have your face on money?",
@@ -78,13 +78,13 @@ Question.create!({	:user => GWash,
 					:title => "Advice on identifying Red Coats",
 					})
 
-Question.create!({	:user => Ted,
+Q4 = Question.create!({	:user => Ted,
 					:user_id => Ted.id,
 					:body => "Which superpowers would you look out for?",
 					:title => "Foreign Policy Help!",
 					})
 
-Question.create!({	:user => TJeff,
+Q5 = Question.create!({	:user => TJeff,
 					:user_id => TJeff.id,
 					:body => "I personally believe that we need more public computers",
 					:title => "What change would you like to see in your community?",
@@ -123,6 +123,22 @@ UqRelation.create!({
 					:yaynay => true
 
 	})
+
+UqRelation.create!({
+					:user_id => BFrank.id,
+					:question_id => Q5.id,
+					:yaynay => true
+
+	})
+
+UqRelation.create!({
+					:user_id => Ted.id,
+					:question_id => Q5.id,
+					:yaynay => true
+
+	})
+
+
 
 UqRelation.create!({
 					:user_id => AJack.id,

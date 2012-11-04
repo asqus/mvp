@@ -9,6 +9,19 @@
   text-align: center;
 }
 
+.response_list {
+  padding-top: 20px;
+}
+.response_block {
+  display: inline-block;
+}
+.response_body {
+  float: left;
+}
+.response_user {
+  float: right;
+
+}
 .question_list {
   margin-bottom: 200px;
 }
@@ -23,8 +36,6 @@
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-
-
 }
 
 .q_respond{

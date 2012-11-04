@@ -1,32 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
+<div class="q_title">
   <%= @question.title %>
-</p>
+</div>
 
-<p>
-  <b>Body:</b>
+<div class="q_body">
   <%= @question.body %>
-</p>
+</div>
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
 
 <p>
-	<b>Responses:</b>
-    <table>
-      <tr>
-        <!-- <th>Body</th> -->
-        <th></th>
-        <th></th>
-      </tr>
+<div class="response_list">
       <% @question.responses.each do |response| %>
-      <tr>
-        <td><%= response.body %></td>
-        <td><%= link_to 'Show', response %></td>
-        <td><%= link_to 'Edit', edit_response_path(response) %></td>
-      </tr>
+      <div class="response_block">
+        <div class="response_body"><%= response.body %></div>
+        <div class="response_user"><%= link_to response.user.name, response.user %></td>
+      </div>
       <% end %>
-    </table>
-</p>
+</div>
 <%= link_to 'New Response', new_response_path(:questionID => @question.id) %>

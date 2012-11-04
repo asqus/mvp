@@ -15,3 +15,11 @@
 body {
   padding-top: 100px;
 }
+
+#u_picture {
+  position: fixed;
+  bottom: -21px;
+  width: 250px;
+  right: 0px;
+  z-index: -40;
+}

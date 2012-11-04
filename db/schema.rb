@@ -61,18 +61,6 @@ ActiveRecord::Schema.define(:version => 20121029044647) do
   add_index "uq_relations", ["question_id"], :name => "index_uq_relations_on_question_id"
   add_index "uq_relations", ["user_id"], :name => "index_uq_relations_on_user_id"
 
-  create_table "user_question_relation_yay_nays", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "question_id"
-    t.boolean  "yaynay"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "user_question_relation_yay_nays", ["question_id"], :name => "index_user_question_relation_yay_nays_on_question_id"
-  add_index "user_question_relation_yay_nays", ["user_id", "question_id"], :name => "index_user_question_relation_yay_nays_on_user_id_and_question_id", :unique => true
-  add_index "user_question_relation_yay_nays", ["user_id"], :name => "index_user_question_relation_yay_nays_on_user_id"
-
   create_table "users", :force => true do |t|
     t.string   "name"
     t.date     "birthdate"
