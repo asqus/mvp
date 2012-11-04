@@ -44,7 +44,10 @@ class QuestionsController < ApplicationController
   # # POST /questions.json
   def create
     @question = Question.new(params[:question])
-      @question = current_user.questions.build(params[:question])
+    @question = current_user.questions.build(params[:question])
+    @question.upCache = 0
+    @question.downCache = 0
+    
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
