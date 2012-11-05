@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
     uq_relations.create!(yaynay: yaynay, user_id: id, question_id: question.id)
   end
 
-  def didvote?(poll, updown)
+  def didvotepoll?(poll, updown)
     uprel = up_relations.find_by_poll_id(poll.id)
     if(uprel == nil || uprel.updown != updown)
       return false
@@ -58,8 +58,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def vote!(poll, updown)
-    up_relations.create!(updown: updown, user_id: id, poll_id: poll.id)
+  def votepoll!(poll, updown)
+    up_relations.create!(updown: updown, user_id: id, polls_id: polls.id)
   end
 
   private

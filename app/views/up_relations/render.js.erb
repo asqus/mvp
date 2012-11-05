@@ -1,9 +1,9 @@
 <% poll = @poll %>
 
-<% if current_user.didvote?(poll, true) %>
+<% if current_user.didvotepoll?(poll, true) %>
 	$("#upvote_<%= poll.id %>").html("<%= escape_javascript(render 'polls/undoupvote', poll: poll) %>");
 <% else %>
-	<% if current_user.didvote?(question, false) %>
+	<% if current_user.didvotepoll?(poll, false) %>
 		$("#upvote_<%= poll.id %>").html("<%= escape_javascript(render 'polls/changeupvote', poll: poll) %>");
 	<% else %>
 		$("#upvote_<%= poll.id %>").html("<%= escape_javascript(render 'polls/upvote', poll: poll) %>");
@@ -12,10 +12,10 @@
 
 $("#stats_<%= poll.id %>").html("<%= escape_javascript(render 'polls/stats', poll: poll) %>");
 
-<% if current_user.didvote?(poll, false) %>
+<% if current_user.didvotepoll?(poll, false) %>
 	$("#downvote_<%= poll.id %>").html("<%= escape_javascript(render 'polls/undodownvote', poll: poll) %>");
 <% else %>
-	<% if current_user.didvote?(poll, true) %>
+	<% if current_user.didvotepoll?(poll, true) %>
 		$("#downvote_<%= poll.id %>").html("<%= escape_javascript(render 'polls/changedownvote', poll: poll) %>");
 	<% else %>
 		$("#downvote_<%= poll.id %>").html("<%= escape_javascript(render 'polls/downvote', poll: poll) %>");
