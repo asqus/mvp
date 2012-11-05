@@ -1,5 +1,9 @@
 <div class="q_form_block">
-  <h1>Ask [insert_name] a question</h1>
+  <% if params[:office] %>
+    <h1>Ask <%= params[:office] %> a question</h1>
+  <% else %>
+    <h1>Ask a question</h1>
+  <% end %>
   <%= render 'form' %>
 </div>
 

@@ -13,10 +13,10 @@ class UpRelationsController < ApplicationController
   def answer
     @uprel = UpRelation.find_or_create_by_user_id_and_poll_id(current_user.id, params[:poll_id])
     @uprel.update_attributes(:answerValue => params[:answer])
-
+    poll = Poll.find(params[:poll_id])
 		respond_to do |format|
-			format.html { redirect_to polls_path }
-			format.js { render "render"}
+			format.html { redirect_to poll }
+			format.js 
 		end
   end
 
