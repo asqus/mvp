@@ -1,3 +1,4 @@
+# In the future, we want to save if they rate the poll and then unrate it
 class UqRelationsController < ApplicationController
 	def create
 		@question = Question.find(params[:uq_relation][:question_id])

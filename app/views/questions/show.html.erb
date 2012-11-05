@@ -1,22 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<div class="q_title">
-  <%= @question.title %>
+<div class="q_block">
+  <div class="q_vote_form"><%= render 'vote_forms', question: @question %></div>
+  <div class="q_title"><%= @question.title %></div>
+  <div class="q_body"><%= @question.body %></div>
+  <div class="q_asked_by"><h>Asked by:  </h>
+      <%= link_to(User.find(@question.user_id)) do %>
+      <%= User.find(@question.user_id).name %>
+      <% end %>
+  </div>
 </div>
 
-<div class="q_body">
-  <%= @question.body %>
+<div class="q_buttons">
+<% if current_user == @question.user %>
+  <div class="q_buttons_edit btn">
+  <%= link_to 'Edit', edit_question_path(@question) %>
+  </div>
+  <div class="q_buttons_destroy btn btn-danger">
+  <%= link_to 'Destroy', @question, confirm: 'Are you sure?', method: :delete %>
+  </div>
+<% end %>
+  <div class="q_buttons_back btn">
+  <%= link_to 'Back to questions', questions_path %>
+  </div>
 </div>
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
 
 <p>
 <div class="response_list">
-      <% @question.responses.each do |response| %>
-      <div class="response_block">
-        <div class="response_body"><%= response.body %></div>
-        <div class="response_user"><%= link_to response.user.name, response.user %></td>
+    <% @question.responses.each do |response| %>
+      <div class="q_response_block">
+        <div class="q_office"><%= link_to response.user.name, response.user %></td></div>
+        <div class="q_body"><%= response.body %></div>
       </div>
-      <% end %>
+    <% end %>
 </div>
+<div class="q_respond btn">
 <%= link_to 'New Response', new_response_path(:questionID => @question.id) %>
+</div>

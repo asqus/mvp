@@ -3,6 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.q_form_block{
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid rgb(201, 201, 201);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.new_question {
+  margin-top: 30px;
+}
+
+.q_form_title {
+  height: 60px;
+}
+
+.q_form_body textarea {
+  width: 500px;
+}
+
 .stats {
   padding-bottom: 15px;
   font-size: 25px;
@@ -12,30 +33,50 @@
 .response_list {
   padding-top: 20px;
 }
-.response_block {
-  display: inline-block;
-}
-.response_body {
-  float: left;
-}
-.response_user {
-  float: right;
-
-}
-.question_list {
-  margin-bottom: 200px;
-}
-
-.question_block {
+.q_response_block {
+  position: relative;
   padding-top: 10px;
   padding-bottom: 10px;
   height: 140px;
   padding: 10px;
   margin: 10px;
-  border: 1px solid black;
+  border: 1px solid rgb(201, 201, 201);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+
+}
+.q_response_body {
+  border: 1px solid rgb(201, 201, 201);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.q_response_user {
+  border: 1px solid rgb(201, 201, 201);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.question_list {
+  margin-bottom: 200px;
+}
+
+.q_block {
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 140px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid rgb(201, 201, 201);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.q_block.index:hover {
+  background: rgb(235, 235, 235)
 }
 
 .q_respond{
@@ -44,8 +85,10 @@
 }
 
 .q_asked_by{
+  position: absolute;
   float: left;
-  margin-left: 45px;
+  margin-left: 60px;
+  bottom: 10px;
 }
 
 .q_edit_block{
