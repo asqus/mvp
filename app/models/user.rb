@@ -36,6 +36,12 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  def answerPoll?(poll, answer)
+    uprel = up_relations.find_or_create_by_user_id_and_poll_id(id, poll.id)
+    #uprel.
+  end
+
+
   def didvoteQ?(question, yaynay)
     uqrel = uq_relations.find_by_question_id(question.id)
     if(uqrel == nil || uqrel.yaynay != yaynay)

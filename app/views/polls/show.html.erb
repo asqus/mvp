@@ -3,7 +3,12 @@
 <div class="p_title">
   <%= @poll.title %>
 </div>
-
+<div class="p_answer_set">
+  <% optionSet = ActiveSupport::JSON.decode(PollOptionsSet.find(@poll.poll_options_set_id).options) %>
+  <% optionSet.each do |key, value| %>
+    <%= link_to value, key, :class => "p_answer_option btn" %>
+  <% end %>
+</div>
 <div class="p_body">
   <%= @poll.body %>
 </div>

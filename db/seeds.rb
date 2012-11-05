@@ -6,14 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-yes_or_no = 
-  PollOptionsSet.create(
+YesOrNo = PollOptionsSet.create(
     :set_type => 'binary',
     :num_options => 2,
     :options => " { \"0\": \"No\", \"1\": \"Yes\" } "
   )
 
-agree_scale = 
+AgreeScale = 
   PollOptionsSet.create(
     :set_type => 'multiple',
     :num_options => 5,
@@ -241,7 +240,15 @@ UqRelation.create!({
 
 P1 = Poll.create!({	:user => AbrahamLincoln,
 					:user_id => AbrahamLincoln.id,
+					:body => "This proposal would:
+Require the approval of a majority of voters at a statewide election and in each municipality where new international bridges or tunnels for motor vehicles are to be located before the State of Michigan may expend state funds or resources for acquiring land, designing, soliciting bids for, constructing, financing, or promoting new international bridges or tunnels. Create a definition of \"new international bridges or tunnels for motor vehicles\" that means, \"any bridge or tunnel which is not open to the public and serving traffic as of January 1, 2012.\"",
+					:title => "Do you agree with Proposal 4?",
+          :poll_options_set_id => YesOrNo.id
+					})
+
+P2 = Poll.create!({	:user => BFrank,
+					:user_id => BFrank.id,
 					:body => "Bridges are cool.",
 					:title => "Do you agree with the proposed bridge to Canada?",
-          :poll_options_set_id => yes_or_no.id
+          :poll_options_set_id => AgreeScale.id
 					})
