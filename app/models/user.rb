@@ -51,14 +51,13 @@ class User < ActiveRecord::Base
 
 
   def didvotepoll?(poll, updown)
-    uprel = up_relations.find_by_user_id_and_poll_id(id,poll.id)
-    if(uprel == nil || uprel.updown != updown)
+    uprel = up_relations.find_or_create_by_user_id_and_poll_id(id,poll.id)
+    if(uprel.updown != updown)
       return false
     else
       return true
     end
   end
-
 
   def votepoll!(poll, updown)
     up_relations.create!(updown: updown, user_id: id, poll_id: poll.id)
