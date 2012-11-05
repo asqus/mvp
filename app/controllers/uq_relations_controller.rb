@@ -2,7 +2,7 @@ class UqRelationsController < ApplicationController
   def create
     @question = Question.find(params[:uq_relation][:question_id])
     @yaynay = params[:uq_relation][:yaynay]
-    current_user.vote!(@question, @yaynay)
+    current_user.voteQ!(@question, @yaynay)
 
     if @yaynay == "true"
       @question.upCache = @question.upCache + 1
@@ -10,6 +10,8 @@ class UqRelationsController < ApplicationController
       @question.downCache = @question.downCache + 1
     end
     @question.update_attributes(:upCache => @question.upCache, :downCache => @question.downCache)
+
+    @question.calcRank
 
     respond_to do |format|
       format.html { redirect_to questions_path }
@@ -31,6 +33,8 @@ class UqRelationsController < ApplicationController
     end
     @question.update_attributes(:upCache => @question.upCache, :downCache => @question.downCache)
 
+    @question.calcRank
+
     respond_to do |format|
       format.html { redirect_to questions_path }
       format.js { render "render"}
@@ -47,6 +51,8 @@ class UqRelationsController < ApplicationController
       @question.downCache = @question.downCache - 1
     end
     @question.update_attributes(:upCache => @question.upCache, :downCache => @question.downCache)
+    
+    @question.calcRank
 
     @uq.destroy
 

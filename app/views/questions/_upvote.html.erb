@@ -1,6 +1,6 @@
 <%= form_for(current_user.uq_relations.build(question_id: question.id, yaynay: true, user_id: current_user.id), remote: true) do |f| %>
-	<div><%= f.hidden_field :question_id %></div>
-	<div><%= f.hidden_field :yaynay %></div>
-	<div><%= f.hidden_field :user_id %></div>
-	<%= f.submit "", type: :image, src: "/assets/images/arrows/up.gif", class: "imgButton" %>
+  <div><%= f.hidden_field :question_id %></div>
+  <div><%= f.hidden_field :yaynay %></div>
+  <div><%= f.hidden_field :user_id %></div>
+  <%= f.submit "", type: :image, src: "/assets/images/arrows/up.gif", class: "imgButton" %>
 <% end %>
