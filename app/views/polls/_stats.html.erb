@@ -1,6 +1,6 @@
 <div class="totals">
 	<strong>
 		<%= (UpRelation.where("updown = ? AND poll_id = ?", true, poll.id).count - 
-			UqRelation.where("updown= ? AND poll_id = ?", false, poll.id).count) %>
+			UpRelation.where("updown= ? AND poll_id = ?", false, poll.id).count) %>
 	</strong>
 </div>
