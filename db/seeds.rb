@@ -73,42 +73,56 @@ Bottom = Question.create!({	:user => JKenn,
 					:user_id => JKenn.id,
 					:body => "I think America should choose!",
 					:title => "Blondes or Brunettes?",
+					:upCache => 0,
+					:downCache => 0,
 					})
 
 Q1 = Question.create!({	:user => AbrahamLincoln,
 					:user_id => AbrahamLincoln.id,
 					:body => "Does my tophat make me look too tall?",
 					:title => "A Question About Tophats?",
+					:upCache => 0,
+					:downCache => 0,
 					})
 
 Q2 = Question.create!({	:user => BFrank,
 					:user_id => BFrank.id,
 					:body => "Not to be snob, but my face is featured on the largest bill.",
 					:title => "How many of you have your face on money?",
+					:upCache => 0,
+					:downCache => 0,
 					})
 
 Question.create!({	:user => GWash,
 					:user_id => GWash.id,
 					:body => "What do they look like??",
 					:title => "Advice on identifying Red Coats",
+					:upCache => 0,
+					:downCache => 0,
 					})
 
 Q4 = Question.create!({	:user => Ted,
 					:user_id => Ted.id,
 					:body => "Which superpowers would you look out for?",
 					:title => "Foreign Policy Help!",
+					:upCache => 0,
+					:downCache => 0,
 					})
 
 Q5 = Question.create!({	:user => TJeff,
 					:user_id => TJeff.id,
 					:body => "I personally believe that we need more public computers",
 					:title => "What change would you like to see in your community?",
+					:upCache => 0,
+					:downCache => 0,
 					})
 
 Top = Question.create!({	:user => AJack,
 					:user_id => AJack.id,
 					:body => "How many of you would like to live on the Pacific?",
 					:title => "Manifest Destiny",
+					:upCache => 0,
+					:downCache => 0,
 					})
 
 UqRelation.create!({
@@ -182,6 +196,3 @@ UqRelation.create!({
 					:yaynay => false
 
 	})
-
-
-
