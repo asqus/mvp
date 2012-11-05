@@ -5,12 +5,12 @@
 </div>
 <div class="p_answer_set">
   <% optionSet = ActiveSupport::JSON.decode(PollOptionsSet.find(@poll.poll_options_set_id).options) %>
-  <% userOption = UpRelation.find_by_user_id_and_poll_id(current_user.id, @poll.id) %>
+  <% userOption = UpRelation.find_by_user_id_and_poll_id(current_user.id, @poll.id).answerValue %>
   <% optionSet.each do |key, value| %>
-    <% if userOption != nil and userOption == key %>
-      <%= link_to value, up_relations_answer_path, :poll_id => @poll.id, :answer=> key, :class => "p_answer_option btn btn-primary" %>
+    <% if userOption != nil and userOption.to_s() == key %>
+      <%= link_to value, up_relations_answer_path(:poll_id => @poll.id, :answer=> key), :class => "p_answer_option btn btn-primary" %>
     <% else %>
-      <%= link_to value, up_relations_answer_path, :poll_id => @poll.id, :answer => key, :class => "p_answer_option btn" %>
+      <%= link_to value, up_relations_answer_path(:poll_id => @poll.id, :answer => key), :class => "p_answer_option btn" %>
     <% end %>
   <% end %>
 </div>
