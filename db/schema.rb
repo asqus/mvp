@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105064318) do
+ActiveRecord::Schema.define(:version => 20121105180143) do
 
   create_table "officials", :force => true do |t|
     t.string   "position"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(:version => 20121105064318) do
     t.text     "body"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-    t.integer  "user_id"
     t.integer  "poll_options_set_id"
+    t.integer  "user_id"
   end
 
   add_index "polls", ["user_id", "created_at"], :name => "index_polls_on_user_id_and_created_at"
@@ -68,8 +68,9 @@ ActiveRecord::Schema.define(:version => 20121105064318) do
     t.integer  "user_id"
     t.integer  "poll_id"
     t.boolean  "updown"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "answerValue"
   end
 
   add_index "up_relations", ["poll_id", "user_id"], :name => "index_up_relations_on_poll_id_and_user_id", :unique => true
