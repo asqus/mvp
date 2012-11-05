@@ -5,6 +5,21 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+yes_or_no = 
+  PollOptionsSet.create(
+    :set_type => 'binary',
+    :num_options => 2,
+    :options => " { \"0\": \"No\", \"1\": \"Yes\" } "
+  )
+
+agree_scale = 
+  PollOptionsSet.create(
+    :set_type => 'multiple',
+    :num_options => 5,
+    :options => "  { \"0\": \"Strongly Disagree\", \"1\": \"Disagree\", \"2\": \"Neutral\", \"3\": \"Agree\", \"4\": \"Strongly Agree\"}  "
+  )
+
 AbrahamLincoln = User.create(:name => "Abraham Lincoln",
                      :email => "proclamation@gmail.com",
                      :birthdate => "1814-12-20",
@@ -167,7 +182,6 @@ UqRelation.create!({
 					:yaynay => false
 
 	})
-
 
 
 

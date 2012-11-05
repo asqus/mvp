@@ -1,3 +1,5 @@
+<% if current_user %>
+
 <div class="question_list">
 <h1>Recent Questions</h1>
 
@@ -17,3 +19,8 @@
 <br />
 <%= link_to 'New Question', new_question_path, :class => 'btn btn-large btn-primary' %>
 </div>
+<% else %>
+  <%= link_to "Sign Up", new_user_path %>
+  <br />
+  <%= link_to "Sign In", new_session_path %>
+<% end %>

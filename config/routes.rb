@@ -1,5 +1,7 @@
 Mvp::Application.routes.draw do
 
+  resources :poll_options_sets
+
   root to: 'questions#index'
 
   resources :votes
