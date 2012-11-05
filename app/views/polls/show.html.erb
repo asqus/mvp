@@ -1,15 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
+<div class="p_title">
   <%= @poll.title %>
-</p>
+</div>
 
-<p>
-  <b>Body:</b>
+<div class="p_body">
   <%= @poll.body %>
-</p>
-
-
+</div>
 <%= link_to 'Edit', edit_poll_path(@poll) %> |
 <%= link_to 'Back', polls_path %>
+
