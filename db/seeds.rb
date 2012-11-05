@@ -196,3 +196,10 @@ UqRelation.create!({
 					:yaynay => false
 
 	})
+
+P1 = Poll.create!({	:user => AbrahamLincoln,
+					:user_id => AbrahamLincoln.id,
+					:body => "Bridges are cool.",
+					:title => "Do you agree with the proposed bridge to Canada?",
+          :poll_options_set_id => yes_or_no.id
+					})
