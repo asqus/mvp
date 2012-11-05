@@ -37,8 +37,8 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   def didvoteQ?(question, yaynay)
-    uqrel = uq_relations.find_by_question_id(question.id)
-    if(uqrel == nil || uqrel.yaynay != yaynay)
+    uqrel = uq_relations.find_or_create_by_user_id_and_question_id(id,question.id)
+    if(uqrel.yaynay != yaynay)
       return false
     else
       return true
@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
 
 
   def didvotepoll?(poll, updown)
-    uprel = up_relations.find_by_poll_id(poll.id)
+    uprel = up_relations.find_by_user_id_and_poll_id(id,poll.id)
     if(uprel == nil || uprel.updown != updown)
       return false
     else

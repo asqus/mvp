@@ -25,13 +25,8 @@ class UqRelationsController < ApplicationController
     @question = Question.find(@uq.question_id)
     @uq.update_attributes(params[:uq_relation])
 
-    if @uq.yaynay
-      @question.upCache = @question.upCache + 1
-      @question.downCache = @question.downCache - 1
-    else
-      @question.upCache = @question.upCache - 1
-      @question.downCache = @question.downCache + 1
-    end
+    @question.upCache = UqRelation.where("yaynay = ? AND question_id = ?",true,@question.id).count
+    @question.downCache = UqRelation.where("yaynay = ? AND question_id = ?",false,@question.id).count
     @question.update_attributes(:upCache => @question.upCache, :downCache => @question.downCache)
 
     @question.calcRank
