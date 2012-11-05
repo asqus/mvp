@@ -3,11 +3,7 @@
 <% if current_user.didvoteQ?(question, true) %>
 	$("#upvote_<%= question.id %>").html("<%= escape_javascript(render 'questions/undoupvote', question: question) %>");
 <% else %>
-	<% if current_user.didvoteQ?(question, false) %>
-		$("#upvote_<%= question.id %>").html("<%= escape_javascript(render 'questions/changeupvote', question: question) %>");
-	<% else %>
-		$("#upvote_<%= question.id %>").html("<%= escape_javascript(render 'questions/upvote', question: question) %>");
-	<% end %>
+	$("#upvote_<%= question.id %>").html("<%= escape_javascript(render 'questions/changeupvote', question: question) %>");
 <% end %>
 
 $("#stats_<%= question.id %>").html("<%= escape_javascript(render 'questions/stats', question: question) %>");
@@ -15,9 +11,5 @@ $("#stats_<%= question.id %>").html("<%= escape_javascript(render 'questions/sta
 <% if current_user.didvoteQ?(question, false) %>
 	$("#downvote_<%= question.id %>").html("<%= escape_javascript(render 'questions/undodownvote', question: question) %>");
 <% else %>
-	<% if current_user.didvoteQ?(question, true) %>
-		$("#downvote_<%= question.id %>").html("<%= escape_javascript(render 'questions/changedownvote', question: question) %>");
-	<% else %>
-		$("#downvote_<%= question.id %>").html("<%= escape_javascript(render 'questions/downvote', question: question) %>");
-	<% end %>
+	$("#downvote_<%= question.id %>").html("<%= escape_javascript(render 'questions/changedownvote', question: question) %>");
 <% end %>
