@@ -3,6 +3,9 @@
 <div class="p_title">
   <%= @poll.title %>
 </div>
+<div class="p_body">
+  <%= @poll.body %>
+</div>
 <div class="p_answer_set">
   <% optionSet = ActiveSupport::JSON.decode(PollOptionsSet.find(@poll.poll_options_set_id).options) %>
   <% userOption = UpRelation.find_by_user_id_and_poll_id(current_user.id, @poll.id) %>
@@ -14,9 +17,4 @@
     <% end %>
   <% end %>
 </div>
-<div class="p_body">
-  <%= @poll.body %>
-</div>
-<%= link_to 'Edit', edit_poll_path(@poll) %> |
 <%= link_to 'Back', polls_path %>
-
