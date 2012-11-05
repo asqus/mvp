@@ -5,7 +5,7 @@
   <div class="p_block">
     <div class="p_vote_form"><%= render 'vote_forms', poll: poll %></div>
     <div class="p_title"><%= link_to poll.title, poll %></div>
-    <div class="p_body"><%= poll.body %></div>
+    <div class="p_body"><%= raw(poll.body) %></div>
 <!--
     <div class="p_respond">
     <%= link_to 'New Response', new_response_path(:pollID => poll.id), :class => 'btn' %>

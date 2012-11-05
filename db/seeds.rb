@@ -252,3 +252,24 @@ P2 = Poll.create!({	:user => BFrank,
 					:title => "Do you agree with the proposed bridge to Canada?",
           :poll_options_set_id => AgreeScale.id
 					})
+
+P3 = Poll.create!({ :user => GWash,
+          :user_id => GWash.id,
+          :body => "The plan is to install Herbert Dreiseitl's $750k statue in front of the new Justice Center building and a newly renovated city hall. In 2007, Ann Arbor's City Council unanimously passed an ordinance stipulating that all capital improvement projects funded wholly or partly by the City will include funds for public art equal to one percent of the project construction costs, to a maximum of $250,000 per capital improvement project. Public art may be located at the capital improvement site, or can be installed at other locations. Public art must relate to the funding source of the capital improvement.\"",
+          :title => "Should we go ahead with the proposed $750k art exhibit in front of city hall?",
+          :poll_options_set_id => YesOrNo.id
+          })
+
+P4 = Poll.create!({ :user => Ted,
+          :user_id => Ted.id,
+          :body => "For more information, <a href = 'http://www.legislature.mi.gov/' >click here</a>",
+          :title => "Do you think we should expand cyber charter schools in Michigan?",
+          :poll_options_set_id => AgreeScale.id
+          })
+
+P5 = Poll.create!({ :user => JKenn,
+          :user_id => JKenn.id,
+          :body => "H R 3523, Cyber Intelligence Sharing and Protection Act (CISPA). The bill exempts private entities and utilities from all state and federal liability when they share 'cyber threat information' with the federal government. That term is defined broadly to mean any information 'directly pertaining to . . . [a] threat to [] a system or network,' and it may include your personally identifiable information. The bill also provides new authority to the federal government to share your information with the private sector. The government may use information it receives from companies for purposes beyond cybersecurity, including protecting minors and national security.",
+          :title => "Do you support CISPA?",
+          :poll_options_set_id => YesOrNo.id
+          })
