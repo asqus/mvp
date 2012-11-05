@@ -6,20 +6,24 @@
     <div class="p_vote_form"><%= render 'vote_forms', poll: poll %></div>
     <div class="p_title"><%= link_to poll.title, poll %></div>
     <div class="p_body"><%= poll.body %></div>
+<!--
     <div class="p_respond">
     <%= link_to 'New Response', new_response_path(:pollID => poll.id), :class => 'btn' %>
     </div>
+-->
     <div class="p_asked_by"><h>Asked by:  </h>
         <%= link_to(User.find(poll.user_id)) do %>
         <%= User.find(poll.user_id).name %>
         <% end %>
     </div>
+<!--
     <div class="p_edit_block"> 
       <p><%= link_to 'Show', poll %>
       <%= link_to 'Edit', edit_poll_path(poll) %>
       <%= link_to 'Destroy', poll, confirm: 'Are you sure?', method: :delete %>
       </p>
     </div>
+-->
   </div>
 <% end %>
 

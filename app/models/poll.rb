@@ -10,7 +10,7 @@
 #
 
 class Poll < ActiveRecord::Base
-  attr_accessible :body, :title
+  attr_accessible :body, :title, :user
 
   belongs_to :user
 

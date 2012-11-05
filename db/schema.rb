@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105045107) do
+ActiveRecord::Schema.define(:version => 20121105064318) do
 
   create_table "officials", :force => true do |t|
     t.string   "position"
