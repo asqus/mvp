@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
   has_many :questions, dependent: :destroy
   has_many :uq_relations, dependent: :destroy
   has_many :voted_questions, through: :uq_relations, source: :question
+  has_many :up_relations, dependent: :destroy
+  has_many :voted_polls, through: :up_relations, source: :polls
+
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
@@ -44,6 +47,19 @@ class User < ActiveRecord::Base
 
   def vote!(question,yaynay)
     uq_relations.create!(yaynay: yaynay, user_id: id, question_id: question.id)
+  end
+
+  def didvote?(poll, updown)
+    uprel = up_relations.find_by_poll_id(poll.id)
+    if(uprel == nil || uprel.updown != updown)
+      return false
+    else
+      return true
+    end
+  end
+
+  def vote!(polls, updown)
+    up_relations.create!(updown: updown, user_id: id, polls_id: polls.id)
   end
 
   private

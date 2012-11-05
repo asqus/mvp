@@ -1,4 +1,5 @@
 class PollsController < ApplicationController
+  before_filter :signed_in_user, only: [:create, :destroy]
   # GET /polls
   # GET /polls.json
   def index
@@ -41,7 +42,8 @@ class PollsController < ApplicationController
   # POST /polls.json
   def create
     @poll = Poll.new(params[:poll])
-
+    #@poll = current_user.polls.build(params[:poll])
+    @poll.user = current_user
     respond_to do |format|
       if @poll.save
         format.html { redirect_to @poll, notice: 'Poll was successfully created.' }
