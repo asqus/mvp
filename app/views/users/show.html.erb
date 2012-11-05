@@ -24,7 +24,7 @@
       <%= @user.birthdate %>
     </p>
 
-    <%= link_to 'Ask Question', new_question_path, :class => 'btn btn-primary' %>
+    <%= link_to 'Ask Question', new_question_path({ :office => @user.name }), :class => 'btn btn-primary' %>
     <%= link_to 'Edit', edit_user_path(@user) %> |
     <%= link_to 'Back', users_path %>
   </div>
