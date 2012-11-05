@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(:version => 20121105064318) do
     t.text     "body"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-    t.integer  "poll_options_set_id"
     t.integer  "user_id"
+    t.integer  "poll_options_set_id"
   end
 
   add_index "polls", ["user_id", "created_at"], :name => "index_polls_on_user_id_and_created_at"
