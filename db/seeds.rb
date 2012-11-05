@@ -135,35 +135,35 @@ UqRelation.create!({
 UqRelation.create!({
 					:user_id => GWash.id,
 					:question_id => Top.id,
-					:yaynay => "true"
+					:yaynay => true
 
 	})
 
 UqRelation.create!({
 					:user_id => BFrank.id,
 					:question_id => Top.id,
-					:yaynay => "true"
+					:yaynay => true
 
 	})
 
 UqRelation.create!({
 					:user_id => Ted.id,
 					:question_id => Top.id,
-					:yaynay => "true"
+					:yaynay => true
 
 	})
 
 UqRelation.create!({
 					:user_id => BFrank.id,
 					:question_id => Q5.id,
-					:yaynay => "true"
+					:yaynay => true
 
 	})
 
 UqRelation.create!({
 					:user_id => Ted.id,
 					:question_id => Q5.id,
-					:yaynay => "true"
+					:yaynay => true
 
 	})
 
@@ -172,27 +172,27 @@ UqRelation.create!({
 UqRelation.create!({
 					:user_id => AJack.id,
 					:question_id => Bottom.id,
-					:yaynay => "false"
+					:yaynay => false
 
 	})
 
 UqRelation.create!({
 					:user_id => GWash.id,
 					:question_id => Bottom.id,
-					:yaynay => "false"
+					:yaynay => false
 
 	})
 
 UqRelation.create!({
 					:user_id => BFrank.id,
 					:question_id => Bottom.id,
-					:yaynay => "false"
+					:yaynay => false
 
 	})
 
 UqRelation.create!({
 					:user_id => Ted.id,
 					:question_id => Bottom.id,
-					:yaynay => "false"
+					:yaynay => false
 
 	})

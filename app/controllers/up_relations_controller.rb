@@ -2,7 +2,7 @@ class UpRelationsController < ApplicationController
 	def create
 		@poll = Poll.find(params[:up_relation][:poll_id])
 		@updown = params[:up_relation][:updown]
-		#current_user.vote!(@poll, @updown)
+		current_user.votepoll!(@poll, @updown)
 
 		respond_to do |format|
 			format.html { redirect_to polls_path }

@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
   end
 
   def votepoll!(poll, updown)
-    up_relations.create!(updown: updown, user_id: id, polls_id: polls.id)
+    up_relations.create!(updown: updown, user_id: id, poll_id: poll.id)
   end
 
   private

@@ -1,6 +1,7 @@
 <div class="totals">
 	<strong>
-		<%= question.upCache %> ,
-		<%= question.downCache %>
+<%= (UqRelation.where("yaynay = ? AND question_id = ?", true, question.id).count - 
+			UqRelation.where("yaynay = ? AND question_id = ?", false, question.id).count) %>
+
 	</strong>
 </div>
