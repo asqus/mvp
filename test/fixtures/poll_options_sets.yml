@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  options: MyText
+  set_type: MyString
+  num_options: 1
+
+two:
+  options: MyText
+  set_type: MyString
+  num_options: 1

@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   has_many :uq_relations, dependent: :destroy
   has_many :voted_questions, through: :uq_relations, source: :question
   has_many :up_relations, dependent: :destroy
-  has_many :voted_polls, through: :up_relations, source: :polls
+  has_many :voted_polls, through: :up_relations, source: :poll
 
 
   before_save { |user| user.email = email.downcase }
@@ -58,8 +58,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def vote!(polls, updown)
-    up_relations.create!(updown: updown, user_id: id, polls_id: polls.id)
+  def vote!(poll, updown)
+    up_relations.create!(updown: updown, user_id: id, poll_id: poll.id)
   end
 
   private
