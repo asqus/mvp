@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
-  def didvote?(question, yaynay)
+  def didvoteQ?(question, yaynay)
     uqrel = uq_relations.find_by_question_id(question.id)
     if(uqrel == nil || uqrel.yaynay != yaynay)
       return false
@@ -45,9 +45,10 @@ class User < ActiveRecord::Base
     end
   end
 
-  def vote!(question,yaynay)
+  def voteQ!(question,yaynay)
     uq_relations.create!(yaynay: yaynay, user_id: id, question_id: question.id)
   end
+
 
   def didvotepoll?(poll, updown)
     uprel = up_relations.find_by_poll_id(poll.id)
@@ -57,6 +58,7 @@ class User < ActiveRecord::Base
       return true
     end
   end
+
 
   def votepoll!(poll, updown)
     up_relations.create!(updown: updown, user_id: id, poll_id: poll.id)

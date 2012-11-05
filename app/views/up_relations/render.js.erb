@@ -3,7 +3,7 @@
 <% if current_user.didvotepoll?(poll, true) %>
 	$("#upvote_<%= poll.id %>").html("<%= escape_javascript(render 'polls/undoupvote', poll: poll) %>");
 <% else %>
-	<% if current_user.didvotepoll?(poll, false) %>
+	<% if current_user.didvotepoll?(question, false) %>
 		$("#upvote_<%= poll.id %>").html("<%= escape_javascript(render 'polls/changeupvote', poll: poll) %>");
 	<% else %>
 		$("#upvote_<%= poll.id %>").html("<%= escape_javascript(render 'polls/upvote', poll: poll) %>");

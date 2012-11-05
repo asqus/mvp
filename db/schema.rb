@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20121105045107) do
     t.integer  "user_id"
     t.integer  "upCache"
     t.integer  "downCache"
+    t.float    "rankValue"
   end
 
   add_index "questions", ["user_id", "created_at"], :name => "index_questions_on_user_id_and_created_at"

@@ -11,7 +11,7 @@
 #
 
 class Question < ActiveRecord::Base
-  attr_accessible :body, :title, :user, :upCache, :downCache
+  attr_accessible :body, :title, :user, :upCache, :downCache, :rankValue
 
   belongs_to :user
 
@@ -21,5 +21,11 @@ class Question < ActiveRecord::Base
 
   validates :user_id, presence: true
   
-  default_scope order: 'questions.created_at DESC'
+  default_scope order: 'rankValue DESC'
+
+  def calcRank
+    rankValue = upCache - downCache
+    update_attributes(:rankValue => rankValue)
+  end
+
 end

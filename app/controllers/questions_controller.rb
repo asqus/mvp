@@ -47,6 +47,7 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(params[:question])
     @question.upCache = 0
     @question.downCache = 0
+    @question.rankValue = 0
     
     respond_to do |format|
       if @question.save
