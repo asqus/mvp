@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105180143) do
+ActiveRecord::Schema.define(:version => 20121119021152) do
 
   create_table "officials", :force => true do |t|
     t.string   "position"
@@ -36,21 +36,25 @@ ActiveRecord::Schema.define(:version => 20121105180143) do
     t.datetime "updated_at",          :null => false
     t.integer  "user_id"
     t.integer  "poll_options_set_id"
+    t.integer  "official_id"
   end
 
+  add_index "polls", ["official_id", "created_at"], :name => "index_polls_on_official_id_and_created_at"
   add_index "polls", ["user_id", "created_at"], :name => "index_polls_on_user_id_and_created_at"
 
   create_table "questions", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
     t.integer  "upCache"
     t.integer  "downCache"
     t.float    "rankValue"
+    t.integer  "official_id"
   end
 
+  add_index "questions", ["official_id", "created_at"], :name => "index_questions_on_official_id_and_created_at"
   add_index "questions", ["user_id", "created_at"], :name => "index_questions_on_user_id_and_created_at"
 
   create_table "responses", :force => true do |t|

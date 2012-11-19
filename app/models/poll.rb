@@ -10,7 +10,7 @@
 #
 
 class Poll < ActiveRecord::Base
-  attr_accessible :body, :title, :user, :poll_options_set_id, :official
+  attr_accessible :body, :title, :user, :poll_options_set_id, :official_id
 
   belongs_to :official
   belongs_to :user

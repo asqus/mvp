@@ -19,7 +19,7 @@ AgreeScale =
     :options => "  { \"0\": \"Strongly Disagree\", \"1\": \"Disagree\", \"2\": \"Neutral\", \"3\": \"Agree\", \"4\": \"Strongly Agree\"}  "
   )
 
-President = Official.create(
+President = Official.create!(
                       :name => "George W Bush",
                       :district_id => 5,
                       :position => "President of the United States")

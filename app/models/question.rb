@@ -11,7 +11,7 @@
 #
 
 class Question < ActiveRecord::Base
-  attr_accessible :body, :title, :user, :upCache, :downCache, :rankValue, :official
+  attr_accessible :body, :title, :user, :upCache, :downCache, :rankValue, :official_id
 
   belongs_to :official
   belongs_to :user
