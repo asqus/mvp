@@ -11,8 +11,9 @@
 #
 
 class Question < ActiveRecord::Base
-  attr_accessible :body, :title, :user, :upCache, :downCache, :rankValue
+  attr_accessible :body, :title, :user, :upCache, :downCache, :rankValue, :official
 
+  belongs_to :official
   belongs_to :user
 
   has_many :responses, dependent: :destroy
@@ -20,6 +21,7 @@ class Question < ActiveRecord::Base
   has_many :voters, through: :uq_relations, source: :user
 
   validates :user_id, presence: true
+  validates :official_id, presence: true
   
   default_scope order: 'rankValue DESC'
 

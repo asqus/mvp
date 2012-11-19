@@ -10,8 +10,9 @@
 #
 
 class Poll < ActiveRecord::Base
-  attr_accessible :body, :title, :user, :poll_options_set_id
+  attr_accessible :body, :title, :user, :poll_options_set_id, :official
 
+  belongs_to :official
   belongs_to :user
 
   # has_many :answers, dependent: :destroy
@@ -19,6 +20,7 @@ class Poll < ActiveRecord::Base
   has_many :voters, through: :up_relations, source: :user_id
 
   validates :user_id, presence: true
+  validates :official_id, presence: true
 
   default_scope order: 'polls.created_at DESC'
 

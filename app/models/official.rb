@@ -12,4 +12,9 @@
 
 class Official < ActiveRecord::Base
   attr_accessible :district_id, :name, :position
+
+  has_many :users
+  has_many :questions
+  has_many :polls
+
 end

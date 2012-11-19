@@ -19,6 +19,12 @@ AgreeScale =
     :options => "  { \"0\": \"Strongly Disagree\", \"1\": \"Disagree\", \"2\": \"Neutral\", \"3\": \"Agree\", \"4\": \"Strongly Agree\"}  "
   )
 
+President = Official.create(
+                      :name => "George W Bush",
+                      :district_id => 5,
+                      :position => "President of the United States")
+
+
 AbrahamLincoln = User.create(
                       :name => "Abraham Lincoln",
                       :email => "proclamation@gmail.com",
@@ -78,6 +84,7 @@ BFrank = User.create!(
 Bottom = Question.create!({
                   :user => JKenn,
                   :user_id => JKenn.id,
+					        :official_id => President.id,
                   :body => "I think America should choose!",
                   :title => "Blondes or Brunettes?",
                   :upCache => 0,
@@ -88,6 +95,7 @@ Bottom = Question.create!({
 Q1 = Question.create!({
               :user => AbrahamLincoln,
               :user_id => AbrahamLincoln.id,
+					    :official_id => President.id,
               :body => "Does my tophat make me look too tall?",
               :title => "A Question About Tophats?",
               :upCache => 0,
@@ -98,6 +106,7 @@ Q1 = Question.create!({
 Q2 = Question.create!({
               :user => BFrank,
               :user_id => BFrank.id,
+					    :official_id => President.id,
               :body => "Not to be snob, but my face is featured on the largest bill.",
               :title => "How many of you have your face on money?",
               :upCache => 0,
@@ -108,6 +117,7 @@ Q2 = Question.create!({
 Question.create!({
         :user => GWash,
         :user_id => GWash.id,
+				:official_id => President.id,
         :body => "What do they look like??",
         :title => "Advice on identifying Red Coats",
         :upCache => 0,
@@ -118,6 +128,7 @@ Question.create!({
 Top = Question.create!({
               :user => AJack,
               :user_id => AJack.id,
+					    :official_id => President.id,
               :body => "How many of you would like to live on the Pacific?",
               :title => "Manifest Destiny",
               :upCache => 4,
@@ -128,6 +139,7 @@ Top = Question.create!({
 Q4 = Question.create!({
               :user => Ted,
               :user_id => Ted.id,
+					    :official_id => President.id,
               :body => "Which superpowers would you look out for?",
               :title => "Foreign Policy Help!",
               :upCache => 3,
@@ -138,6 +150,7 @@ Q4 = Question.create!({
 Q5 = Question.create!({
               :user => TJeff,
               :user_id => TJeff.id,
+					    :official_id => President.id,
               :body => "I personally believe that we need more public computers",
               :title => "What change would you like to see in your community?",
               :upCache => 2,
@@ -240,6 +253,7 @@ UqRelation.create!({
 
 P1 = Poll.create!({	:user => AbrahamLincoln,
 					:user_id => AbrahamLincoln.id,
+					:official_id => President.id,
 					:body => "This proposal would:
 Require the approval of a majority of voters at a statewide election and in each municipality where new international bridges or tunnels for motor vehicles are to be located before the State of Michigan may expend state funds or resources for acquiring land, designing, soliciting bids for, constructing, financing, or promoting new international bridges or tunnels. Create a definition of \"new international bridges or tunnels for motor vehicles\" that means, \"any bridge or tunnel which is not open to the public and serving traffic as of January 1, 2012.\"",
 					:title => "Do you agree with Proposal 4?",
@@ -248,6 +262,7 @@ Require the approval of a majority of voters at a statewide election and in each
 
 P2 = Poll.create!({	:user => BFrank,
 					:user_id => BFrank.id,
+					:official_id => President.id,
 					:body => "Bridges are cool.",
 					:title => "Do you agree with the proposed bridge to Canada?",
           :poll_options_set_id => AgreeScale.id
@@ -255,6 +270,7 @@ P2 = Poll.create!({	:user => BFrank,
 
 P3 = Poll.create!({ :user => GWash,
           :user_id => GWash.id,
+					:official_id => President.id,
           :body => "The plan is to install Herbert Dreiseitl's $750k statue in front of the new Justice Center building and a newly renovated city hall. In 2007, Ann Arbor's City Council unanimously passed an ordinance stipulating that all capital improvement projects funded wholly or partly by the City will include funds for public art equal to one percent of the project construction costs, to a maximum of $250,000 per capital improvement project. Public art may be located at the capital improvement site, or can be installed at other locations. Public art must relate to the funding source of the capital improvement.\"",
           :title => "Should we go ahead with the proposed $750k art exhibit in front of city hall?",
           :poll_options_set_id => YesOrNo.id
@@ -262,6 +278,7 @@ P3 = Poll.create!({ :user => GWash,
 
 P4 = Poll.create!({ :user => Ted,
           :user_id => Ted.id,
+					:official_id => President.id,
           :body => "For more information, <a href = 'http://www.legislature.mi.gov/' >click here</a>",
           :title => "Do you think we should expand cyber charter schools in Michigan?",
           :poll_options_set_id => AgreeScale.id
@@ -269,6 +286,7 @@ P4 = Poll.create!({ :user => Ted,
 
 P5 = Poll.create!({ :user => JKenn,
           :user_id => JKenn.id,
+					:official_id => President.id,
           :body => "H R 3523, Cyber Intelligence Sharing and Protection Act (CISPA). The bill exempts private entities and utilities from all state and federal liability when they share 'cyber threat information' with the federal government. That term is defined broadly to mean any information 'directly pertaining to . . . [a] threat to [] a system or network,' and it may include your personally identifiable information. The bill also provides new authority to the federal government to share your information with the private sector. The government may use information it receives from companies for purposes beyond cybersecurity, including protecting minors and national security.",
           :title => "Do you support CISPA?",
           :poll_options_set_id => YesOrNo.id
