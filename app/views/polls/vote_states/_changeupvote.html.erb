@@ -1,0 +1,4 @@
+<%= form_for(current_user.up_relations.find_by_poll_id(poll.id), html: {method: :put}, remote: true) do |f| %>
+	<div><%= f.hidden_field :updown, value: true %></div>
+	<%= f.submit "", type: :image, src: "/assets/images/arrows/up.gif", class: "imgButton" %>
+<% end %>

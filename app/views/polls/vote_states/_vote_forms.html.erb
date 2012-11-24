@@ -1,0 +1,21 @@
+<div id="voteForm_<%= poll.id %>">
+  <div id="upvote_<%= poll.id %>">
+    <% if current_user.didvotepoll?(poll, true) %>
+      <%= render 'polls/vote_states/undoupvote', :poll => poll %>
+    <% else %>
+      <%= render 'polls/vote_states/changeupvote', poll: poll %>
+    <% end %>
+  </div>
+
+  <div class="stats" id="stats_<%= poll.id %>">
+    <%= render 'polls/vote_states/stats', :poll => poll %>
+  </div>
+
+  <div id="downvote_<%= poll.id %>">
+    <% if current_user.didvotepoll?(poll, false) %>
+      <%= render 'polls/vote_states/undodownvote', :poll => poll %>
+    <% else %>
+      <%= render 'polls/vote_states/changedownvote', poll: poll %>
+    <% end %>
+  </div>
+</div>

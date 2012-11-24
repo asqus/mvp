@@ -1,0 +1,2 @@
+<% poll = @poll %>
+$(".p_answer_set").html("<%= escape_javascript(render 'renderPollAnswers', poll: poll) %>")
