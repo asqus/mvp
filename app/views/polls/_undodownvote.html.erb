@@ -1,3 +1,0 @@
-<%= form_for(current_user.up_relations.find_by_poll_id(poll.id), html: {method: :delete}, remote: true) do |f| %>
-  <%= f.submit "", type: :image, src: "/assets/images/arrows/down-fill.gif", class: "imgButton" %>
-<% end %>

@@ -7,14 +7,29 @@
   <%= @poll.body %>
 </div>
 <div class="p_answer_set">
-  <% optionSet = ActiveSupport::JSON.decode(PollOptionsSet.find(@poll.poll_options_set_id).options) %>
-  <% userOption = UpRelation.find_by_user_id_and_poll_id(current_user.id, @poll.id) %>
-  <% optionSet.each do |key, value| %>
-    <% if userOption != nil and userOption.answerValue.to_s() == key %>
-      <%= link_to value, up_relations_answer_path(:poll_id => @poll.id, :answer=> key), :class => "p_answer_option btn btn-primary" %>
-    <% else %>
-      <%= link_to value, up_relations_answer_path(:poll_id => @poll.id, :answer => key), :class => "p_answer_option btn" %>
-    <% end %>
-  <% end %>
+  <%= render 'up_relations/renderPollAnswers', poll: @poll %>
 </div>
+<div id="chart1" style="height:300px;width:300px; "></div>
+<script>
+  $(document).ready(function(){
+  var data = [
+    ['Heavy Industry', 12],['Retail', 9], ['Light Industry', 14], 
+    ['Out of home', 16],['Commuting', 7], ['Orientation', 9]
+  ];
+  var plot1 = jQuery.jqplot ('chart1', [data], 
+    { 
+      seriesDefaults: {
+        // Make this a pie chart.
+        renderer: jQuery.jqplot.PieRenderer, 
+        rendererOptions: {
+          // Put data labels on the pie slices.
+          // By default, labels show the percentage of the slice.
+          showDataLabels: true
+        }
+      }, 
+      legend: { show:true, location: 'e' }
+    }
+  );
+});
+</script>
 <%= link_to 'Back', polls_path %>

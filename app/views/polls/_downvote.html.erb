@@ -1,6 +1,0 @@
-<%= form_for(current_user.up_relations.build(poll_id: poll.id, updown: false, user_id: current_user.id), remote: true) do |f| %>
-	<div><%= f.hidden_field :poll_id %></div>
-	<div><%= f.hidden_field :updown %></div>
-	<div><%= f.hidden_field :user_id %></div>
-  <%= f.submit "", type: :image, src: "/assets/images/arrows/down.gif", class: "imgButton" %>
-<% end %>
