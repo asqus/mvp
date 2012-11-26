@@ -17,7 +17,16 @@ class UpRelationsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to @poll }
-      format.js {render "renderPollAnswers"}
+      format.js { render "renderPollAnswers" }
+    end
+  end
+
+  def result
+    @poll = Poll.find(params[:poll_id])
+
+    respond_to do |format|
+      format.html { redirect_to @poll }
+      format.js { render "showChart" }
     end
   end
 
