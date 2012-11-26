@@ -13,9 +13,10 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :address, :birthdate, :email, :name, :password, :password_confirmation
+  attr_accessible :address, :birthdate, :email, :name, :password, :password_confirmation, :official
   has_secure_password
 
+  has_one  :official
   has_many :responses
   has_many :questions, dependent: :destroy
   has_many :uq_relations, dependent: :destroy

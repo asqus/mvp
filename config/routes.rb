@@ -23,6 +23,7 @@ Mvp::Application.routes.draw do
   resources :up_relations, only: [:create, :update, :destroy]
   
   get 'up_relations/answer'
+  get 'up_relations/result'
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

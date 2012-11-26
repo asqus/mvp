@@ -1,0 +1,21 @@
+$("#answers").empty()
+var data = [];
+<% optionSet = ActiveSupport::JSON.decode(PollOptionsSet.find(@poll.poll_options_set_id).options) %>
+<% optionSet.each do |key, value| %>
+  var p = <%= UpRelation.where('poll_id = ? and answerValue = ?',@poll.id, key).count %>
+  data.push(['<%= value %>',p])
+<% end %>
+var plot1 = jQuery.jqplot ('answers', [data], 
+    { 
+      seriesDefaults: {
+        // Make this a pie chart.
+        renderer: jQuery.jqplot.PieRenderer, 
+        rendererOptions: {
+          // Put data labels on the pie slices.
+          // By default, labels show the percentage of the slice.
+          showDataLabels: true
+        }
+      }, 
+      legend: { show:true, location: 'e' }
+    }
+  );
