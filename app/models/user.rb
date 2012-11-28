@@ -15,7 +15,7 @@
 class User < ActiveRecord::Base
   attr_accessible :address, :birthdate, :email, :name, :password, :password_confirmation
   has_secure_password
-
+  has_many :authentications
   has_many :responses
   has_many :questions, dependent: :destroy
   has_many :uq_relations, dependent: :destroy
