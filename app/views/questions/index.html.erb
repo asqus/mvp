@@ -12,9 +12,23 @@
 
 <br />
 <%= link_to 'New Question', new_question_path, :class => 'btn btn-large btn-primary' %>
+
+<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fapps.facebook.com%2Fasqus-mvp%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=80&amp;appId=264822796973610" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+
 </div>
+<div class="clear"></div>
 <% else %>
+<p>Sign using one of these services:</p>
+  <a href="/auth/twitter" class="auth_provider">
+  <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %>Twitter</a>
+<a href="/auth/facebook" class="auth_provider">
+  <%= image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook" %>Facebook</a>
+  <div>
+<p> Don't use these services? <p>
+<%= link_to "Sign In", new_session_path %>
+
+<p> New user? <p>
   <%= link_to "Sign Up", new_user_path %>
   <br />
-  <%= link_to "Sign In", new_session_path %>
+  </div>
 <% end %>
