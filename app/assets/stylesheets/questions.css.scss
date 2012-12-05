@@ -85,6 +85,15 @@
 
 
 }
+.q_block.index.nat {
+  border: 4px rgb(210, 210, 255) solid;
+}
+.q_block.index.state {
+  border: 4px rgb(255, 207, 207) solid;
+}
+.q_block.index.city {
+  border: 4px rgb(112, 173, 112) solid;
+}
 .q_block.index:hover {
   background: rgb(235, 235, 235);
 }

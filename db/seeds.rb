@@ -22,8 +22,20 @@ AgreeScale =
 President = Official.create!(
                       :name => "George W Bush",
                       :email => "gbush@whitehouse.gov",
-                      :district_id => 5,
+                      :district_id => 3,
                       :position => "President of the United States")
+
+Rep = Official.create!(
+                      :name => "State Rep",
+                      :email => "state@rep.gov",
+                      :district_id => 2,
+                      :position => "State Rep of 53rd District")
+
+Mayor = Official.create!(
+                      :name => "John Hiefjte",
+                      :email => "hiefjte@a2.gov",
+                      :district_id => 1,
+                      :position => "Mayor of the Ann Arbor")
 
 
 AbrahamLincoln = User.create(
@@ -121,7 +133,7 @@ Bottom = Question.create!({
 Q1 = Question.create!({
               :user => AbrahamLincoln,
               :user_id => AbrahamLincoln.id,
-					    :official_id => President.id,
+					    :official_id => Mayor.id,
               :body => "Does my tophat make me look too tall?",
               :title => "A Question About Tophats?",
               :upCache => 0,
@@ -132,7 +144,7 @@ Q1 = Question.create!({
 Q2 = Question.create!({
               :user => BFrank,
               :user_id => BFrank.id,
-					    :official_id => President.id,
+					    :official_id => Rep.id,
               :body => "Not to be snob, but my face is featured on the largest bill.",
               :title => "How many of you have your face on money?",
               :upCache => 0,
@@ -154,7 +166,7 @@ Question.create!({
 Top = Question.create!({
               :user => AJack,
               :user_id => AJack.id,
-					    :official_id => President.id,
+					    :official_id => Mayor.id,
               :body => "How many of you would like to live on the Pacific?",
               :title => "Manifest Destiny",
               :upCache => 4,
@@ -165,7 +177,7 @@ Top = Question.create!({
 Q4 = Question.create!({
               :user => Ted,
               :user_id => Ted.id,
-					    :official_id => President.id,
+					    :official_id => Rep.id,
               :body => "Which superpowers would you look out for?",
               :title => "Foreign Policy Help!",
               :upCache => 3,

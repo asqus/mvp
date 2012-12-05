@@ -4,13 +4,20 @@
 <h1>Recent Questions</h1>
 
 <% @questions.each do |question| %>
-  <div class="q_block index">
+  <% @official = Official.find(question.official_id) %>
+  <% if @official.district_id == 3 %>
+    <div class="q_block index nat">
+  <% elsif @official.district_id == 2 %>
+    <div class="q_block index state">
+  <% else %>
+    <div class="q_block index city">
+  <% end %>
     <div class="q_vote_form"><%= render 'vote_forms', question: question %></div>
     <div class="q_title"><%= link_to question.title, question %></div>
     <div class="q_body"><%= question.body %></div>
     <div class="q_asked_to"><h>Asked to:  </h>
-        <%= link_to(Official.find(question.official_id)) do %>
-        <%= Official.find(question.official_id).position %>
+        <%= link_to(@official) do %>
+        <%= @official.position %>
         <% end %>
     </div>
   </div>
