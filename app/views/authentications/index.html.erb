@@ -1,9 +1,9 @@
 
 
-
+<% if current_user %>
 <% if @authentications %>
  <% unless @authentications.empty? %>
-  <p><strong>You can sign in to this account using:</strong></p>
+  <p><strong>You can link this acount with:</strong></p>
    <div class="authentications">
     <% for authentication in @authentications %>
      <div class="authentication">
@@ -25,7 +25,23 @@
   <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %>Twitter</a>
 <a href="/auth/facebook" class="auth_provider">
   <%= image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook" %>Facebook</a>
-  <strong>Don't use those services?</strong>
-  <%= link_to "Sign in", signin_path %></li>
+  
+
+
 
 <div class="clear"></div>
+<% else %>
+<p>Sign using one of these services:</p>
+  <a href="/auth/twitter" class="auth_provider">
+  <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %>Twitter</a>
+<a href="/auth/facebook" class="auth_provider">
+  <%= image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook" %>Facebook</a>
+  <div>
+<p> Don't use these services? <p>
+<%= link_to "Sign In", new_session_path %>
+
+<p> New user? <p>
+  <%= link_to "Sign Up", new_user_path %>
+  <br />
+  </div>
+<% end %>
