@@ -1,5 +1,8 @@
 Mvp::Application.routes.draw do
 
+  match '/auth/:provider/callback' => 'authentications#create'
+  resources :authentications
+  
   resources :poll_options_sets
 
   root to: 'questions#index'
