@@ -7,9 +7,12 @@
     <%= link_to official do %>
       <% if (official.name == "John Hiefjte") %>
         <div class="o_picture"><%= image_tag "john.jpg" %></div>
+      <% elsif (official.name == "Rick Snyder") %>
+        <div class="o_picture"><%= image_tag "rick.jpg" %></div>
       <% else %>
         <div class="o_picture"><%= image_tag "fb_user.png" %></div>
       <% end %>
+
     <% end %>
     <div class="o_name"><%= official.name %></div>
     <div class="o_email"><%= link_to official.email, "mailto:"+official.email %></div>
@@ -21,7 +24,13 @@
 <% @officials2.each do |official| %>
   <div class="official_block">
     <%= link_to official do %>
-    <div class="o_picture"><%= image_tag "fb_user.png" %></div>
+      <% if (official.name == "John Hiefjte") %>
+        <div class="o_picture"><%= image_tag "john.jpg" %></div>
+      <% elsif (official.name == "Rick Snyder") %>
+        <div class="o_picture"><%= image_tag "rick.jpg" %></div>
+      <% else %>
+        <div class="o_picture"><%= image_tag "fb_user.png" %></div>
+      <% end %>
     <% end %>
     <div class="o_name"><%= official.name %></div>
     <div class="o_email"><%= link_to official.email, "mailto:"+official.email %></div>
@@ -42,4 +51,3 @@
 </div>
 
 <br />
-<%= link_to 'New Official', new_official_path, :class => 'btn btn-large btn-primary' %>
