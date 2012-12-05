@@ -5,7 +5,7 @@
 
 <%= link_to 'Sort by Popularity', questions_reorder_path(:state => 1), :remote => true, :class => "p_answer_option btn" %>
 <%= link_to 'Sort by Most Recent', questions_reorder_path(:state => 2), :remote => true, :class => "p_answer_option btn" %>
-<% questionList = Question.order('rankValue DESC') %>
+<% questionList = Question.order('rank_value DESC') %>
 <div id="questions">
   <%= render 'questionBlock', :questions => questionList %>
 </div>

@@ -11,7 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121204222101) do
 
   create_table "authentications", :force => true do |t|
@@ -31,9 +30,6 @@ ActiveRecord::Schema.define(:version => 20121204222101) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
-=======
-ActiveRecord::Schema.define(:version => 20121126223630) do
->>>>>>> 4f594ae72a0fd2b960fc0611beb1fa1c0ec0551b
 
   create_table "officials", :force => true do |t|
     t.string   "position"
@@ -71,9 +67,9 @@ ActiveRecord::Schema.define(:version => 20121126223630) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "user_id"
-    t.integer  "upCache"
-    t.integer  "downCache"
-    t.float    "rankValue"
+    t.integer  "up_cache"
+    t.integer  "down_cache"
+    t.float    "rank_value"
     t.integer  "official_id"
   end
 
@@ -95,9 +91,9 @@ ActiveRecord::Schema.define(:version => 20121126223630) do
     t.integer  "user_id"
     t.integer  "poll_id"
     t.boolean  "updown"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "answerValue"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "answer_value"
   end
 
   add_index "up_relations", ["poll_id", "user_id"], :name => "index_up_relations_on_poll_id_and_user_id", :unique => true

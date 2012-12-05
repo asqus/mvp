@@ -11,7 +11,7 @@
 #
 
 class Question < ActiveRecord::Base
-  attr_accessible :body, :title, :user, :upCache, :downCache, :rankValue, :official_id
+  attr_accessible :body, :title, :user, :up_cache, :down_cache, :rank_value, :official_id
 
   belongs_to :official
   belongs_to :user
@@ -27,8 +27,8 @@ class Question < ActiveRecord::Base
   validates :official_id, presence: true
 
   def calcRank
-    rankValue = upCache - downCache
-    update_attributes(:rankValue => rankValue)
+    rank_value = up_cache - down_cache
+    update_attributes(:rank_value => rank_value)
   end
 
 end

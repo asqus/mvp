@@ -6,11 +6,11 @@ class UqRelationsController < ApplicationController
     current_user.voteQ!(@question, @yaynay)
 
     if @yaynay == "true"
-      @question.upCache = @question.upCache + 1
+      @question.up_cache = @question.up_cache + 1
     else
-      @question.downCache = @question.downCache + 1
+      @question.down_cache = @question.down_cache + 1
     end
-    @question.update_attributes(:upCache => @question.upCache, :downCache => @question.downCache)
+    @question.update_attributes(:up_cache => @question.up_cache, :down_cache => @question.down_cache)
 
     @question.calcRank
 
@@ -25,9 +25,9 @@ class UqRelationsController < ApplicationController
     @question = Question.find(@uq.question_id)
     @uq.update_attributes(params[:uq_relation])
 
-    @question.upCache = UqRelation.where("yaynay = ? AND question_id = ?",true,@question.id).count
-    @question.downCache = UqRelation.where("yaynay = ? AND question_id = ?",false,@question.id).count
-    @question.update_attributes(:upCache => @question.upCache, :downCache => @question.downCache)
+    @question.up_cache = UqRelation.where("yaynay = ? AND question_id = ?",true,@question.id).count
+    @question.down_cache = UqRelation.where("yaynay = ? AND question_id = ?",false,@question.id).count
+    @question.update_attributes(:up_cache => @question.up_cache, :down_cache => @question.down_cache)
 
     @question.calcRank
 
@@ -42,11 +42,11 @@ class UqRelationsController < ApplicationController
     @question = Question.find(@uq.question_id)
     
     if @uq.yaynay
-      @question.upCache = @question.upCache - 1
+      @question.up_cache = @question.up_cache - 1
     else
-      @question.downCache = @question.downCache - 1
+      @question.down_cache = @question.down_cache - 1
     end
-    @question.update_attributes(:upCache => @question.upCache, :downCache => @question.downCache)
+    @question.update_attributes(:up_cache => @question.up_cache, :down_cache => @question.down_cache)
     
     @question.calcRank
 

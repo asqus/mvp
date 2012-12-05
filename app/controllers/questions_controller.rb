@@ -46,10 +46,9 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params[:question])
     @question = current_user.questions.build(params[:question])
-    #@question.official = Official.find(params[:office])
-    @question.upCache = 0
-    @question.downCache = 0
-    @question.rankValue = 0
+    @question.up_cache = 0
+    @question.down_cache = 0
+    @question.rank_value = 0
     
     respond_to do |format|
       if @question.save
@@ -80,7 +79,7 @@ class QuestionsController < ApplicationController
 
   def reorder
     if (params[:state] == '1')
-      @questionList = Question.order('rankValue DESC')
+      @questionList = Question.order('rank_value DESC')
     else
       @questionList = Question.order('created_at DESC')
     end

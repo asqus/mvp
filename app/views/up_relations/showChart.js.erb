@@ -2,7 +2,7 @@ $("#answers").empty()
 var data = [];
 <% optionSet = ActiveSupport::JSON.decode(PollOptionsSet.find(@poll.poll_options_set_id).options) %>
 <% optionSet.each do |key, value| %>
-  var p = <%= UpRelation.where('poll_id = ? and answerValue = ?',@poll.id, key).count %>
+  var p = <%= UpRelation.where('poll_id = ? and answer_value = ?',@poll.id, key).count %>
   data.push(['<%= value %>',p])
 <% end %>
 var plot1 = jQuery.jqplot ('answers', [data], 

@@ -41,7 +41,6 @@ Official.create!(
                       :district_id => 2,
                       :position => "State Rep of 53rd District")
 
-
 Mayor = Official.create!(
                       :name => "John Hiefjte",
                       :email => "hiefjte@a2.gov",
@@ -63,9 +62,118 @@ Official.create!(
                       :district_id => 1,
                       :position => "Mayor of the Ann Arbor")
 
+Senator = Official.create!(
+                      :name => "Carl Levin",
+                      :email => "clevin@congress.gov",
+                      :district_id => 3,
+                      :position => "Senator for the State of Michigan")
 
+Senator2 = Official.create!(
+                      :name => "Debbie Stabenow",
+                      :email => "dstabenow@congress.gov",
+                      :district_id => 3,
+                      :position => "Senator for the State of Michigan")
 
+Rep53 = Official.create!(
+                      :name => "Jeff Irwin",
+                      :email => "state53@rep.gov",
+                      :district_id => 2,
+                      :position => "State Rep of 53rd District")
 
+Rep18 = Official.create!(
+                      :name => "Rebekah Warren",
+                      :email => "state18@rep.gov",
+                      :district_id => 2,
+                      :position => "State Rep of 18th District")
+
+Governor = Official.create!(
+                      :name => "Rick Snyder",
+                      :email => "rsnyd@mich.gov",
+                      :district_id => 2,
+                      :position => "Governor of Michigan")
+
+John = User.create!(
+          :name => "John Hiefjte",
+          :email => "jhiefjte@gmail.com",
+          :birthdate => "2012-10-31",
+          :official_id => Mayor.id,
+          :address => "Atlanta, GA",
+          :password => "foobar",
+          :password_confirmation => "foobar")
+
+Debbie = User.create!(
+          :name => "Debbie Stabenow",
+          :email => "dstab@gmail.com",
+          :birthdate => "2012-10-31",
+          :official_id => Senator2.id,
+          :address => "Atlanta, GA",
+          :password => "foobar",
+          :password_confirmation => "foobar")
+
+Rick = User.create!(
+          :name => "Rick Snyder",
+          :email => "rsnyder@gmail.com",
+          :birthdate => "2012-10-31",
+          :official_id => Governor.id,
+          :address => "Atlanta, GA",
+          :password => "foobar",
+          :password_confirmation => "foobar")
+
+U1 = User.create!(
+          :name => "Theodore Roosevelt",
+          :email => "bigstik@gmail.com",
+          :birthdate => "2012-10-31",
+          :address => "Atlanta, GA",
+          :password => "foobar",
+          :password_confirmation => "foobar")
+
+U2 = User.create!(
+            :name => "Thomas Jefferson",
+            :email => "scribedde@gmail.com",
+            :birthdate => "2012-10-31",
+            :address => "Monticello, VA",
+            :password => "foobar",
+            :password_confirmation => "foobar")
+
+U3 = User.create!(
+            :name => "Andrew Jackson",
+            :email => "manifestestiny@gmail.com",
+            :birthdate => "2012-10-31",
+            :address => "Midwestville, OH",
+            :password => "foobar",
+            :password_confirmation => "foobar")
+
+U4 = User.create!(
+            :name => "John F. Kennedy",
+            :email => "telepresece@gmail.com",
+            :birthdate => "2012-10-31",
+            :address => "Hoboken, NJ",
+            :password => "foobar",
+            :password_confirmation => "foobar")
+
+U5 = User.create!(
+              :name => "Benjamin Franklin",
+              :email => "kitesinterain@gmail.com",
+              :birthdate => "2012-10-31",
+              :address => "Newsberg, MA",
+              :password => "foobar",
+              :password_confirmation => "foobar")
+
+U6 = User.create!(
+              :name => "Test User",
+              :email => "test@usr.com",
+              :birthdate => "2012-10-31",
+              :address => "Newsberg, MA",
+              :password => "foobar",
+              :password_confirmation => "foobar")
+
+U7 = User.create!(
+              :name => "Test Official",
+              :email => "test@offical.com",
+              :birthdate => "2012-10-31",
+              :address => "Newsberg, MA",
+              :password => "foobar",
+              :password_confirmation => "foobar")
 
 AbrahamLincoln = User.create(
                       :name => "Abraham Lincoln",
@@ -147,6 +255,13 @@ TestOfficial = User.create!(
               :password => "foobar",
               :password_confirmation => "foobar")
 
+JSU = User.create!(
+              :name => "Just Some User",
+              :email => "test@abcde.com",
+              :birthdate => "2012-10-31",
+              :address => "Newsberg, MA",
+              :password => "foobar",
+              :password_confirmation => "foobar")
 
 Bottom = Question.create!({
                   :user => JKenn,
@@ -154,9 +269,9 @@ Bottom = Question.create!({
 					        :official_id => President.id,
                   :body => "I think America should choose!",
                   :title => "Blondes or Brunettes?",
-                  :upCache => 0,
-                  :downCache => 4,
-                  :rankValue => -4
+                  :up_cache => 0,
+                  :down_cache => 4,
+                  :rank_value => -4
                   })
 
 Q1 = Question.create!({
@@ -165,9 +280,9 @@ Q1 = Question.create!({
 					    :official_id => Mayor.id,
               :body => "Does my tophat make me look too tall?",
               :title => "A Question About Tophats?",
-              :upCache => 0,
-              :downCache => 0,
-              :rankValue => 0
+              :up_cache => 0,
+              :down_cache => 0,
+              :rank_value => 0
               })
 
 Q2 = Question.create!({
@@ -176,9 +291,9 @@ Q2 = Question.create!({
 					    :official_id => Rep.id,
               :body => "Not to be snob, but my face is featured on the largest bill.",
               :title => "How many of you have your face on money?",
-              :upCache => 0,
-              :downCache => 0,
-              :rankValue => 0
+              :up_cache => 0,
+              :down_cache => 0,
+              :rank_value => 0
               })
 
 Question.create!({
@@ -187,9 +302,9 @@ Question.create!({
 				:official_id => President.id,
         :body => "What do they look like??",
         :title => "Advice on identifying Red Coats",
-        :upCache => 0,
-        :downCache => 0,
-        :rankValue => 0
+        :up_cache => 0,
+        :down_cache => 0,
+        :rank_value => 0
         })
 
 Top = Question.create!({
@@ -198,9 +313,9 @@ Top = Question.create!({
 					    :official_id => Mayor.id,
               :body => "How many of you would like to live on the Pacific?",
               :title => "Manifest Destiny",
-              :upCache => 4,
-              :downCache => 0,
-              :rankValue => 4
+              :up_cache => 4,
+              :down_cache => 0,
+              :rank_value => 4
               })
 
 Q4 = Question.create!({
@@ -209,9 +324,9 @@ Q4 = Question.create!({
 					    :official_id => Rep.id,
               :body => "Which superpowers would you look out for?",
               :title => "Foreign Policy Help!",
-              :upCache => 3,
-              :downCache => 0,
-              :rankValue => 3
+              :up_cache => 3,
+              :down_cache => 0,
+              :rank_value => 3
               })
 
 Q5 = Question.create!({
@@ -220,9 +335,20 @@ Q5 = Question.create!({
 					    :official_id => President.id,
               :body => "I personally believe that we need more public computers",
               :title => "What change would you like to see in your community?",
-              :upCache => 2,
-              :downCache => 0,
-              :rankValue => 2
+              :up_cache => 2,
+              :down_cache => 0,
+              :rank_value => 2
+              })
+
+Q3 = Question.create!({
+              :user => JSU,
+              :user_id => JSU.id,
+              :official_id => Governor.id,
+              :body => ActiveRecord::Base.connection.quote("Doesn't our state have enough to deal with?"),
+              :title => "Why do we need a new bridge to Canada now?",
+              :up_cache => 6,
+              :down_cache => 0,
+              :rank_value => 6
               })
 
 UqRelation.create!({
@@ -288,7 +414,42 @@ UqRelation.create!({
 
   })
 
+UqRelation.create!({
+          :user_id => U1.id,
+          :question_id => Q3.id,
+          :yaynay => true
 
+  })
+UqRelation.create!({
+          :user_id => U2.id,
+          :question_id => Q3.id,
+          :yaynay => true
+
+  })
+UqRelation.create!({
+          :user_id => U3.id,
+          :question_id => Q3.id,
+          :yaynay => true
+
+  })
+UqRelation.create!({
+          :user_id => U4.id,
+          :question_id => Q3.id,
+          :yaynay => true
+
+  })
+UqRelation.create!({
+          :user_id => U5.id,
+          :question_id => Q3.id,
+          :yaynay => true
+
+  })
+UqRelation.create!({
+          :user_id => U6.id,
+          :question_id => Q3.id,
+          :yaynay => true
+
+  })
 
 UqRelation.create!({
           :user_id => AJack.id,
@@ -318,42 +479,41 @@ UqRelation.create!({
 
 	})
 
-P1 = Poll.create!({	:user => AbrahamLincoln,
-					:user_id => AbrahamLincoln.id,
-					:official_id => President.id,
-					:body => "This proposal would:
-Require the approval of a majority of voters at a statewide election and in each municipality where new international bridges or tunnels for motor vehicles are to be located before the State of Michigan may expend state funds or resources for acquiring land, designing, soliciting bids for, constructing, financing, or promoting new international bridges or tunnels. Create a definition of \"new international bridges or tunnels for motor vehicles\" that means, \"any bridge or tunnel which is not open to the public and serving traffic as of January 1, 2012.\"",
+P1 = Poll.create!({	:user => Rick,
+					:user_id => Rick.id,
+					:official_id => Governor.id,
+					:body => ActiveRecord::Base.connection.quote("This proposal would: Require the approval of a majority of voters at a statewide election and in each municipality where new international bridges or tunnels for motor vehicles are to be located before the State of Michigan may expend state funds or resources for acquiring land, designing, soliciting bids for, constructing, financing, or promoting new international bridges or tunnels. Create a definition of 'new international bridges or tunnels for motor vehicles' that means, 'any bridge or tunnel which is not open to the public and serving traffic as of January 1, 2012.'"),
 					:title => "Do you agree with Proposal 4?",
           :poll_options_set_id => YesOrNo.id
 					})
 
-P2 = Poll.create!({	:user => BFrank,
-					:user_id => BFrank.id,
-					:official_id => President.id,
+P2 = Poll.create!({	:user => Rick,
+					:user_id => Rick.id,
+					:official_id => Governor.id,
 					:body => "Bridges are cool.",
 					:title => "Do you agree with the proposed bridge to Canada?",
           :poll_options_set_id => AgreeScale.id
 					})
 
-P3 = Poll.create!({ :user => GWash,
-          :user_id => GWash.id,
-					:official_id => President.id,
+P3 = Poll.create!({ :user => John,
+          :user_id => John.id,
+					:official_id => Mayor.id,
           :body => "The plan is to install Herbert Dreiseitl's $750k statue in front of the new Justice Center building and a newly renovated city hall. In 2007, Ann Arbor's City Council unanimously passed an ordinance stipulating that all capital improvement projects funded wholly or partly by the City will include funds for public art equal to one percent of the project construction costs, to a maximum of $250,000 per capital improvement project. Public art may be located at the capital improvement site, or can be installed at other locations. Public art must relate to the funding source of the capital improvement.\"",
           :title => "Should we go ahead with the proposed $750k art exhibit in front of city hall?",
           :poll_options_set_id => YesOrNo.id
           })
 
-P4 = Poll.create!({ :user => Ted,
-          :user_id => Ted.id,
-					:official_id => President.id,
+P4 = Poll.create!({ :user => Rick,
+          :user_id => Rick.id,
+					:official_id => Governor.id,
           :body => "For more information, <a href = 'http://www.legislature.mi.gov/' >click here</a>",
           :title => "Do you think we should expand cyber charter schools in Michigan?",
           :poll_options_set_id => AgreeScale.id
           })
 
-P5 = Poll.create!({ :user => JKenn,
-          :user_id => JKenn.id,
-					:official_id => President.id,
+P5 = Poll.create!({ :user => Debbie,
+          :user_id => Debbie.id,
+					:official_id => Senator2.id,
           :body => "H R 3523, Cyber Intelligence Sharing and Protection Act (CISPA). The bill exempts private entities and utilities from all state and federal liability when they share 'cyber threat information' with the federal government. That term is defined broadly to mean any information 'directly pertaining to . . . [a] threat to [] a system or network,' and it may include your personally identifiable information. The bill also provides new authority to the federal government to share your information with the private sector. The government may use information it receives from companies for purposes beyond cybersecurity, including protecting minors and national security.",
           :title => "Do you support CISPA?",
           :poll_options_set_id => YesOrNo.id
