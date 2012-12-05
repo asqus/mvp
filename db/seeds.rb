@@ -36,7 +36,7 @@ Official.create!(
                       :district_id => 2,
                       :position => "State Rep of 53rd District")
 Official.create!(
-                      :name => "State Rep3"
+                      :name => "State Rep3",
                       :email => "state@rep3.gov",
                       :district_id => 2,
                       :position => "State Rep of 53rd District")
