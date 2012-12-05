@@ -154,8 +154,8 @@ Bottom = Question.create!({
 					        :official_id => President.id,
                   :body => "I think America should choose!",
                   :title => "Blondes or Brunettes?",
-                  :upCache => 0,
-                  :downCache => 4,
+                  :upcache => 0,
+                  :downcache => 4,
                   :rankvalue => -4
                   })
 
@@ -165,8 +165,8 @@ Q1 = Question.create!({
 					    :official_id => Mayor.id,
               :body => "Does my tophat make me look too tall?",
               :title => "A Question About Tophats?",
-              :upCache => 0,
-              :downCache => 0,
+              :upcache => 0,
+              :downcache => 0,
               :rankvalue => 0
               })
 
@@ -176,8 +176,8 @@ Q2 = Question.create!({
 					    :official_id => Rep.id,
               :body => "Not to be snob, but my face is featured on the largest bill.",
               :title => "How many of you have your face on money?",
-              :upCache => 0,
-              :downCache => 0,
+              :upcache => 0,
+              :downcache => 0,
               :rankvalue => 0
               })
 
@@ -187,8 +187,8 @@ Question.create!({
 				:official_id => President.id,
         :body => "What do they look like??",
         :title => "Advice on identifying Red Coats",
-        :upCache => 0,
-        :downCache => 0,
+        :upcache => 0,
+        :downcache => 0,
         :rankvalue => 0
         })
 
@@ -198,8 +198,8 @@ Top = Question.create!({
 					    :official_id => Mayor.id,
               :body => "How many of you would like to live on the Pacific?",
               :title => "Manifest Destiny",
-              :upCache => 4,
-              :downCache => 0,
+              :upcache => 4,
+              :downcache => 0,
               :rankvalue => 4
               })
 
@@ -209,8 +209,8 @@ Q4 = Question.create!({
 					    :official_id => Rep.id,
               :body => "Which superpowers would you look out for?",
               :title => "Foreign Policy Help!",
-              :upCache => 3,
-              :downCache => 0,
+              :upcache => 3,
+              :downcache => 0,
               :rankvalue => 3
               })
 
@@ -220,8 +220,8 @@ Q5 = Question.create!({
 					    :official_id => President.id,
               :body => "I personally believe that we need more public computers",
               :title => "What change would you like to see in your community?",
-              :upCache => 2,
-              :downCache => 0,
+              :upcache => 2,
+              :downcache => 0,
               :rankvalue => 2
               })
 
