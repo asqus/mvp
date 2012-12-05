@@ -11,6 +11,18 @@
  *= require_self
  *= require_tree .
 */
+
+.other_sign_in {
+  padding-top: 10px;
+}
+
+.new_sign_in {
+}
+.social_sign_in {
+  height: 70px;
+  width: 200px;
+
+}
 .authentications {
   margin-bottom: 30px;
 }
