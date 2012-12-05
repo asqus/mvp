@@ -34,6 +34,14 @@
       </div>
     <% end %>
 </div>
+
+<h1>Comments</h1>
+<div id="comments">
+<%=render :partial => 'comments/index',:locals => {:commentable=> @question,:comments => @comments}%>
+</div>
+
+<%= render :partial => "comments/new", :locals => { :commentable => @question }%><br/>
+
 <div class="q_respond btn">
 <%= link_to 'New Response', new_response_path(:questionID => @question.id) %>
 </div>

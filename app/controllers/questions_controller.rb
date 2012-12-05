@@ -17,7 +17,8 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
-
+    @comments = @question.comments.order("created_at DESC").paginate( :page => params[:page]||1,:per_page => 10)
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @question }
@@ -73,6 +74,19 @@ class QuestionsController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def reorder
+    if (params[:state] == '1')
+      @questionList = Question.order('rankValue DESC')
+    else
+      @questionList = Question.order('created_at DESC')
+    end
+
+    respond_to do |format|
+      format.html { }
+      format.js { render "rebuildMain" }
     end
   end
 

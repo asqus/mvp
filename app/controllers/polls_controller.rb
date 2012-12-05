@@ -15,6 +15,7 @@ class PollsController < ApplicationController
   # GET /polls/1.json
   def show
     @poll = Poll.find(params[:id])
+    @comments = @poll.comments.order("created_at DESC").paginate( :page => params[:page]||1,:per_page => 10)
 
     respond_to do |format|
       format.html # show.html.erb

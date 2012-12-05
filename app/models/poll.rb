@@ -18,7 +18,8 @@ class Poll < ActiveRecord::Base
   # has_many :answers, dependent: :destroy
   has_many :up_relations, foreign_key: "user_id", dependent: :destroy
   has_many :voters, through: :up_relations, source: :user_id
-
+  has_many :comments, as: :commentable
+  
   validates :user_id, presence: true
   validates :official_id, presence: true
 

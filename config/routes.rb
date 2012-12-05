@@ -9,11 +9,16 @@ Mvp::Application.routes.draw do
 
   resources :votes
 
-  resources :polls
+  resources :polls do
+    resources :comments, only: [:create], :constraint => {:context_type => "polls"}
+  end
 
   resources :responses
 
-  resources :questions
+  get 'questions/reorder'
+  resources :questions do
+    resources :comments, only: [:create], :constraint => {:context_type => "questions"}
+  end
 
   resources :officials
 

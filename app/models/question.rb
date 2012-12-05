@@ -19,11 +19,10 @@ class Question < ActiveRecord::Base
   has_many :responses, dependent: :destroy
   has_many :uq_relations, foreign_key: "user_id", dependent: :destroy
   has_many :voters, through: :uq_relations, source: :user
+  has_many :comments, as: :commentable
 
   validates :user_id, presence: true
   validates :official_id, presence: true
-  
-  default_scope order: 'rankValue DESC'
 
   def calcRank
     rankValue = upCache - downCache

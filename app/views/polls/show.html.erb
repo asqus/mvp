@@ -10,4 +10,11 @@
   <%= render 'up_relations/renderPollAnswers', poll: @poll %>
 </div>
 
+<h1>Comments</h1>
+<div id="comments">
+<%=render :partial => 'comments/index',:locals => {:commentable=> @poll,:comments => @comments}%>
+</div>
+
+<%= render :partial => "comments/new", :locals => { :commentable => @poll }%><br/>
+
 <%= link_to 'Back', polls_path %>

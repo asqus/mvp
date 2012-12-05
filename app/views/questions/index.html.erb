@@ -3,18 +3,12 @@
 <div class="question_list">
 <h1>Recent Questions</h1>
 
-<% @questions.each do |question| %>
-  <div class="q_block index">
-    <div class="q_vote_form"><%= render 'vote_forms', question: question %></div>
-    <div class="q_title"><%= link_to question.title, question %></div>
-    <div class="q_body"><%= question.body %></div>
-    <div class="q_asked_by"><h>Asked by:  </h>
-        <%= link_to(User.find(question.user_id)) do %>
-        <%= User.find(question.user_id).name %>
-        <% end %>
-    </div>
-  </div>
-<% end %>
+<%= link_to 'Sort by Popularity', questions_reorder_path(:state => 1), :remote => true, :class => "p_answer_option btn" %>
+<%= link_to 'Sort by Most Recent', questions_reorder_path(:state => 2), :remote => true, :class => "p_answer_option btn" %>
+<% questionList = Question.order('rankValue DESC') %>
+<div id="questions">
+  <%= render 'questionBlock', :questions => questionList %>
+</div>
 
 <br />
 <%= link_to 'New Question', new_question_path, :class => 'btn btn-large btn-primary' %>
