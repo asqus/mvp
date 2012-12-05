@@ -5,7 +5,11 @@
 <% @officials1.each do |official| %>
   <div class="official_block">
     <%= link_to official do %>
-    <div class="o_picture"><%= image_tag "fb_user.png" %></div>
+      <% if (official.name == "John Hiefjte") %>
+        <div class="o_picture"><%= image_tag "john.jpg" %></div>
+      <% else %>
+        <div class="o_picture"><%= image_tag "fb_user.png" %></div>
+      <% end %>
     <% end %>
     <div class="o_name"><%= official.name %></div>
     <div class="o_email"><%= link_to official.email, "mailto:"+official.email %></div>

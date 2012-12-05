@@ -10,9 +10,13 @@
     <div class="q_vote_form"><%= render 'vote_forms', question: question %></div>
     <div class="q_title"><%= link_to question.title, question %></div>
     <div class="q_body"><%= question.body %></div>
-    <div class="q_asked_by"><h>Asked by:  </h>
+    <div class="q_asked_by">Asked by:  
       <%= link_to(User.find(question.user_id)) do %>
       <%= User.find(question.user_id).name %>
+      <% end %>
+      to
+      <%= link_to(@official) do %>
+      <%= @official.name %>
       <% end %>
     </div>
   </div>

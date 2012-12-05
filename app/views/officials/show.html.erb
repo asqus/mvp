@@ -3,11 +3,17 @@
 
   <div class="official_show_block span8">
     <p id="notice"><%= notice %></p>
-
-    <div class="o_picture"><%= image_tag "fb_user.png" %></div>
+    <% if (@official.name == "John Hiefjte") %>
+        <div class="o_picture"><%= image_tag "john.jpg" %></div>
+      <% else %>
+        <div class="o_picture"><%= image_tag "fb_user.png" %></div>
+      <% end %>
     <h2>
       <%= @official.name %>
     </h2>
+    <h3>
+      <%= @official.position %>
+    </h3>
 
     <p>
       <b>Email:</b>
@@ -15,8 +21,6 @@
     </p>
 
     <%= link_to 'Ask Question', new_question_path({ :office => @official.id }), :class => 'btn btn-primary' %>
-    <%= link_to 'Edit', edit_official_path(@official) %> |
-    <%= link_to 'Back', officials_path %>
   </div>
   <div class="span8 questionList">
     <% if @official.questions.any? %>
