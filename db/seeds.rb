@@ -156,7 +156,7 @@ Bottom = Question.create!({
                   :title => "Blondes or Brunettes?",
                   :upCache => 0,
                   :downCache => 4,
-                  :rankValue => -4
+                  :rankvalue => -4
                   })
 
 Q1 = Question.create!({
@@ -167,7 +167,7 @@ Q1 = Question.create!({
               :title => "A Question About Tophats?",
               :upCache => 0,
               :downCache => 0,
-              :rankValue => 0
+              :rankvalue => 0
               })
 
 Q2 = Question.create!({
@@ -178,7 +178,7 @@ Q2 = Question.create!({
               :title => "How many of you have your face on money?",
               :upCache => 0,
               :downCache => 0,
-              :rankValue => 0
+              :rankvalue => 0
               })
 
 Question.create!({
@@ -189,7 +189,7 @@ Question.create!({
         :title => "Advice on identifying Red Coats",
         :upCache => 0,
         :downCache => 0,
-        :rankValue => 0
+        :rankvalue => 0
         })
 
 Top = Question.create!({
@@ -200,7 +200,7 @@ Top = Question.create!({
               :title => "Manifest Destiny",
               :upCache => 4,
               :downCache => 0,
-              :rankValue => 4
+              :rankvalue => 4
               })
 
 Q4 = Question.create!({
@@ -211,7 +211,7 @@ Q4 = Question.create!({
               :title => "Foreign Policy Help!",
               :upCache => 3,
               :downCache => 0,
-              :rankValue => 3
+              :rankvalue => 3
               })
 
 Q5 = Question.create!({
@@ -222,7 +222,7 @@ Q5 = Question.create!({
               :title => "What change would you like to see in your community?",
               :upCache => 2,
               :downCache => 0,
-              :rankValue => 2
+              :rankvalue => 2
               })
 
 UqRelation.create!({

@@ -1,6 +1,6 @@
 class AddUpDownCacheToQuestions < ActiveRecord::Migration
   def change
-    add_column :questions, :upCache, :integer
-    add_column :questions, :downCache, :integer
+    add_column :questions, :upcache, :integer
+    add_column :questions, :downcache, :integer
   end
 end

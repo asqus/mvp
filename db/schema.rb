@@ -11,16 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121204222101) do
-
-  create_table "authentications", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "comments", :force => true do |t|
     t.string   "author"
@@ -31,9 +22,6 @@ ActiveRecord::Schema.define(:version => 20121204222101) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
-=======
-ActiveRecord::Schema.define(:version => 20121126223630) do
->>>>>>> 4f594ae72a0fd2b960fc0611beb1fa1c0ec0551b
 
   create_table "officials", :force => true do |t|
     t.string   "position"
