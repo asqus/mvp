@@ -2,7 +2,9 @@ class OfficialsController < ApplicationController
   # GET /officials
   # GET /officials.json
   def index
-    @officials = Official.all
+    @officials1 = Official.find( :all, :conditions => { :district_id => '1' })
+    @officials2 = Official.find( :all, :conditions => { :district_id => '2' })
+    @officials3 = Official.find( :all, :conditions => { :district_id => '3' })
 
     respond_to do |format|
       format.html # index.html.erb

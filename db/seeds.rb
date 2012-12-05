@@ -30,12 +30,41 @@ Rep = Official.create!(
                       :email => "state@rep.gov",
                       :district_id => 2,
                       :position => "State Rep of 53rd District")
+Official.create!(
+                      :name => "State Rep2",
+                      :email => "state@rep2.gov",
+                      :district_id => 2,
+                      :position => "State Rep of 53rd District")
+Official.create!(
+                      :name => "State Rep3"
+                      :email => "state@rep3.gov",
+                      :district_id => 2,
+                      :position => "State Rep of 53rd District")
+
 
 Mayor = Official.create!(
                       :name => "John Hiefjte",
                       :email => "hiefjte@a2.gov",
                       :district_id => 1,
                       :position => "Mayor of the Ann Arbor")
+Official.create!(
+                      :name => "John Hiefjte2",
+                      :email => "hiefjte@a22.gov",
+                      :district_id => 1,
+                      :position => "Mayor of the Ann Arbor")
+Official.create!(
+                      :name => "John Hiefjte3",
+                      :email => "hiefjte@a23.gov",
+                      :district_id => 1,
+                      :position => "Mayor of the Ann Arbor")
+Official.create!(
+                      :name => "John Hiefjte4",
+                      :email => "hiefjte@a24.gov",
+                      :district_id => 1,
+                      :position => "Mayor of the Ann Arbor")
+
+
+
 
 
 AbrahamLincoln = User.create(

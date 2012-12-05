@@ -1,7 +1,32 @@
 <h1>Listing officials</h1>
 
+<h1>City</h1>
 <div class="official_list">
-<% @officials.each do |official| %>
+<% @officials1.each do |official| %>
+  <div class="official_block">
+    <%= link_to official do %>
+    <div class="o_picture"><%= image_tag "fb_user.png" %></div>
+    <% end %>
+    <div class="o_name"><%= official.name %></div>
+    <div class="o_email"><%= link_to official.email, "mailto:"+official.email %></div>
+  </div>
+<% end %>
+</div>
+<h1>State</h1>
+<div class="official_list">
+<% @officials2.each do |official| %>
+  <div class="official_block">
+    <%= link_to official do %>
+    <div class="o_picture"><%= image_tag "fb_user.png" %></div>
+    <% end %>
+    <div class="o_name"><%= official.name %></div>
+    <div class="o_email"><%= link_to official.email, "mailto:"+official.email %></div>
+  </div>
+<% end %>
+</div>
+<h1>National</h1>
+<div class="official_list">
+<% @officials3.each do |official| %>
   <div class="official_block">
     <%= link_to official do %>
     <div class="o_picture"><%= image_tag "fb_user.png" %></div>
