@@ -3,8 +3,10 @@
 
   <div class="official_show_block span8">
     <p id="notice"><%= notice %></p>
-    <% if (@official.name == "John Hiefjte") %>
+      <% if (@official.name == "John Hiefjte") %>
         <div class="o_picture"><%= image_tag "john.jpg" %></div>
+      <% elsif (@official.name == "Rick Snyder") %>
+        <div class="o_picture"><%= image_tag "rick.jpg" %></div>
       <% else %>
         <div class="o_picture"><%= image_tag "fb_user.png" %></div>
       <% end %>
