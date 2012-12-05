@@ -45,6 +45,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params[:question])
     @question = current_user.questions.build(params[:question])
+    #@question.official = Official.find(params[:office])
     @question.upCache = 0
     @question.downCache = 0
     @question.rankValue = 0

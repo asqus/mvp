@@ -11,7 +11,7 @@
 #
 
 class Official < ActiveRecord::Base
-  attr_accessible :district_id, :name, :position
+  attr_accessible :district_id, :name, :position, :email
 
   has_many :users
   has_many :questions

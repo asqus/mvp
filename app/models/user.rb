@@ -16,13 +16,13 @@ class User < ActiveRecord::Base
   attr_accessible :address, :birthdate, :email, :name, :password, :password_confirmation, :official
   has_secure_password
 
-  has_one  :official
-  has_many :responses
-  has_many :questions, dependent: :destroy
-  has_many :uq_relations, dependent: :destroy
-  has_many :voted_questions, through: :uq_relations, source: :question
-  has_many :up_relations, dependent: :destroy
-  has_many :voted_polls, through: :up_relations, source: :poll
+  belongs_to  :official
+  has_many    :responses
+  has_many    :questions, dependent: :destroy
+  has_many    :uq_relations, dependent: :destroy
+  has_many    :voted_questions, through: :uq_relations, source: :question
+  has_many    :up_relations, dependent: :destroy
+  has_many    :voted_polls, through: :up_relations, source: :poll
 
 
   before_save { |user| user.email = email.downcase }

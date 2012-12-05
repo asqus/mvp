@@ -16,6 +16,8 @@ class Question < ActiveRecord::Base
   belongs_to :official
   belongs_to :user
 
+  has_many :questions, dependent: :destroy
+  has_many :oq_relations, dependent: :destroy
   has_many :responses, dependent: :destroy
   has_many :uq_relations, foreign_key: "user_id", dependent: :destroy
   has_many :voters, through: :uq_relations, source: :user

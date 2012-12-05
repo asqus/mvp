@@ -19,6 +19,9 @@
     <%= f.label "Background:" %>
     <%= f.text_area( :body, :rows => 15) %>
   </div>
+  <div class="field">
+    <%= f.hidden_field :official_id, :value => @office.id %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

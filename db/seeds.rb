@@ -21,6 +21,7 @@ AgreeScale =
 
 President = Official.create!(
                       :name => "George W Bush",
+                      :email => "gbush@whitehouse.gov",
                       :district_id => 5,
                       :position => "President of the United States")
 
@@ -30,6 +31,7 @@ AbrahamLincoln = User.create(
                       :email => "proclamation@gmail.com",
                       :birthdate => "1814-12-20",
                       :address => "Smallville, IL",
+					            :official_id => President.id,
                       :password => "foobar",
                       :password_confirmation => "foobar")
 
@@ -38,6 +40,7 @@ GWash = User.create!(
             :email => "revolution@gmail.com",
             :birthdate => "2012-10-31",
             :address => "New York, NY",
+					  :official_id => President.id,
             :password => "foobar",
             :password_confirmation => "foobar")
 
@@ -46,6 +49,7 @@ Ted = User.create!(
           :email => "bigstick@gmail.com",
           :birthdate => "2012-10-31",
           :address => "Atlanta, GA",
+					:official_id => President.id,
           :password => "foobar",
           :password_confirmation => "foobar")
 
@@ -54,6 +58,7 @@ TJeff = User.create!(
             :email => "scribedude@gmail.com",
             :birthdate => "2012-10-31",
             :address => "Monticello, VA",
+					  :official_id => President.id,
             :password => "foobar",
             :password_confirmation => "foobar")
 
@@ -62,6 +67,7 @@ AJack = User.create!(
             :email => "manifestdestiny@gmail.com",
             :birthdate => "2012-10-31",
             :address => "Midwestville, OH",
+					  :official_id => President.id,
             :password => "foobar",
             :password_confirmation => "foobar")
 
@@ -70,6 +76,7 @@ JKenn = User.create!(
             :email => "telepresence@gmail.com",
             :birthdate => "2012-10-31",
             :address => "Hoboken, NJ",
+					  :official_id => President.id,
             :password => "foobar",
             :password_confirmation => "foobar")
 
@@ -78,8 +85,27 @@ BFrank = User.create!(
               :email => "kitesintherain@gmail.com",
               :birthdate => "2012-10-31",
               :address => "Newsberg, MA",
+					    :official_id => President.id,
               :password => "foobar",
               :password_confirmation => "foobar")
+
+TestUser = User.create!(
+              :name => "Test User",
+              :email => "test@user.com",
+              :birthdate => "2012-10-31",
+              :address => "Newsberg, MA",
+              :password => "foobar",
+              :password_confirmation => "foobar")
+
+TestOfficial = User.create!(
+              :name => "Test Official",
+              :email => "test@official.com",
+              :birthdate => "2012-10-31",
+              :address => "Newsberg, MA",
+					    :official_id => President.id,
+              :password => "foobar",
+              :password_confirmation => "foobar")
+
 
 Bottom = Question.create!({
                   :user => JKenn,
