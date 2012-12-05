@@ -14,6 +14,7 @@ class OfficialsController < ApplicationController
   # GET /officials/1.json
   def show
     @official = Official.find(params[:id])
+    @questions = @official.questions.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # show.html.erb

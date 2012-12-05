@@ -1,27 +1,16 @@
 <h1>Listing officials</h1>
 
-<table>
-  <tr>
-    <th>Position</th>
-    <th>Name</th>
-    <th>District</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<div class="official_list">
 <% @officials.each do |official| %>
-  <tr>
-    <td><%= official.position %></td>
-    <td><%= official.name %></td>
-    <td><%= official.district_id %></td>
-    <td><%= link_to 'Show', official %></td>
-    <td><%= link_to 'Edit', edit_official_path(official) %></td>
-    <td><%= link_to 'Destroy', official, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <div class="official_block">
+    <%= link_to official do %>
+    <div class="o_picture"><%= image_tag "fb_user.png" %></div>
+    <% end %>
+    <div class="o_name"><%= official.name %></div>
+    <div class="o_email"><%= link_to official.email, "mailto:"+official.email %></div>
+  </div>
 <% end %>
-</table>
+</div>
 
 <br />
-
-<%= link_to 'New Official', new_official_path %>
+<%= link_to 'New Official', new_official_path, :class => 'btn btn-large btn-primary' %>

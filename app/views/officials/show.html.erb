@@ -1,20 +1,30 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @official.name) %>
+<div class="row">
 
-<p>
-  <b>Position:</b>
-  <%= @official.position %>
-</p>
+  <div class="official_show_block span8">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @official.name %>
-</p>
+    <div class="o_picture"><%= image_tag "fb_user.png" %></div>
+    <h2>
+      <%= @official.name %>
+    </h2>
 
-<p>
-  <b>District:</b>
-  <%= @official.district_id %>
-</p>
+    <p>
+      <b>Email:</b>
+      <%= @official.email %>
+    </p>
 
-
-<%= link_to 'Edit', edit_official_path(@official) %> |
-<%= link_to 'Back', officials_path %>
+    <%= link_to 'Ask Question', new_question_path({ :office => @official.id }), :class => 'btn btn-primary' %>
+    <%= link_to 'Edit', edit_official_path(@official) %> |
+    <%= link_to 'Back', officials_path %>
+  </div>
+  <div class="span8 questionList">
+    <% if @official.questions.any? %>
+      <h3>Questions (<%= @official.questions.count %>)</h3>
+      <ol class="questions">
+        <%= render @questions %>
+      </ol>
+      <%= will_paginate @questions %>
+    <% end %>
+  </div>
+</div>

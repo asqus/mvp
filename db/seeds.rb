@@ -21,8 +21,21 @@ AgreeScale =
 
 President = Official.create!(
                       :name => "George W Bush",
-                      :district_id => 5,
+                      :email => "gbush@whitehouse.gov",
+                      :district_id => 3,
                       :position => "President of the United States")
+
+Rep = Official.create!(
+                      :name => "State Rep",
+                      :email => "state@rep.gov",
+                      :district_id => 2,
+                      :position => "State Rep of 53rd District")
+
+Mayor = Official.create!(
+                      :name => "John Hiefjte",
+                      :email => "hiefjte@a2.gov",
+                      :district_id => 1,
+                      :position => "Mayor of the Ann Arbor")
 
 
 AbrahamLincoln = User.create(
@@ -30,6 +43,7 @@ AbrahamLincoln = User.create(
                       :email => "proclamation@gmail.com",
                       :birthdate => "1814-12-20",
                       :address => "Smallville, IL",
+					            :official_id => President.id,
                       :password => "foobar",
                       :password_confirmation => "foobar")
 
@@ -38,6 +52,7 @@ GWash = User.create!(
             :email => "revolution@gmail.com",
             :birthdate => "2012-10-31",
             :address => "New York, NY",
+					  :official_id => President.id,
             :password => "foobar",
             :password_confirmation => "foobar")
 
@@ -46,6 +61,7 @@ Ted = User.create!(
           :email => "bigstick@gmail.com",
           :birthdate => "2012-10-31",
           :address => "Atlanta, GA",
+					:official_id => President.id,
           :password => "foobar",
           :password_confirmation => "foobar")
 
@@ -54,6 +70,7 @@ TJeff = User.create!(
             :email => "scribedude@gmail.com",
             :birthdate => "2012-10-31",
             :address => "Monticello, VA",
+					  :official_id => President.id,
             :password => "foobar",
             :password_confirmation => "foobar")
 
@@ -62,6 +79,7 @@ AJack = User.create!(
             :email => "manifestdestiny@gmail.com",
             :birthdate => "2012-10-31",
             :address => "Midwestville, OH",
+					  :official_id => President.id,
             :password => "foobar",
             :password_confirmation => "foobar")
 
@@ -70,6 +88,7 @@ JKenn = User.create!(
             :email => "telepresence@gmail.com",
             :birthdate => "2012-10-31",
             :address => "Hoboken, NJ",
+					  :official_id => President.id,
             :password => "foobar",
             :password_confirmation => "foobar")
 
@@ -78,8 +97,27 @@ BFrank = User.create!(
               :email => "kitesintherain@gmail.com",
               :birthdate => "2012-10-31",
               :address => "Newsberg, MA",
+					    :official_id => President.id,
               :password => "foobar",
               :password_confirmation => "foobar")
+
+TestUser = User.create!(
+              :name => "Test User",
+              :email => "test@user.com",
+              :birthdate => "2012-10-31",
+              :address => "Newsberg, MA",
+              :password => "foobar",
+              :password_confirmation => "foobar")
+
+TestOfficial = User.create!(
+              :name => "Test Official",
+              :email => "test@official.com",
+              :birthdate => "2012-10-31",
+              :address => "Newsberg, MA",
+					    :official_id => President.id,
+              :password => "foobar",
+              :password_confirmation => "foobar")
+
 
 Bottom = Question.create!({
                   :user => JKenn,
@@ -95,7 +133,7 @@ Bottom = Question.create!({
 Q1 = Question.create!({
               :user => AbrahamLincoln,
               :user_id => AbrahamLincoln.id,
-					    :official_id => President.id,
+					    :official_id => Mayor.id,
               :body => "Does my tophat make me look too tall?",
               :title => "A Question About Tophats?",
               :upCache => 0,
@@ -106,7 +144,7 @@ Q1 = Question.create!({
 Q2 = Question.create!({
               :user => BFrank,
               :user_id => BFrank.id,
-					    :official_id => President.id,
+					    :official_id => Rep.id,
               :body => "Not to be snob, but my face is featured on the largest bill.",
               :title => "How many of you have your face on money?",
               :upCache => 0,
@@ -128,7 +166,7 @@ Question.create!({
 Top = Question.create!({
               :user => AJack,
               :user_id => AJack.id,
-					    :official_id => President.id,
+					    :official_id => Mayor.id,
               :body => "How many of you would like to live on the Pacific?",
               :title => "Manifest Destiny",
               :upCache => 4,
@@ -139,7 +177,7 @@ Top = Question.create!({
 Q4 = Question.create!({
               :user => Ted,
               :user_id => Ted.id,
-					    :official_id => President.id,
+					    :official_id => Rep.id,
               :body => "Which superpowers would you look out for?",
               :title => "Foreign Policy Help!",
               :upCache => 3,
