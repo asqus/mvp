@@ -14,6 +14,9 @@
       <% end %>
 
     <% end %>
+    <h3>
+      <%= official.position %>
+    </h3>
     <div class="o_name"><%= official.name %></div>
     <div class="o_email"><%= link_to official.email, "mailto:"+official.email %></div>
   </div>
@@ -32,6 +35,9 @@
         <div class="o_picture"><%= image_tag "fb_user.png" %></div>
       <% end %>
     <% end %>
+    <h3>
+      <%= official.position %>
+    </h3>
     <div class="o_name"><%= official.name %></div>
     <div class="o_email"><%= link_to official.email, "mailto:"+official.email %></div>
   </div>
@@ -44,6 +50,9 @@
     <%= link_to official do %>
     <div class="o_picture"><%= image_tag "fb_user.png" %></div>
     <% end %>
+    <h3>
+      <%= official.position %>
+    </h3>
     <div class="o_name"><%= official.name %></div>
     <div class="o_email"><%= link_to official.email, "mailto:"+official.email %></div>
   </div>
