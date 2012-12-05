@@ -269,15 +269,9 @@ Bottom = Question.create!({
 					        :official_id => President.id,
                   :body => "I think America should choose!",
                   :title => "Blondes or Brunettes?",
-<<<<<<< HEAD
                   :up_cache => 0,
                   :down_cache => 4,
                   :rank_value => -4
-=======
-                  :upcache => 0,
-                  :downcache => 4,
-                  :rankvalue => -4
->>>>>>> 1730b32b7777f33f549f796420236dba03138b4d
                   })
 
 Q1 = Question.create!({
@@ -286,15 +280,9 @@ Q1 = Question.create!({
 					    :official_id => Mayor.id,
               :body => "Does my tophat make me look too tall?",
               :title => "A Question About Tophats?",
-<<<<<<< HEAD
               :up_cache => 0,
               :down_cache => 0,
               :rank_value => 0
-=======
-              :upcache => 0,
-              :downcache => 0,
-              :rankvalue => 0
->>>>>>> 1730b32b7777f33f549f796420236dba03138b4d
               })
 
 Q2 = Question.create!({
@@ -303,15 +291,9 @@ Q2 = Question.create!({
 					    :official_id => Rep.id,
               :body => "Not to be snob, but my face is featured on the largest bill.",
               :title => "How many of you have your face on money?",
-<<<<<<< HEAD
               :up_cache => 0,
               :down_cache => 0,
               :rank_value => 0
-=======
-              :upcache => 0,
-              :downcache => 0,
-              :rankvalue => 0
->>>>>>> 1730b32b7777f33f549f796420236dba03138b4d
               })
 
 Question.create!({
@@ -320,15 +302,9 @@ Question.create!({
 				:official_id => President.id,
         :body => "What do they look like??",
         :title => "Advice on identifying Red Coats",
-<<<<<<< HEAD
         :up_cache => 0,
         :down_cache => 0,
         :rank_value => 0
-=======
-        :upcache => 0,
-        :downcache => 0,
-        :rankvalue => 0
->>>>>>> 1730b32b7777f33f549f796420236dba03138b4d
         })
 
 Top = Question.create!({
@@ -337,15 +313,9 @@ Top = Question.create!({
 					    :official_id => Mayor.id,
               :body => "How many of you would like to live on the Pacific?",
               :title => "Manifest Destiny",
-<<<<<<< HEAD
               :up_cache => 4,
               :down_cache => 0,
               :rank_value => 4
-=======
-              :upcache => 4,
-              :downcache => 0,
-              :rankvalue => 4
->>>>>>> 1730b32b7777f33f549f796420236dba03138b4d
               })
 
 Q4 = Question.create!({
@@ -354,15 +324,9 @@ Q4 = Question.create!({
 					    :official_id => Rep.id,
               :body => "Which superpowers would you look out for?",
               :title => "Foreign Policy Help!",
-<<<<<<< HEAD
               :up_cache => 3,
               :down_cache => 0,
               :rank_value => 3
-=======
-              :upcache => 3,
-              :downcache => 0,
-              :rankvalue => 3
->>>>>>> 1730b32b7777f33f549f796420236dba03138b4d
               })
 
 Q5 = Question.create!({
@@ -371,7 +335,6 @@ Q5 = Question.create!({
 					    :official_id => President.id,
               :body => "I personally believe that we need more public computers",
               :title => "What change would you like to see in your community?",
-<<<<<<< HEAD
               :up_cache => 2,
               :down_cache => 0,
               :rank_value => 2
@@ -386,11 +349,6 @@ Q3 = Question.create!({
               :up_cache => 6,
               :down_cache => 0,
               :rank_value => 6
-=======
-              :upcache => 2,
-              :downcache => 0,
-              :rankvalue => 2
->>>>>>> 1730b32b7777f33f549f796420236dba03138b4d
               })
 
 UqRelation.create!({
