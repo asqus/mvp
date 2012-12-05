@@ -20,47 +20,47 @@ AgreeScale =
   )
 
 President = Official.create!(
-                      :name => "George W Bush",
-                      :email => "gbush@whitehouse.gov",
+                      :name => "Barack Obama",
+                      :email => "obama@whitehouse.gov",
                       :district_id => 3,
                       :position => "President of the United States")
 
 Rep = Official.create!(
-                      :name => "State Rep",
-                      :email => "state@rep.gov",
+                      :name => "Jase Bolger",
+                      :email => "jbolger@mi.gov",
                       :district_id => 2,
-                      :position => "State Rep of 53rd District")
+                      :position => "Representative")
 Official.create!(
-                      :name => "State Rep2",
-                      :email => "state@rep2.gov",
+                      :name => "Justin Amash",
+                      :email => "jamash@mi.gov",
                       :district_id => 2,
-                      :position => "State Rep of 53rd District")
+                      :position => "Representative")
 Official.create!(
-                      :name => "State Rep3",
-                      :email => "state@rep3.gov",
+                      :name => "Dan Benishek",
+                      :email => "dbenishek@mi.gov",
                       :district_id => 2,
-                      :position => "State Rep of 53rd District")
+                      :position => "Representative")
 
 Mayor = Official.create!(
                       :name => "John Hiefjte",
-                      :email => "hiefjte@a2.gov",
+                      :email => "hiefjte@a2gov.org",
                       :district_id => 1,
-                      :position => "Mayor of the Ann Arbor")
+                      :position => "Mayor of Ann Arbor")
 Official.create!(
-                      :name => "John Hiefjte2",
-                      :email => "hiefjte@a22.gov",
+                      :name => "Sabra Biere",
+                      :email => "sabra.briere@A2gov.org",
                       :district_id => 1,
-                      :position => "Mayor of the Ann Arbor")
+                      :position => "Ann Arbor City Council Member Ward 1")
 Official.create!(
-                      :name => "John Hiefjte3",
-                      :email => "hiefjte@a23.gov",
+                      :name => "Sumi Kailasapathy",
+                      :email => "Skailasapathy@a2gov.org",
                       :district_id => 1,
-                      :position => "Mayor of the Ann Arbor")
+                      :position => "Ann Arbor City Council Member Ward 1")
 Official.create!(
-                      :name => "John Hiefjte4",
-                      :email => "hiefjte@a24.gov",
+                      :name => "Stephen Kunselman",
+                      :email => "Skunselman@a2gov.org",
                       :district_id => 1,
-                      :position => "Mayor of the Ann Arbor")
+                      :position => "Ann Arbor City Council Member Ward 3")
 
 Senator = Official.create!(
                       :name => "Carl Levin",
@@ -176,7 +176,7 @@ U7 = User.create!(
               :password_confirmation => "foobar")
 
 AbrahamLincoln = User.create(
-                      :name => "Abraham Lincoln",
+                      :name => "Jack Kennedy",
                       :email => "proclamation@gmail.com",
                       :birthdate => "1814-12-20",
                       :address => "Smallville, IL",
@@ -185,7 +185,7 @@ AbrahamLincoln = User.create(
                       :password_confirmation => "foobar")
 
 GWash = User.create!(
-            :name => "George Washington",
+            :name => "Denard Robinson",
             :email => "revolution@gmail.com",
             :birthdate => "2012-10-31",
             :address => "New York, NY",
@@ -194,7 +194,7 @@ GWash = User.create!(
             :password_confirmation => "foobar")
 
 Ted = User.create!(
-          :name => "Theodore Roosevelt",
+          :name => "Sally Poulson",
           :email => "bigstick@gmail.com",
           :birthdate => "2012-10-31",
           :address => "Atlanta, GA",
@@ -203,7 +203,7 @@ Ted = User.create!(
           :password_confirmation => "foobar")
 
 TJeff = User.create!(
-            :name => "Thomas Jefferson",
+            :name => "Thomas Gordon",
             :email => "scribedude@gmail.com",
             :birthdate => "2012-10-31",
             :address => "Monticello, VA",
@@ -212,7 +212,7 @@ TJeff = User.create!(
             :password_confirmation => "foobar")
 
 AJack = User.create!(
-            :name => "Andrew Jackson",
+            :name => "Andrew Brown",
             :email => "manifestdestiny@gmail.com",
             :birthdate => "2012-10-31",
             :address => "Midwestville, OH",
@@ -221,7 +221,7 @@ AJack = User.create!(
             :password_confirmation => "foobar")
 
 JKenn = User.create!(
-            :name => "John F. Kennedy",
+            :name => "Johnny Troll",
             :email => "telepresence@gmail.com",
             :birthdate => "2012-10-31",
             :address => "Hoboken, NJ",
@@ -230,7 +230,7 @@ JKenn = User.create!(
             :password_confirmation => "foobar")
 
 BFrank = User.create!(
-              :name => "Benjamin Franklin",
+              :name => "Benjamin Nolan",
               :email => "kitesintherain@gmail.com",
               :birthdate => "2012-10-31",
               :address => "Newsberg, MA",
@@ -267,8 +267,8 @@ Bottom = Question.create!({
                   :user => JKenn,
                   :user_id => JKenn.id,
 					        :official_id => President.id,
-                  :body => "I think America should choose!",
-                  :title => "Blondes or Brunettes?",
+                  :body => "The hope is that posts that are intentially malicious will be downvoted and receive less exposure.",
+                  :title => "Troll Post Example",
                   :up_cache => 0,
                   :down_cache => 4,
                   :rank_value => -4
@@ -344,7 +344,7 @@ Q3 = Question.create!({
               :user => JSU,
               :user_id => JSU.id,
               :official_id => Governor.id,
-              :body => ActiveRecord::Base.connection.quote("Doesn't our state have enough to deal with?"),
+              :body => "Does our state not have enough to deal with?",
               :title => "Why do we need a new bridge to Canada now?",
               :up_cache => 6,
               :down_cache => 0,
@@ -518,3 +518,10 @@ P5 = Poll.create!({ :user => Debbie,
           :title => "Do you support CISPA?",
           :poll_options_set_id => YesOrNo.id
           })
+
+(Poll.first.id).times { |i|
+  50.times{ |j|
+    v = rand(PollOptionsSet.find(Poll.find(i+1).poll_options_set_id).num_options)
+    a = UpRelation.create(:poll_id => i+1, :user_id => 100+j, :answer_value => v, :created_at => rand(30).days.ago)
+  }
+}
