@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   has_many :voted_questions, through: :uq_relations, source: :question
   has_many :up_relations, dependent: :destroy
   has_many :voted_polls, through: :up_relations, source: :poll
-
+  has_many :polls
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token

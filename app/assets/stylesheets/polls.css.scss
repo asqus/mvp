@@ -14,10 +14,6 @@
   box-shadow:  3px 3px 15px 1px ;
 }
 
-.new_poll {
-  margin-top: 30px;
-}
-
 .p_form_title {
   height: 60px;
 }
@@ -62,8 +58,16 @@
   border-radius: 10px;
 }
 
-.poll_list {
+.polls_list {
+  position: relative;
   margin-bottom: 200px;
+}
+
+.p_new {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right:10px;
 }
 
 .p_block {

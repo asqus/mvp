@@ -1,5 +1,9 @@
-<h1>New poll</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', polls_path %>
+<div class="p_form_block">
+  <% if params[:office] %>
+    <% @office = Official.find(params[:office]) %> 
+    <h1>Create a new poll</h1>
+    <%= render 'form' %>
+  <% else %>
+    <h1>No rep selected!</h1>
+  <% end %>
+</div>

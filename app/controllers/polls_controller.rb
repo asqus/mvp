@@ -43,15 +43,15 @@ class PollsController < ApplicationController
   # POST /polls.json
   def create
     @poll = Poll.new(params[:poll])
-    #@poll = current_user.polls.build(params[:poll])
-    @poll.user = current_user
+    @poll = current_user.polls.build(params[:poll])
+    @poll.official_id = current_user.official_id
     respond_to do |format|
       if @poll.save
-        format.html { redirect_to @poll, notice: 'Poll was successfully created.' }
+        format.html { redirect_to @poll }
         format.json { render json: @poll, status: :created, location: @poll }
       else
         format.html { render action: "new" }
-        format.json { render json: @poll.errors, status: :unprocessable_entity }
+        format.json { render json: @poll.errors }
       end
     end
   end

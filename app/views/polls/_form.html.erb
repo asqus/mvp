@@ -10,14 +10,17 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :title %><br />
+  </br>
+  <div class="field p_form_title">
+    <%= f.label "Title:" %>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+  <div class="field p_form_body">
+    <%= f.label "Body:" %>
+    <%= f.text_area(:body, :rows => 15) %>
   </div>
+  <div class="field">
+  <%= f.select(:poll_options_set_id, PollOptionsSet.all.collect {|p| [ p.set_type, p.id ] }, {:include_blank => true}) %>
   <div class="actions">
     <%= f.submit %>
   </div>
