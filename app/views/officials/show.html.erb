@@ -21,8 +21,9 @@
       <b>Email:</b>
       <%= @official.email %>
     </p>
-
-    <%= link_to 'Ask Question', new_question_path({ :office => @official.id }), :class => 'btn btn-primary' %>
+    <% if (current_user.official_id != @official.id) %>
+      <%= link_to 'Ask Question', new_question_path({ :office => @official.id }), :class => 'btn btn-primary' %>
+    <% end %>
   </div>
   <div class="span8 questionList">
     <% if @official.questions.any? %>

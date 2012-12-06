@@ -24,9 +24,10 @@
       <%= @user.birthdate %>
     </p>
 
-    <%= link_to 'Ask Question', new_question_path({ :office => @user.name }), :class => 'btn btn-primary' %>
-    <%= link_to 'Edit', edit_user_path(@user) %> |
-    <%= link_to 'Back', users_path %>
+    <% if(current_user.id == @user.id) %>
+      <%= link_to 'Edit', edit_user_path(@user) %>
+    <% end %>
+
   </div>
   <div class="span8 questionList">
     <% if @user.questions.any? %>
