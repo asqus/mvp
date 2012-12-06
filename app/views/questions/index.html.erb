@@ -18,9 +18,38 @@
 <%= link_to 'New Question', new_question_path, :class => 'btn btn-large btn-primary' %>
 
 <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fapps.facebook.com%2Fasqus-mvp%2F&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=80&amp;appId=264822796973610" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px; float:right;" allowTransparency="true"></iframe>
+<body>
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '264822796973610', // App ID
+        status     : true, // check login status
+        cookie     : true, // enable cookies to allow the server to access the session
+        xfbml      : true  // parse XFBML
+      });
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+  </script>
+
+  <fb:login-button show-faces="true" width="200" max-rows="1" scope="publish_actions">
+  </fb:login-button>
+
+  
+</body>
+
 
 </div>
 <div class="clear"></div>
+
+
 <% else %>
 
 <p>Sign using one of these services:</p>
@@ -42,3 +71,5 @@
   <br />
   </div>
 <% end %>
+
+

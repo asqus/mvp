@@ -1,3 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US"
+      xmlns:fb="https://www.facebook.com/2008/fbml"> 
+<head prefix="og: http://ogp.me/ns# asqus-mvp: 
+                  http://ogp.me/ns/apps/asqus-mvp#">
+  <title>OG Tutorial App</title>
+  <meta property="fb:app_id" content="264822796973610" /> 
+  <meta property="og:type" content="asqus-mvp:question" /> 
+  <meta property="og:title" content="A single question" /> 
+  <meta property="og:image" content="http://fbwerks.com:8000/zhen/cookie.jpg" /> 
+  <meta property="og:description" content="Taken from body/title of question" /> 
+  <meta property="og:url" content="http://polar-reaches-7121.herokuapp.com/questions/8">
+
+  <script type="text/javascript">
+  function postQuestion()
+  {
+      FB.api(
+        '/me/asqus-mvp:ask',
+        'post',
+        { question: 'http://polar-reaches-7121.herokuapp.com/questions/8' },
+        function(response) {
+           if (!response || response.error) {
+              alert('Error occured');
+           } else {
+              alert('Cook was successful! Action ID: ' + response.id);
+           }
+        });
+  }
+  </script>
+</head>
+<body>
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '264822796973610', // App ID
+        status     : true, // check login status
+        cookie     : true, // enable cookies to allow the server to access the session
+        xfbml      : true  // parse XFBML
+      });
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+  </script>
+
+  
+
+  <br>
+  <form>
+    <input type="button" value="Ask On Facebook!" onclick="postQuestion()" />
+  </form>
+</body>
+
+
+
+
+<!-- __________________________________________________________
+_______________________________________________________________
+_______________________________________________________________ -->
 <p id="notice"><%= notice %></p>
 
 <div class="q_block">
@@ -43,9 +107,4 @@
 
 <%= render :partial => "comments/new", :locals => { :commentable => @question }%><br/>
 
-    <meta property="fb:app_id"      content="264822796973610" />
-    <meta property="og:type"        content="asqus-mvp:question" />
-    <meta property="og:url"         content="http://localhost:3000/questions/1" />
-    <meta property="og:title"       content="questiontest" />
-    <meta property="og:description" content="questiontest" />
-    <meta property="og:image"       content="localhost:3000" />
+</html>
