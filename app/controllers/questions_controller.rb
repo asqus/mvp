@@ -48,7 +48,8 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(params[:question])
     @question.up_cache = 0
     @question.down_cache = 0
-    @question.rank_value = 0
+    @question.calcRank
+    @question.calcControversy
     
     respond_to do |format|
       if @question.save
@@ -80,6 +81,9 @@ class QuestionsController < ApplicationController
   def reorder
     if (params[:state] == '1')
       @questionList = Question.order('rank_value DESC')
+    elsif(params[:state] == '2')
+      questions = Question.all
+      @questionList = Question.order('controversy_value DESC')
     else
       @questionList = Question.order('created_at DESC')
     end

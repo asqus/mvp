@@ -13,6 +13,7 @@ class UqRelationsController < ApplicationController
     @question.update_attributes(:up_cache => @question.up_cache, :down_cache => @question.down_cache)
 
     @question.calcRank
+    @question.calcControversy
 
     respond_to do |format|
       format.html { redirect_to questions_path }
@@ -30,6 +31,7 @@ class UqRelationsController < ApplicationController
     @question.update_attributes(:up_cache => @question.up_cache, :down_cache => @question.down_cache)
 
     @question.calcRank
+    @question.calcControversy
 
     respond_to do |format|
       format.html { redirect_to questions_path }
@@ -49,7 +51,8 @@ class UqRelationsController < ApplicationController
     @question.update_attributes(:up_cache => @question.up_cache, :down_cache => @question.down_cache)
     
     @question.calcRank
-
+    @question.calcControversy
+    
     @uq.destroy
 
     respond_to do |format|

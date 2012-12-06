@@ -160,3 +160,24 @@
   width:32px;
   height:32px;
 }
+
+.q_sort_menu {
+  position: fixed;
+  background: white; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding: 10px;
+  margin: 10px;
+  top: 30%;
+  left: 0%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow:  3px 3px 15px 1px ;
+  box-shadow:  3px 3px 15px 1px ;
+}
+
+.q_sort{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
