@@ -78,15 +78,17 @@ _______________________________________________________________ -->
       <%= Official.find(@question.official_id).position %>
       <% end %>
   </div>
+  <% if (current_user.official_id == @question.official_id) %>
+  <div class="q_respond">
+    <%= link_to 'Respond', new_response_path(:questionID => @question), :class => "btn btn-primary" %>
+  </div>
+  <% end %>
 </div>
 
 <div class="q_buttons">
 <% if current_user == @question.user %>
   <div class="q_buttons_edit btn">
   <%= link_to 'Edit', edit_question_path(@question) %>
-  </div>
-  <div class="q_buttons_destroy btn btn-danger">
-  <%= link_to 'Destroy', @question, confirm: 'Are you sure?', method: :delete %>
   </div>
 <% end %>
   <div class="q_buttons_back btn">

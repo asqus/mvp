@@ -102,9 +102,10 @@
 
 .q_asked_to{
   position: absolute;
-  float: left;
+  left: 0;
   margin-left: 60px;
-  bottom: 10px;
+  bottom: 0;
+  margin-bottom: 10%;
 }
 
 .q_edit_block{
@@ -177,7 +178,15 @@
   box-shadow:  3px 3px 15px 1px ;
 }
 
-.q_sort{
+.q_sort {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.q_respond {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 2%;
+  margin-bottom: 10%;
 }
