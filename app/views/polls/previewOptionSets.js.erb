@@ -1,5 +1,28 @@
 <% if(@pos) %>
-  $("#preview").html("<%= escape_javascript(render 'previewPOS', pos: @pos) %>");
+  $("#preview").html("<%= escape_javascript(render 'previewPOS', pos: @pos) %>")
+  $("#previewChart").removeClass("p_chart_hidden")
+  $("#previewChart").addClass("p_chart_show")
+  $("#previewChart").empty()
+  var data = [];
+  <% optionSet = ActiveSupport::JSON.decode(PollOptionsSet.find(@pos).options) %>
+  <% optionSet.each do |key, value| %>
+    data.push(['<%= value %>',<%=Random.rand(25)%>])
+  <% end %>
+  var plot1 = jQuery.jqplot ('previewChart', [data], { 
+    seriesDefaults: {
+      // Make this a pie chart.
+      renderer: jQuery.jqplot.PieRenderer, 
+      rendererOptions: {
+        // Put data labels on the pie slices.
+        // By default, labels show the percentage of the slice.
+        showDataLabels: true
+      }
+    }, 
+    legend: { show:true, location: 'e' }
+  });
 <% else %>
   $("#preview").empty()
+  $("#previewChart").empty()
+  $("#previewChart").removeClass("p_chart_show")
+  $("#previewChart").addClass("p_chart_hidden")
 <% end %>
