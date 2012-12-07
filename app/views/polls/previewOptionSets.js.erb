@@ -1,0 +1,5 @@
+<% if(@pos) %>
+  $("#preview").html("<%= escape_javascript(render 'previewPOS', pos: @pos) %>");
+<% else %>
+  $("#preview").empty()
+<% end %>

@@ -9,6 +9,7 @@ Mvp::Application.routes.draw do
 
   resources :votes
 
+  get 'polls/update_btns'
   resources :polls do
     resources :comments, only: [:create], :constraint => {:context_type => "polls"}
   end

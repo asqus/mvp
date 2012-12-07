@@ -19,8 +19,15 @@
     <%= f.label "Body:" %>
     <%= f.text_area(:body, :rows => 15) %>
   </div>
-  <div class="field">
-  <%= f.select(:poll_options_set_id, PollOptionsSet.all.collect {|p| [ p.set_type, p.id ] }, {:include_blank => true}) %>
+  <div id="option_selector" class="field">
+  <%= f.label "Poll Options:" %>
+  <%= f.select(:poll_options_set_id, PollOptionsSet.all.collect {|p| [ p.set_type, p.id ] },{:include_blank => true,}, 
+    {:data => {
+        :remote => true,
+        :url => url_for(:controller => "polls", :action => "update_btns")}
+      }) %>
+  </div>
+  <div id="preview"></div>
   <div class="actions">
     <%= f.submit %>
   </div>

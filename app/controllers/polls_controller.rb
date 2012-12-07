@@ -72,6 +72,16 @@ class PollsController < ApplicationController
     end
   end
 
+  def update_btns
+    if(params[:poll][:poll_options_set_id] != "")
+      @pos = PollOptionsSet.find(params[:poll][:poll_options_set_id])
+    end
+    respond_to do |format|
+      format.html
+      format.js { render "previewOptionSets"}
+    end
+  end
+
   # DELETE /polls/1
   # DELETE /polls/1.json
   def destroy
