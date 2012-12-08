@@ -1,3 +1,55 @@
+<% content_for :head do %>
+  <title>Population Density</title>
+  
+  <%= javascript_include_tag "polymaps" %>
+
+ 
+  <style type="text/css">
+
+@import url("example.css");
+@import url("population.css");
+
+body {
+  background: #E6E6E6;
+}
+
+.layer path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+#county path {
+  stroke: rgb(192, 192, 192);
+  stroke-opacity: .25;
+  shape-rendering: crispEdges;
+}
+
+#state path {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+#copy {
+  color: #000;
+  opacity: .5;
+}
+
+#copy a {
+  color: #000;
+}
+
+    </style>
+  
+<% end %>
+
+<body id="map">
+   <%= javascript_include_tag "population" %>
+   
+
+</body>
+<b>Map should be above this</b>
+
+
 <div class="polls_list">
 <h1>Listing polls</h1>
 <% @polls.each do |poll| %>
