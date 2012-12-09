@@ -51,7 +51,7 @@ body {
 
 
 <div class="polls_list">
-<h1>Listing polls</h1>
+<h1>Your Recent Polls</h1>
 <% @polls.each do |poll| %>
   <% @official = Official.find(poll.official_id) %>
   <% if @official.district_id == 3 %>

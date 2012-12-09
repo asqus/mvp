@@ -3,22 +3,43 @@
 .nav_logo {
   font-size: 20px;
   color: white;
-  width: 300px;
   float: left;
-  padding-top: 10px;
+  padding-top: 5px;
+  width: 350px;
+}
+.nav_logo a{
+  padding-left: 10px;
+}
+
+.nav_logo_text {
+  bottom: 12px;
+  position: absolute;
+  padding-left: 75px;
+}
+.nav_logo_image {
+  float: left;
+}
+.nav_logo_image img{
+  height: 30px;
 }
 
 .nav_logo a {
   color: white;
 }
 
+.nav {
+  margin-top: 5px;
+  font-size: 15px;
+}
+
 body {
   padding-top: 100px;
+  background: rgb(226, 248, 255);
 }
 
 #u_picture {
   position: fixed;
-  bottom: -21px;
+  bottom: 0px;
   width: 250px;
   right: 0px;
   z-index: -40;
