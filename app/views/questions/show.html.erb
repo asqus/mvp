@@ -4,10 +4,10 @@
   
   <meta property="fb:app_id" content="264822796973610" /> 
   <meta property="og:type" content="asqus-mvp:question" /> 
-  <meta property="og:title" content="A single question" /> 
-  <meta property="og:image" content="http://fbwerks.com:8000/zhen/cookie.jpg" /> 
-  <meta property="og:description" content="Taken from body/title of question" /> 
-  <meta property="og:url" content="http://polar-reaches-7121.herokuapp.com/questions/8" />
+  <meta property="og:title" content="<%= @question.title %>" /> 
+  <meta property="og:image" content="asquslogo.jpg" /> 
+  <meta property="og:description" content="<%= @question.body %>" /> 
+  <meta property="og:url" content="http://polar-reaches-7121.herokuapp.com/questions/<%= @question.id %>" />
 <% end %>
 
 

@@ -50,6 +50,9 @@
 
 
 <% else %>
+<% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+<% end %>
 
 <p>Sign using one of these services:</p>
   <div class="social_sign_in">
