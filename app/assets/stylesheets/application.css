@@ -83,7 +83,7 @@
 }
 
 
-#county\:26001,#county\:26002,#county\:26003,#county\:26004,#county\:26005,
+/*#county\:26001,#county\:26002,#county\:26003,#county\:26004,#county\:26005,
 #county\:26006,#county\:26007,#county\:26008,#county\:26009,#county\:26010,#county\:26011,
 #county\:26012,#county\:26013,#county\:26014,#county\:26015,#county\:26016,#county\:26017,
 #county\:26018,#county\:26019,#county\:26020,#county\:26021,#county\:26022,#county\:26023,
@@ -112,8 +112,8 @@
 #county\:26153,#county\:26154,#county\:26155,#county\:26156,#county\:26157,#county\:26158,
 #county\:26159,#county\:26160,#county\:26161,#county\:26162,#county\:26163,#county\:26164,
 #county\:26165{fill:#49006A}
-
-html, body {
+*/
+/*html, body {
   height: 100%;
 }
 
@@ -182,3 +182,4 @@ svg {
 .compass.active .active .direction {
   fill: #999;
 }
+*/
