@@ -1,0 +1,5 @@
+$("option").last().remove()
+$("select").append('<option value="'+<%=@poll_options_set.id%>+'">'+'<%=@poll_options_set.set_type%>'+'</option>')
+$("select").append('<option value="-1">create new poll options set</option>')
+$("select").val(0)
+$("#newPOS").empty()

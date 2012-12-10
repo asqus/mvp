@@ -20,14 +20,15 @@
     <%= f.text_area(:body, :rows => 15) %>
   </div>
   <div id="option_selector" class="field">
-  <%= f.label "Poll Options:" %>
-  <%= f.select(:poll_options_set_id, PollOptionsSet.all.collect {|p| [ p.set_type, p.id ] },{:include_blank => true,}, 
-    {:data => {
-        :remote => true,
-        :url => url_for(:controller => "polls", :action => "update_btns")}
-      }) %>
+    <%= f.label "Poll Options:" %>
+    <%= f.select(:poll_options_set_id, PollOptionsSet.all.collect {|p| [ p.set_type, p.id ] }  + [ [ 'create new poll options set', -1 ] ],{:include_blank => true,}, 
+      {:data => {
+          :remote => true,
+          :url => url_for(:controller => "polls", :action => "update_btns")}
+        }) %>
   </div>
-  <div id="preview"></div>
+  <div id="newPOS"></div>
+  <div id="previewBtns"></div>
   <div id="previewChart" class="p_chart_hidden"></div>
   <div class="actions">
     <%= f.submit %>

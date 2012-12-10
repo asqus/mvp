@@ -1,12 +1,19 @@
-<% if(@pos) %>
-  $("#preview").html("<%= escape_javascript(render 'previewPOS', pos: @pos) %>")
+<% if(@pos == -1) %>
+  $("#previewBtns").empty()
+  $("#previewChart").empty()
+  $("#previewChart").removeClass("p_chart_show")
+  $("#previewChart").addClass("p_chart_hidden")
+  $("#newPOS").html("<%= escape_javascript(render 'poll_options_sets/new_partial') %>")
+<% elsif (@pos) %>
+  $("#previewBtns").html("<%= escape_javascript(render 'previewPOS', pos: @pos) %>")
   $("#previewChart").removeClass("p_chart_hidden")
   $("#previewChart").addClass("p_chart_show")
   $("#previewChart").empty()
+  $("#newPOS").empty()
   var data = [];
   <% optionSet = ActiveSupport::JSON.decode(PollOptionsSet.find(@pos).options) %>
   <% optionSet.each do |key, value| %>
-    data.push(['<%= value %>',<%=Random.rand(25)%>])
+    data.push(['<%= value %>',<%=Random.rand(15) + 3%>])
   <% end %>
   var plot1 = jQuery.jqplot ('previewChart', [data], { 
     seriesDefaults: {
@@ -21,8 +28,9 @@
     legend: { show:true, location: 'e' }
   });
 <% else %>
-  $("#preview").empty()
+  $("#previewBtns").empty()
   $("#previewChart").empty()
   $("#previewChart").removeClass("p_chart_show")
   $("#previewChart").addClass("p_chart_hidden")
+  $("#newPOS").empty()
 <% end %>

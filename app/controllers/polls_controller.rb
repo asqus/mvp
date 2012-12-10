@@ -74,7 +74,11 @@ class PollsController < ApplicationController
 
   def update_btns
     if(params[:poll][:poll_options_set_id] != "")
-      @pos = PollOptionsSet.find(params[:poll][:poll_options_set_id])
+      if(params[:poll][:poll_options_set_id] == "-1")
+        @pos = -1
+      else
+        @pos = PollOptionsSet.find(params[:poll][:poll_options_set_id])
+      end
     end
     respond_to do |format|
       format.html
