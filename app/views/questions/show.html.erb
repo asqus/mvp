@@ -17,7 +17,7 @@
       FB.api(
         '/me/asqus-mvp:ask',
         'post',
-        { question: 'http://polar-reaches-7121.herokuapp.com/questions/8' },
+        { question: 'http://polar-reaches-7121.herokuapp.com/questions/<%= @question.id %>' },
         function(response) {
            if (!response || response.error) {
               alert('Error occured');
@@ -57,7 +57,7 @@
   </form>
 </body>
 
-
+<fb:like href="http://polar-reaches-7121.herokuapp.com/questions/<%= @question.id %>" send="true" width="450" show_faces="true"></fb:like>
 
 
 <!-- __________________________________________________________

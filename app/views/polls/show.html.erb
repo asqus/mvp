@@ -1,3 +1,13 @@
+<% content_for :head do %>
+  
+  <meta property="fb:app_id" content="264822796973610" /> 
+  <meta property="og:type" content="asqus-mvp:poll" /> 
+  <meta property="og:title" content="<%= @poll.title %>" /> 
+  <meta property="og:image" content="http://polar-reaches-7121.herokuapp.com/assets/asquslogo.jpg" /> 
+  <meta property="og:description" content="<%= @poll.body %>" /> 
+  <meta property="og:url" content="http://polar-reaches-7121.herokuapp.com/polls/<%= @poll.id %>" />
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <div class="p_title">
@@ -19,3 +29,23 @@
 <%= render :partial => "comments/new", :locals => { :commentable => @poll }%><br/>
 
 <%= link_to 'Back', polls_path %>
+
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '264822796973610', // App ID
+        status     : true, // check login status
+        cookie     : true, // enable cookies to allow the server to access the session
+        xfbml      : true  // parse XFBML
+      });
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+  </script>
+<fb:like href="http://polar-reaches-7121.herokuapp.com/polls/1" send="true" width="450" show_faces="false"></fb:like>
