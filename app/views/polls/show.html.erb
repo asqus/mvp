@@ -70,7 +70,7 @@
       FB.api(
         '/me/asqus-mvp:answer',
         'post',
-        { question: 'http://polar-reaches-7121.herokuapp.com/pollss/<%= @poll.id %>' },
+        { poll: 'http://polar-reaches-7121.herokuapp.com/pollss/<%= @poll.id %>' },
         function(response) {
            if (!response || response.error) {
               alert('Error occured');
