@@ -7,7 +7,7 @@
   <meta property="og:description" content="<%= @poll.body %>" /> 
   <meta property="og:url" content="http://polar-reaches-7121.herokuapp.com/polls/<%= @poll.id %>" />
 <% end %>
-
+<% if current_user %>
 <p id="notice"><%= notice %></p>
 
 <div class="p_title">
@@ -49,3 +49,28 @@
     }(document));
   </script>
 <fb:like href="http://polar-reaches-7121.herokuapp.com/polls/1" send="true" width="450" show_faces="false"></fb:like>
+
+<% else %>
+<% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<p>Sign using one of these services:</p>
+  <div class="social_sign_in">
+  <a href="/auth/twitter" class="auth_provider">
+  <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %></a>
+<a href="/auth/facebook" class="auth_provider">
+  <%= image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook" %></a>
+  </div>
+  <div class="other_sign_in">
+<p> Don't use these services? <p>
+<%= link_to "Sign In", new_session_path %>
+  </div>
+
+  <div class="new_sign_in">
+<p> New user? <p>
+  <%= link_to "Sign Up", new_user_path %>
+  </div>
+  <br />
+  </div>
+<% end %>
