@@ -1,11 +1,11 @@
-<div data-role="footer" data-position="fixed">
+<div data-role="footer" >
   <div data-role="navbar">
     <% @relation = current_user.uq_relations.find_or_create_by_question_id(params[:id]) %>
     <% @question = Question.find(params[:id]) %>
     <ul>
       <% if @relation.yaynay == true %>
         <li>
-          <%= link_to uq_relation_path(@relation, :uq_relation => "true"), :method => :put, :remote=>true, :class=>'upvote_question btn' do %>
+          <%= link_to uq_relation_path(@relation, :yaynay_opinion => "true"), :method => :put, :remote=>true, :class=>'upvote_question btn' do %>
           <%= image_tag "images/arrows/up-fill.gif", :size => "50x50", :alt => "up_arrow"%>     
           <% end %>
         </li>
@@ -20,7 +20,7 @@
 
       <% elsif @relation.yaynay == false%>
         <li>
-          <%= link_to uq_relation_path(@relation, :uq_relation => "true"), :method => :put, :remote=>true, :class=>'upvote_question btn' do %>
+          <%= link_to uq_relation_path(@relation, :yaynay_opinion => "true"), :method => :put, :remote=>true, :class=>'upvote_question btn' do %>
           <%= image_tag "images/arrows/up.gif", :size => "50x50", :alt => "up_arrow"%>     
           <% end %>
         </li>
@@ -35,7 +35,7 @@
 
       <% else %>
         <li>
-          <%= link_to uq_relation_path(@relation, :uq_relation => "true"), :method => :put, :remote=>true, :class=>'upvote_question btn' do %>
+          <%= link_to uq_relation_path(@relation, :yaynay_opinion => "true"), :method => :put, :remote=>true, :class=>'upvote_question btn' do %>
           <%= image_tag "images/arrows/up.gif", :size => "50x50", :alt => "up_arrow"%>     
           <% end %>
         </li>

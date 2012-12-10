@@ -3,11 +3,12 @@
     <% questions.each do |question| %>
       <li>
       <%= link_to question do %>
-        <div class="question_rating">
+        <div class="mobile_rating">
           <%= question.up_cache.to_i - question.down_cache.to_i %>
         </div>
-        <h2><%= question.title %></h2>
-        <h3>Asked by: <%= question.official.name %></h3>
+        <div class="mobile_title">
+          <%= question.title %>
+        </div>
       <% end %>
       </li>
     <% end %>

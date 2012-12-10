@@ -25,16 +25,20 @@ class UqRelationsController < ApplicationController
     @uq = UqRelation.find(params[:id])
     @question = Question.find(@uq.question_id)
     if(params[:uq_relation])
-      if(@uq.yaynay)
-        @uq.destroy
-      else
-        @uq.update_attributes(:yaynay => 'true')
-      end
+      @uq.update_attributes(params[:uq_relation])
     else
-      if(@uq.yaynay == false)
-        @uq.destroy
-      else 
-        @uq.update_attributes(:yaynay => 'false')
+      if(params[:yaynay_opinion])
+        if(@uq.yaynay)
+          @uq.destroy
+        else
+          @uq.update_attributes(:yaynay => 'true')
+        end
+      else
+        if(@uq.yaynay == false)
+          @uq.destroy
+        else 
+          @uq.update_attributes(:yaynay => 'false')
+        end
       end
     end
 

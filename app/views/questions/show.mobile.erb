@@ -100,9 +100,6 @@
   <%= link_to 'Edit', edit_question_path(@question) %>
   </div>
 <% end %>
-  <div class="m_buttons_back btn">
-  <%= link_to 'Back to questions', questions_path %>
-  </div>
 </div>
 
 <p>
@@ -120,7 +117,7 @@
 <%=render :partial => 'comments/index',:locals => {:commentable=> @question,:comments => @comments}%>
 </div>
 
-<%= render :partial => "comments/new", :locals => { :commentable => @question }%><br/>
+<%= render :partial => "comments/new", :locals => { :commentable => @question }%>
 
 
 
@@ -128,7 +125,7 @@
     <input type="button" value="Ask On Facebook!" onclick="postQuestion()" />
   </form>
 <div id="rating_footer">
-<%= render :partial => "ratingfooter", :locals => { :questionid => @question.id }%><br/>
+<%= render :partial => "ratingfooter", :locals => { :questionid => @question.id }%>
 </div>
 
 <% else %>

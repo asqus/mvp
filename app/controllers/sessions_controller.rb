@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in user
-      session[:mobylette_override] = nil
-#      session[:mobylette_override] = :force_mobile
+      session[:mobylette_override] = :force_mobile
       redirect_to user
     else
       flash.now[:error] = 'Invalid email/password combo'
