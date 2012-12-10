@@ -89,7 +89,7 @@ class QuestionsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { }
+      format.html {}
       format.js { render "rebuildMain" }
     end
   end

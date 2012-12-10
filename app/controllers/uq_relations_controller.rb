@@ -24,7 +24,19 @@ class UqRelationsController < ApplicationController
   def update
     @uq = UqRelation.find(params[:id])
     @question = Question.find(@uq.question_id)
-    @uq.update_attributes(params[:uq_relation])
+    if(params[:uq_relation])
+      if(@uq.yaynay)
+        @uq.destroy
+      else
+        @uq.update_attributes(:yaynay => 'true')
+      end
+    else
+      if(@uq.yaynay == false)
+        @uq.destroy
+      else 
+        @uq.update_attributes(:yaynay => 'false')
+      end
+    end
 
     @question.up_cache = UqRelation.where("yaynay = ? AND question_id = ?",true,@question.id).count
     @question.down_cache = UqRelation.where("yaynay = ? AND question_id = ?",false,@question.id).count
@@ -34,8 +46,9 @@ class UqRelationsController < ApplicationController
     @question.calcControversy
 
     respond_to do |format|
-      format.html { redirect_to questions_path }
-      format.js { render "render"}
+      #format.html { redirect_to questions_path }
+      format.js {render "render"}
+      format.mobile {render "render"}
     end
   end
 
@@ -60,4 +73,8 @@ class UqRelationsController < ApplicationController
       format.js { render "render"}
     end
   end
+
+
+
+
 end
