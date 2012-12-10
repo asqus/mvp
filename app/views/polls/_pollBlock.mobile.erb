@@ -1,0 +1,17 @@
+<div data-role="content">
+  <ul data-role="listview">
+    <% polls.each do |poll| %>
+      <li>
+      <%= link_to poll do %>
+        <div class="mobile_rating">
+		    <%= (UpRelation.where("updown = ? AND poll_id = ?", true, poll.id).count - 
+			    UpRelation.where("updown= ? AND poll_id = ?", false, poll.id).count) %>
+        </div>
+        <div class="mobile_title">
+          <%= poll.title %>
+        </div>
+      <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

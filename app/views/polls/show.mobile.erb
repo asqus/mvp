@@ -1,0 +1,132 @@
+<% content_for :head do %>
+  
+  <meta property="fb:app_id" content="264822796973610" /> 
+  <meta property="og:type" content="asqus-mvp:poll" /> 
+  <meta property="og:title" content="<%= @poll.title %>" /> 
+  <meta property="og:image" content="http://polar-reaches-7121.herokuapp.com/assets/asquslogo.jpg" /> 
+  <meta property="og:description" content="<%= @poll.body %>" /> 
+  <meta property="og:url" content="http://polar-reaches-7121.herokuapp.com/polls/<%= @poll.id %>" />
+
+  <meta name= "twitter:card" content="summary">
+  <meta name= "twitter:url" content="http://polar-reaches-7121.herokuapp.com/polls/<%= @poll.id %>" />
+<meta name= "twitter:title" content="<%= @poll.title %>" />
+<meta name= "twitter:description" content="<%= @poll.body %>" /> 
+<meta name= "twitter:image" content="http://polar-reaches-7121.herokuapp.com/assets/asquslogo.jpg" /> 
+
+<% end %>
+
+
+<% if current_user %>
+
+<script type="text/javascript">
+  console.log("cheers");
+  //$(document).on('pageinit', function(){
+  $(document).ready( function(){
+    $('.p_answer_option').on('ajax:success', function() {
+      //$("#rating_footer").html('<%= escape_javascript render( :partial => "questions/ratingfooter", :locals => {:question => @question } ) %>');
+      //$( "div[data-role=page]" ).page( "destroy" ).page();
+      //$("#rating_footer").trigger('create');
+      $.mobile.changePage(
+        window.location.href,
+        {
+          allowSamePageTransition : true,
+          transition              : 'none',
+          showLoadMsg             : false,
+          reloadPage              : true
+        }
+      );
+
+      //location.reload();
+    });
+  });
+</script>
+
+
+
+<p id="notice"><%= notice %></p>
+
+<div class="m_block">
+  <div class="m_title"><h1><%= @poll.title %></h1></div>
+  <div class="m_body"><h2><%= @poll.body %></h2></div>
+  <div id="answers" class="p_answer_set">
+    <%= render 'up_relations/renderPollAnswers', poll: @poll %>
+  </div>
+  <div id="chart" class="p_chart_hidden"></div>
+</div>
+
+<h1>Comments</h1>
+<div id="comments">
+<%=render :partial => 'comments/index',:locals => {:commentable=> @poll,:comments => @comments}%>
+</div>
+
+<%= render :partial => "comments/new", :locals => { :commentable => @poll }%><br/>
+
+
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '264822796973610', // App ID
+        status     : true, // check login status
+        cookie     : true, // enable cookies to allow the server to access the session
+        xfbml      : true  // parse XFBML
+      });
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+  </script>
+<fb:like href="http://polar-reaches-7121.herokuapp.com/polls/1" send="true" width="450" show_faces="false"></fb:like>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+
+<script type="text/javascript">
+  function postPoll()
+  {
+      FB.api(
+        '/me/asqus-mvp:answer',
+        'post',
+        { poll: 'http://polar-reaches-7121.herokuapp.com/polls/<%= @poll.id %>' },
+        function(response) {
+           if (!response || response.error) {
+              alert('Error occured');
+           } else {
+              alert('You successfully posted to Facebook! Action ID: ' + response.id);
+           }
+        });
+  }
+  </script>
+  <form>
+    <input type="button" value="Say you answered this on Facebook!" onclick="postPoll()" />
+  </form>
+
+
+<% else %>
+<% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<p>Sign using one of these services:</p>
+  <div class="social_sign_in">
+  <a href="/auth/twitter" class="auth_provider">
+  <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %></a>
+<a href="/auth/facebook" class="auth_provider">
+  <%= image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook" %></a>
+  </div>
+  <div class="other_sign_in">
+<p> Don't use these services? <p>
+<%= link_to "Sign In", new_session_path %>
+  </div>
+
+  <div class="new_sign_in">
+<p> New user? <p>
+  <%= link_to "Sign Up", new_user_path %>
+  </div>
+  <br />
+  </div>
+<% end %>

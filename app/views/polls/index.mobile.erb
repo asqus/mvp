@@ -1,0 +1,16 @@
+
+
+
+
+<div class="polls_list">
+
+<%= render 'pollBlock', :polls => @polls %>
+
+</div>
+
+
+<% if(current_user.official_id) %>
+<div class="p_new">
+  <%= link_to 'New Poll', new_poll_path({ :office => current_user.official_id }), :class => 'btn btn-large btn-primary' %>
+</div>
+<% end %>
