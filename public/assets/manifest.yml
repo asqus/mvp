@@ -19,7 +19,7 @@ rails.png: rails-be8732dac73d845ac5b142c8fb5f9fb0.png
 rick.jpg: rick-19c3c550d462870c16316f9fbf24e3b1.jpg
 twitter_32.png: twitter_32-d5ad07c40b2b038c8c99917c720060ed.png
 twitter_64.png: twitter_64-0a7235cee2916e0f1272efef8a1a641e.png
-application.js: application-4316f1113d23315ed6611576e778cfcd.js
+application.js: application-57c7648444d8ab48070ee0185e35aa78.js
 polymaps.js: polymaps-8b0af26277f0cd484aa3c8e4b5ca171f.js
 population.js: population-24e277fc4bc6d74dc057d7653ea8d680.js
 application.css: application-1ed2e988021c1d5c03159360290aacd9.css
@@ -31,5 +31,13 @@ jquery-mobile/icons-18-black.png: jquery-mobile/icons-18-black-17894997419b6088e
 jquery-mobile/icons-18-white.png: jquery-mobile/icons-18-white-8b67384de3a8215f61ccdf024b9d4d34.png
 jquery-mobile/icons-36-black.png: jquery-mobile/icons-36-black-d69bcf650f6ceff72fb95e312c4470f5.png
 jquery-mobile/icons-36-white.png: jquery-mobile/icons-36-white-5c37de3e25df5d99d43d224f10dfc02f.png
+jquery.mobile.js: jquery.mobile-e0915e4b06359538bb2023e28261c86c.js
+jquery.mobile.min.js: jquery.mobile.min-7736fa8192bf9dce44d6b251d843af6d.js
+jquery.mobile.css: jquery.mobile-6234fd205117ab6f796de256d6a4c385.css
+jquery.mobile.min.css: jquery.mobile.min-247c5b63fa93b5c4c20448fe5f7e97f9.css
+jquery.mobile.structure.css: jquery.mobile.structure-fceaf701a99a8cf928c27c5ea53094e4.css
+jquery.mobile.structure.min.css: jquery.mobile.structure.min-99f3de78334ac4876cf295c7a8234738.css
+jquery.mobile.theme.css: jquery.mobile.theme-ae39c66289c1f31b66e5d313c86c4e65.css
+jquery.mobile.theme.min.css: jquery.mobile.theme.min-f0cab1f20384bb095a1cdc05323f01b2.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-13553a5bf21ae3cc374006592488ec64.png
 glyphicons-halflings.png: glyphicons-halflings-f6675c325532ec11a984d58e172b8e2a.png

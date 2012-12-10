@@ -1,6 +1,8 @@
 Mvp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   config.assets.precompile += %w(polymaps.js example.css population.js population.css)
+  config.assets.precompile += %w(jquery.mobile.*)
+  config.assets.paths << "#{Rails.root}/vendor/assets"
   # Code is not reloaded between requests
   config.cache_classes = true
 

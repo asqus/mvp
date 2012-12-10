@@ -53,12 +53,23 @@
 
 <script type="text/javascript">
   console.log("cheers");
-  $(document).bind('pageinit', function(){
-    $('.upvote_question').bind('ajax:success', function() {
+  //$(document).on('pageinit', function(){
+  $(document).ready( function(){
+    $('.upvote_question').on('ajax:success', function() {
       //$("#rating_footer").html('<%= escape_javascript render( :partial => "questions/ratingfooter", :locals => {:question => @question } ) %>');
       //$( "div[data-role=page]" ).page( "destroy" ).page();
       //$("#rating_footer").trigger('create');
-      location.reload();
+      $.mobile.changePage(
+        window.location.href,
+        {
+          allowSamePageTransition : true,
+          transition              : 'none',
+          showLoadMsg             : false,
+          reloadPage              : true
+        }
+      );
+
+      //location.reload();
     });
   });
 </script>
