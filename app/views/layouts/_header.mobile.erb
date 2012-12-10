@@ -1,0 +1,19 @@
+  <div data-role="header" data-position="fixed" class="ui_header ui-bar-a" role="banner">
+  <div data-role="navbar">
+    <ul>
+      <li>
+          <%= link_to(root_path) do %>
+              <%= image_tag "header_logo.png", :size=>"40x16" %>
+         <% end %>
+      </li>
+          <% if signed_in? %>
+            <li><%= link_to "Officials", officials_path %></li>
+            <li><%= link_to "Questions", questions_path %></li>
+            <li><%= link_to "Polls", polls_path %></li>
+            <li><%= link_to "Profile", current_user %></li>
+          <% else %>
+            <li><%= link_to "Sign in", signin_path %></li>
+          <% end %>
+    </ul>
+  </div><!-- /navbar --> 
+  </div><!-- /header --> 

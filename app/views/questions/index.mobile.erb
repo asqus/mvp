@@ -1,0 +1,38 @@
+<% if current_user %>
+
+
+
+<% questionList = Question.order('rank_value DESC') %>
+
+<div id="questions">
+  <%= render 'questionBlock', :questions => questionList %>
+</div>
+
+<div data-role="footer">
+  <%= link_to 'Reps', officials_path %>
+</div>
+</div>
+
+<% else %>
+
+<p>Sign using one of these services:</p>
+  <div class="social_sign_in">
+  <a href="/auth/twitter" class="auth_provider">
+  <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %></a>
+<a href="/auth/facebook" class="auth_provider">
+  <%= image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook" %></a>
+  </div>
+  <div class="other_sign_in">
+<p> Don't use these services? <p>
+<%= link_to "Sign In", new_session_path %>
+  </div>
+
+  <div class="new_sign_in">
+<p> New user? <p>
+  <%= link_to "Sign Up", new_user_path %>
+  </div>
+  <br />
+  </div>
+<% end %>
+
+

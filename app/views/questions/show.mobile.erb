@@ -1,0 +1,145 @@
+
+
+<% content_for :head do %>
+  
+  <meta property="fb:app_id" content="264822796973610" /> 
+  <meta property="og:type" content="asqus-mvp:question" /> 
+  <meta property="og:title" content="A single question" /> 
+  <meta property="og:image" content="http://fbwerks.com:8000/zhen/cookie.jpg" /> 
+  <meta property="og:description" content="Taken from body/title of question" /> 
+  <meta property="og:url" content="http://polar-reaches-7121.herokuapp.com/questions/8" />
+<% end %>
+
+
+  <script type="text/javascript">
+  function postQuestion()
+  {
+      FB.api(
+        '/me/asqus-mvp:ask',
+        'post',
+        { question: 'http://polar-reaches-7121.herokuapp.com/questions/8' },
+        function(response) {
+           if (!response || response.error) {
+              alert('Error occured');
+           } else {
+              alert('You successfully posted to Facebook! Action ID: ' + response.id);
+           }
+        });
+  }
+  </script>
+
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '264822796973610', // App ID
+        status     : true, // check login status
+        cookie     : true, // enable cookies to allow the server to access the session
+        xfbml      : true  // parse XFBML
+      });
+    };
+
+    // Load the SDK Asynchronously
+    (function(d){
+      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+  </script>
+
+
+<% if current_user %>
+
+<script type="text/javascript">
+  console.log("cheers");
+  $(document).bind('pageinit', function(){
+    $('.upvote_question').bind('ajax:success', function() {
+      //$("#rating_footer").html('<%= escape_javascript render( :partial => "questions/ratingfooter", :locals => {:question => @question } ) %>');
+      //$( "div[data-role=page]" ).page( "destroy" ).page();
+      //$("#rating_footer").trigger('create');
+      location.reload();
+    });
+  });
+</script>
+
+<p id="notice"><%= notice %></p>
+
+<div class="m_block">
+
+
+  <div class="m_title"><h1><%= @question.title %></h1></div>
+  <div class="m_body"><h2><%= @question.body %></h2></div>
+  <div class="m_asked_to"><h3>Asked to:  
+      <%= link_to(Official.find(@question.official_id)) do %>
+      <%= Official.find(@question.official_id).name %>, the
+      <%= Official.find(@question.official_id).position %>
+      <% end %></h3>
+  </div>
+  <% if (current_user.official_id == @question.official_id) %>
+  <div class="m_respond">
+    <%= link_to 'Respond', new_response_path(:questionID => @question), :class => "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>
+
+<div class="m_buttons">
+<% if current_user == @question.user %>
+  <div class="m_buttons_edit btn">
+  <%= link_to 'Edit', edit_question_path(@question) %>
+  </div>
+<% end %>
+  <div class="m_buttons_back btn">
+  <%= link_to 'Back to questions', questions_path %>
+  </div>
+</div>
+
+<p>
+<div class="response_list">
+    <% @question.responses.each do |response| %>
+      <div class="m_response_block">
+        <div class="m_office"><%= link_to response.user.name, response.user %></td></div>
+        <div class="m_body"><%= response.body %></div>
+      </div>
+    <% end %>
+</div>
+
+<h1>Comments</h1>
+<div id="comments">
+<%=render :partial => 'comments/index',:locals => {:commentable=> @question,:comments => @comments}%>
+</div>
+
+<%= render :partial => "comments/new", :locals => { :commentable => @question }%><br/>
+
+
+
+  <form>
+    <input type="button" value="Ask On Facebook!" onclick="postQuestion()" />
+  </form>
+<div id="rating_footer">
+<%= render :partial => "ratingfooter", :locals => { :questionid => @question.id }%><br/>
+</div>
+
+<% else %>
+
+<p>Sign using one of these services:</p>
+  <div class="social_sign_in">
+  <a href="/auth/twitter" class="auth_provider">
+  <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %></a>
+<a href="/auth/facebook" class="auth_provider">
+  <%= image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook" %></a>
+  </div>
+  <div class="other_sign_in">
+<p> Don't use these services? <p>
+<%= link_to "Sign In", new_session_path %>
+  </div>
+
+  <div class="new_sign_in">
+<p> New user? <p>
+  <%= link_to "Sign Up", new_user_path %>
+  </div>
+  <br />
+  </div>
+<% end %>
+
+

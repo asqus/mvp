@@ -1,0 +1,54 @@
+<div data-role="footer" data-position="fixed">
+  <div data-role="navbar">
+    <% @relation = current_user.uq_relations.find_or_create_by_question_id(params[:id]) %>
+    <% @question = Question.find(params[:id]) %>
+    <ul>
+      <% if @relation.yaynay == true %>
+        <li>
+          <%= link_to uq_relation_path(@relation, :uq_relation => "true"), :method => :put, :remote=>true, :class=>'upvote_question btn' do %>
+          <%= image_tag "images/arrows/up-fill.gif", :size => "50x50", :alt => "up_arrow"%>     
+          <% end %>
+        </li>
+        <li>
+          <div id="currentVotes"><%= @question.up_cache.to_i - @question.down_cache.to_i %></div>
+        </li>
+        <li>
+          <%= link_to @relation, :method => :put, :remote=>true, :class=>'upvote_question btn' do %>
+          <%= image_tag "images/arrows/down.gif", :size => "50x50", :alt => "up_arrow"%>     
+          <% end %>
+        </li>
+
+      <% elsif @relation.yaynay == false%>
+        <li>
+          <%= link_to uq_relation_path(@relation, :uq_relation => "true"), :method => :put, :remote=>true, :class=>'upvote_question btn' do %>
+          <%= image_tag "images/arrows/up.gif", :size => "50x50", :alt => "up_arrow"%>     
+          <% end %>
+        </li>
+        <li>
+          <div id="currentVotes"><%= @question.up_cache.to_i - @question.down_cache.to_i %></div>
+        </li>
+        <li>
+          <%= link_to @relation, :method => :put, :remote=>true, :class=>'upvote_question btn' do %>
+          <%= image_tag "images/arrows/down-fill.gif", :size => "50x50", :alt => "up_arrow"%>     
+          <% end %>
+        </li>
+
+      <% else %>
+        <li>
+          <%= link_to uq_relation_path(@relation, :uq_relation => "true"), :method => :put, :remote=>true, :class=>'upvote_question btn' do %>
+          <%= image_tag "images/arrows/up.gif", :size => "50x50", :alt => "up_arrow"%>     
+          <% end %>
+        </li>
+        <li>
+          <div id="currentVotes"><%= @question.up_cache.to_i - @question.down_cache.to_i %></div>
+        </li>
+        <li>
+          <%= link_to @relation, :method => :put, :remote=>true, :class=>'upvote_question btn' do %>
+          <%= image_tag "images/arrows/down.gif", :size => "50x50", :alt => "up_arrow"%>     
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+

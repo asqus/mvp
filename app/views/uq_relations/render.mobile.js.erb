@@ -1,0 +1,9 @@
+  console.log("cheers");
+  $(document).bind('pageinit', function(){
+    $('.upvote_question').bind('ajax:success', function() {
+      $("#rating_footer").html('<%= escape_javascript render( :partial => "questions/ratingfooter", :locals => {:question => @question } ) %>');
+      $( "div[data-role=page]" ).page( "destroy" ).page();
+      $("#rating_footer").trigger('create');
+      //location.reload();
+    });
+  });
