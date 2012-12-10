@@ -1,7 +1,7 @@
 <div>Preview: </div>
 <% optionSet = ActiveSupport::JSON.decode(PollOptionsSet.find(pos).options) %>
 <% optionSet.each do |key, value| %>
-  <% if(key == '1') %>
+  <% if(key == '0') %>
     <div class="btn btn-primary"><%=value%></div>
   <% else %>
     <div class="btn"><%=value%></div>

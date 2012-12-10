@@ -1,0 +1,28 @@
+$("option").last().remove()
+$("select").append('<option value="'+<%=@poll_options_set.id%>+'">'+'<%=@poll_options_set.set_type%>'+'</option>')
+var q = <%=@poll_options_set.id%>
+$("select").val(q)
+$("select").append('<option value="-1">create new poll options set</option>')
+$("#newPOS").empty()
+
+$("#previewBtns").html("<%= escape_javascript(render 'polls/previewPOS', pos: @poll_options_set) %>")
+$("#previewChart").removeClass("p_chart_hidden")
+$("#previewChart").addClass("p_chart_show")
+$("#previewChart").empty()
+var data = [];
+<% optionSet = ActiveSupport::JSON.decode(PollOptionsSet.find(@poll_options_set).options) %>
+<% optionSet.each do |key, value| %>
+  data.push(['<%= value %>',<%=Random.rand(15) + 3%>])
+<% end %>
+var plot1 = jQuery.jqplot ('previewChart', [data], { 
+  seriesDefaults: {
+    // Make this a pie chart.
+    renderer: jQuery.jqplot.PieRenderer, 
+    rendererOptions: {
+      // Put data labels on the pie slices.
+      // By default, labels show the percentage of the slice.
+      showDataLabels: true
+    }
+  }, 
+  legend: { show:true, location: 'e' }
+});

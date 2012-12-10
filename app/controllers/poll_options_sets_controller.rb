@@ -40,12 +40,11 @@ class PollOptionsSetsController < ApplicationController
   # POST /poll_options_sets
   # POST /poll_options_sets.json
   def create
-    @poll_options_set = PollOptionsSet.new(params[:poll_options_set])
+    @poll_options_set = PollOptionsSet.new(params[:pos])
 
     respond_to do |format|
       if @poll_options_set.save
-        format.html { redirect_to @poll_options_set, notice: 'Poll options set was successfully created.' }
-        format.json { render json: @poll_options_set, status: :created, location: @poll_options_set }
+        format.js { render "/polls/addOptionSet"}
       else
         format.html { render action: "new" }
         format.json { render json: @poll_options_set.errors, status: :unprocessable_entity }
