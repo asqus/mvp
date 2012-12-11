@@ -30,6 +30,19 @@ Rep = Official.create!(
                       :email => "jbolger@mi.gov",
                       :district_id => 2,
                       :position => "Representative")
+Andrew = Official.create!(
+                      :name => "Andrew Kuntz",
+                      :email => "kuntzand@gmail.com",
+                      :district_id => 1,
+                      :position => "City Council Member")
+Andrew2 = User.create!(
+          :name => "Andrew Kuntz",
+          :email => "kuntzand@gmail.com",
+          :birthdate => "1990-10-31",
+          :official_id => Andrew.id,
+          :address => "Ann Arbor, MI",
+          :password => "andrew",
+          :password_confirmation => "andrew")
 Official.create!(
                       :name => "Justin Amash",
                       :email => "jamash@mi.gov",
@@ -180,7 +193,7 @@ AbrahamLincoln = User.create(
                       :email => "proclamation@gmail.com",
                       :birthdate => "1814-12-20",
                       :address => "Smallville, IL",
-					            :official_id => President.id,
+                      :official_id => President.id,
                       :password => "foobar",
                       :password_confirmation => "foobar")
 
@@ -189,7 +202,7 @@ GWash = User.create!(
             :email => "revolution@gmail.com",
             :birthdate => "2012-10-31",
             :address => "New York, NY",
-					  :official_id => President.id,
+            :official_id => President.id,
             :password => "foobar",
             :password_confirmation => "foobar")
 
@@ -198,7 +211,7 @@ Ted = User.create!(
           :email => "bigstick@gmail.com",
           :birthdate => "2012-10-31",
           :address => "Atlanta, GA",
-					:official_id => President.id,
+          :official_id => President.id,
           :password => "foobar",
           :password_confirmation => "foobar")
 
@@ -207,7 +220,7 @@ TJeff = User.create!(
             :email => "scribedude@gmail.com",
             :birthdate => "2012-10-31",
             :address => "Monticello, VA",
-					  :official_id => President.id,
+            :official_id => President.id,
             :password => "foobar",
             :password_confirmation => "foobar")
 
@@ -216,7 +229,7 @@ AJack = User.create!(
             :email => "manifestdestiny@gmail.com",
             :birthdate => "2012-10-31",
             :address => "Midwestville, OH",
-					  :official_id => President.id,
+            :official_id => President.id,
             :password => "foobar",
             :password_confirmation => "foobar")
 
@@ -225,7 +238,7 @@ JKenn = User.create!(
             :email => "telepresence@gmail.com",
             :birthdate => "2012-10-31",
             :address => "Hoboken, NJ",
-					  :official_id => President.id,
+            :official_id => President.id,
             :password => "foobar",
             :password_confirmation => "foobar")
 
@@ -234,7 +247,7 @@ BFrank = User.create!(
               :email => "kitesintherain@gmail.com",
               :birthdate => "2012-10-31",
               :address => "Newsberg, MA",
-					    :official_id => President.id,
+              :official_id => President.id,
               :password => "foobar",
               :password_confirmation => "foobar")
 
@@ -251,7 +264,7 @@ TestOfficial = User.create!(
               :email => "test@official.com",
               :birthdate => "2012-10-31",
               :address => "Newsberg, MA",
-					    :official_id => President.id,
+              :official_id => President.id,
               :password => "foobar",
               :password_confirmation => "foobar")
 
@@ -266,7 +279,7 @@ JSU = User.create!(
 Bottom = Question.create!({
                   :user => JKenn,
                   :user_id => JKenn.id,
-					        :official_id => President.id,
+                  :official_id => President.id,
                   :body => "The hope is that posts that are intentially malicious will be downvoted and receive less exposure.",
                   :title => "Troll Post Example",
                   :up_cache => 0,
@@ -277,7 +290,7 @@ Bottom = Question.create!({
 Q1 = Question.create!({
               :user => AbrahamLincoln,
               :user_id => AbrahamLincoln.id,
-					    :official_id => Mayor.id,
+              :official_id => Mayor.id,
               :body => "It's such an eyesore!",
               :title => "Has the big house gone too far?",
               :up_cache => 0,
@@ -288,7 +301,7 @@ Q1 = Question.create!({
 Q2 = Question.create!({
               :user => BFrank,
               :user_id => BFrank.id,
-					    :official_id => Rep.id,
+              :official_id => Rep.id,
               :body => "Fresh water is a fantastic resource to share",
               :title => "How can we more effectively transport fresh water to areas in need?",
               :up_cache => 0,
@@ -299,7 +312,7 @@ Q2 = Question.create!({
 Question.create!({
         :user => GWash,
         :user_id => GWash.id,
-				:official_id => President.id,
+        :official_id => President.id,
         :body => "How will America survive this terrible economy? What is your plan?",
         :title => "Economy, it needs to be fixed.",
         :up_cache => 0,
@@ -310,7 +323,7 @@ Question.create!({
 Top = Question.create!({
               :user => AJack,
               :user_id => AJack.id,
-					    :official_id => Mayor.id,
+              :official_id => Mayor.id,
               :body => "Especially for disasters like Hurricane Katrina.",
               :title => "How can we implement better disaster relief?",
               :up_cache => 4,
@@ -321,7 +334,7 @@ Top = Question.create!({
 Q4 = Question.create!({
               :user => Ted,
               :user_id => Ted.id,
-					    :official_id => Rep.id,
+              :official_id => Rep.id,
               :body => "How much do we really owe foreign governments?",
               :title => "A question about foreign policy and status.",
               :up_cache => 3,
@@ -332,7 +345,7 @@ Q4 = Question.create!({
 Q5 = Question.create!({
               :user => TJeff,
               :user_id => TJeff.id,
-					    :official_id => President.id,
+              :official_id => President.id,
               :body => "How do we move forward in a technology driven future?",
               :title => "Best investments for improving America?",
               :up_cache => 2,
@@ -477,27 +490,27 @@ UqRelation.create!({
           :question_id => Bottom.id,
           :yaynay => false
 
-	})
+  })
 
-P1 = Poll.create!({	:user => Rick,
-					:user_id => Rick.id,
-					:official_id => Governor.id,
-					:body => ActiveRecord::Base.connection.quote("This proposal would: Require the approval of a majority of voters at a statewide election and in each municipality where new international bridges or tunnels for motor vehicles are to be located before the State of Michigan may expend state funds or resources for acquiring land, designing, soliciting bids for, constructing, financing, or promoting new international bridges or tunnels. Create a definition of 'new international bridges or tunnels for motor vehicles' that means, 'any bridge or tunnel which is not open to the public and serving traffic as of January 1, 2012.'"),
-					:title => "Do you agree with Proposal 4?",
+P1 = Poll.create!({ :user => Rick,
+          :user_id => Rick.id,
+          :official_id => Governor.id,
+          :body => ActiveRecord::Base.connection.quote("This proposal would: Require the approval of a majority of voters at a statewide election and in each municipality where new international bridges or tunnels for motor vehicles are to be located before the State of Michigan may expend state funds or resources for acquiring land, designing, soliciting bids for, constructing, financing, or promoting new international bridges or tunnels. Create a definition of 'new international bridges or tunnels for motor vehicles' that means, 'any bridge or tunnel which is not open to the public and serving traffic as of January 1, 2012.'"),
+          :title => "Do you agree with Proposal 4?",
           :poll_options_set_id => YesOrNo.id
-					})
+          })
 
-P2 = Poll.create!({	:user => Rick,
-					:user_id => Rick.id,
-					:official_id => Governor.id,
-					:body => "You might ask why the bridge is needed, and that is a good question. Today, we rely on the decades-old Ambassador Bridge to carry 99 percent of commercial traffic through Detroit. It is narrow, only has four lanes for commercial traffic, has never been re-decked, lacks a direct freeway-to-freeway connection, and dumps traffic into commercial streets in Windsor, where trucks get stopped by 18 stoplights on the way to the highway. Compare that to the crossings in Buffalo, where twice the number of lanes to carry about 60 percent of the trade at the Detroit-Windsor crossing. All of that adds up to long waits, with one trucker remarking, You know, you are in a line sometimes up to four, or five or six hours.",
-					:title => "Do you agree with the proposed bridge to Canada?",
+P2 = Poll.create!({ :user => Rick,
+          :user_id => Rick.id,
+          :official_id => Governor.id,
+          :body => "You might ask why the bridge is needed, and that is a good question. Today, we rely on the decades-old Ambassador Bridge to carry 99 percent of commercial traffic through Detroit. It is narrow, only has four lanes for commercial traffic, has never been re-decked, lacks a direct freeway-to-freeway connection, and dumps traffic into commercial streets in Windsor, where trucks get stopped by 18 stoplights on the way to the highway. Compare that to the crossings in Buffalo, where twice the number of lanes to carry about 60 percent of the trade at the Detroit-Windsor crossing. All of that adds up to long waits, with one trucker remarking, You know, you are in a line sometimes up to four, or five or six hours.",
+          :title => "Do you agree with the proposed bridge to Canada?",
           :poll_options_set_id => AgreeScale.id
-					})
+          })
 
 P3 = Poll.create!({ :user => John,
           :user_id => John.id,
-					:official_id => Mayor.id,
+          :official_id => Mayor.id,
           :body => "The plan is to install Herbert Dreiseitl's $750k statue in front of the new Justice Center building and a newly renovated city hall. In 2007, Ann Arbor's City Council unanimously passed an ordinance stipulating that all capital improvement projects funded wholly or partly by the City will include funds for public art equal to one percent of the project construction costs, to a maximum of $250,000 per capital improvement project. Public art may be located at the capital improvement site, or can be installed at other locations. Public art must relate to the funding source of the capital improvement.\"",
           :title => "Should we go ahead with the proposed $750k art exhibit in front of city hall?",
           :poll_options_set_id => YesOrNo.id
@@ -505,7 +518,7 @@ P3 = Poll.create!({ :user => John,
 
 P4 = Poll.create!({ :user => Rick,
           :user_id => Rick.id,
-					:official_id => Governor.id,
+          :official_id => Governor.id,
           :body => "For more information, <a href = 'http://www.legislature.mi.gov/' >click here</a>",
           :title => "Do you think we should expand cyber charter schools in Michigan?",
           :poll_options_set_id => AgreeScale.id
@@ -513,7 +526,7 @@ P4 = Poll.create!({ :user => Rick,
 
 P5 = Poll.create!({ :user => Debbie,
           :user_id => Debbie.id,
-					:official_id => Senator2.id,
+          :official_id => Senator2.id,
           :body => "H R 3523, Cyber Intelligence Sharing and Protection Act (CISPA). The bill exempts private entities and utilities from all state and federal liability when they share 'cyber threat information' with the federal government. That term is defined broadly to mean any information 'directly pertaining to . . . [a] threat to [] a system or network,' and it may include your personally identifiable information. The bill also provides new authority to the federal government to share your information with the private sector. The government may use information it receives from companies for purposes beyond cybersecurity, including protecting minors and national security.",
           :title => "Do you support CISPA?",
           :poll_options_set_id => YesOrNo.id
