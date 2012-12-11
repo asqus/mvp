@@ -23,6 +23,8 @@
     </p>
     <% if (current_user.official_id != @official.id) %>
       <%= link_to 'Ask Question', new_question_path({ :office => @official.id }), :class => 'btn btn-primary' %>
+    <% else %>
+      <%= link_to 'New Poll', new_poll_path({ :office => current_user.official_id }), :class => 'btn btn-large btn-primary' %>
     <% end %>
   </div>
   <div class="span8 questionList">
