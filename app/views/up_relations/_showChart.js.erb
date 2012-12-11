@@ -9,7 +9,7 @@ if ($("#chart").hasClass("p_chart_hidden")){
     var p = <%= UpRelation.where('poll_id = ? and answer_value = ?',@poll.id, key).count %>
     data.push(['<%= value %>',p])
   <% end %>
-  var plot1 = jQuery.jqplot ('chart', [data], { 
+  var plot1 = $.jqplot ('chart', [data], { 
     seriesDefaults: {
       // Make this a pie chart.
       renderer: jQuery.jqplot.PieRenderer, 

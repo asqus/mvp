@@ -7,4 +7,4 @@
     <%= link_to value, up_relations_answer_path(:poll_id => poll.id, :answer => key), :remote => true, :class => "p_answer_option btn" %>
   <% end %>
 <% end %>
-<%= link_to "Show Poll Results", up_relations_result_path(:poll_id => poll.id), :remote => true, :class => "p_answer_options btn", :id => "p_chart_btn" %>
+<%= link_to "Show Poll Results", up_relations_result_path(:poll_id => poll.id), :remote => true, :class => "p_result btn", :id => "p_chart_btn" %>

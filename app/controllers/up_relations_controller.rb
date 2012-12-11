@@ -15,7 +15,7 @@ class UpRelationsController < ApplicationController
     @uprel.update_attributes(:answer_value => params[:answer])
     @poll = Poll.find(params[:poll_id])
 
-    render :partial => "renderPollAnswers", :locals => { :poll => @poll }
+    render :partial => "renderPAjs.js", :locals => { :poll => @poll }
 #    respond_to do |format|
 #      format.html { redirect_to @poll }
 #      format.js { render "renderPollAnswers" }
@@ -26,11 +26,11 @@ class UpRelationsController < ApplicationController
   def result
     @poll = Poll.find(params[:poll_id])
 
-    render :partial => "renderChart.js"
-    #respond_to do |format|
-    #  format.html { redirect_to @poll }
-    #  format.js { render "showChart" }
-    #end
+    render :partial => "showChart.js", :locals => { :poll => @poll}
+    # respond_to do |format|
+    #   format.html { redirect_to @poll }
+    #   format.js { render "showChart" }
+    # end
   end
 
   def update

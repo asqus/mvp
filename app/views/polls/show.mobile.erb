@@ -17,32 +17,6 @@
 
 
 <% if current_user %>
-
-<script type="text/javascript">
-  console.log("cheers");
-  //$(document).on('pageinit', function(){
-  $(document).ready( function(){
-    $('.p_answer_option').on('ajax:success', function() {
-      //$("#rating_footer").html('<%= escape_javascript render( :partial => "questions/ratingfooter", :locals => {:question => @question } ) %>');
-      //$( "div[data-role=page]" ).page( "destroy" ).page();
-      //$("#rating_footer").trigger('create');
-      $.mobile.changePage(
-        window.location.href,
-        {
-          allowSamePageTransition : true,
-          transition              : 'none',
-          showLoadMsg             : false,
-          reloadPage              : true
-        }
-      );
-
-      //location.reload();
-    });
-  });
-</script>
-
-
-
 <p id="notice"><%= notice %></p>
 
 <div class="m_block">
