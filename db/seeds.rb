@@ -32,7 +32,7 @@ Rep = Official.create!(
                       :position => "Representative")
 Andrew = Official.create!(
                       :name => "Andrew Kuntz",
-                      :email => "kuntzand@gmail.com",
+                      :email => "kuntzandgov@gmail.com",
                       :district_id => 1,
                       :position => "City Council Member")
 Andrew2 = User.create!(
@@ -60,7 +60,7 @@ Mayor = Official.create!(
                       :district_id => 1,
                       :position => "Mayor of Ann Arbor")
 Official.create!(
-                      :name => "Sabra Biere",
+                      :name => "Sabra Briere",
                       :email => "sabra.briere@A2gov.org",
                       :district_id => 1,
                       :position => "Ann Arbor City Council Member Ward 1")
