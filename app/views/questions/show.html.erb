@@ -27,7 +27,22 @@
         });
   }
   </script>
-
+<script type="text/javascript">
+  function respond_toQuestion()
+  {
+      FB.api(
+        '/me/asqus-mvp:respond_to',
+        'post',
+        { question: 'http://polar-reaches-7121.herokuapp.com/questions/<%= @question.id %>' },
+        function(response) {
+           if (!response || response.error) {
+              alert('Error occured');
+           } else {
+              alert('You successfully posted to Facebook! Action ID: ' + response.id);
+           }
+        });
+  }
+  </script>
 <body>
   <div id="fb-root"></div>
   <script>
@@ -52,9 +67,15 @@
   
 
   <br>
+  <% if(current_user.official_id == @question.official_id) %>
+    <form>
+        <input type="button" value="Post your response to Facebook!" onclick="respond_toQuestion()" />
+    </form>
+<% else %>
   <form>
     <input type="button" value="Ask On Facebook!" onclick="postQuestion()" />
   </form>
+  <% end %>
 </body>
 
 <fb:like href="http://polar-reaches-7121.herokuapp.com/questions/<%= @question.id %>" send="true" width="450" show_faces="true"></fb:like>
