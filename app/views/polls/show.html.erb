@@ -13,11 +13,50 @@
 <meta name= "twitter:description" content="<%= @poll.body %>" /> 
 <meta name= "twitter:image" content="http://polar-reaches-7121.herokuapp.com/assets/asquslogo.jpg" /> 
 
-
-
-
-
 <% end %>
+
+<!-- _______________________________________________________________
+____________________________________________________________________
+____________________________________________________________________
+______________________Facebook feed test________________________ -->
+
+
+<div id='fb-root'></div>
+    <script src='http://connect.facebook.net/en_US/all.js'></script>
+    <p><a class="btn" onclick='postToFeed(); return false;'>Ask your constituents on Facebook!</a></p>
+    <p id='msg'></p>
+
+    <script> 
+      FB.init({appId: "264822796973610", status: true, cookie: true});
+
+      function postToFeed() {
+
+        // calling the API ...
+        var obj = {
+          method: 'feed',
+          redirect_uri: 'http://polar-reaches-7121.herokuapp.com/polls/<%= @poll.id %>',
+          link: 'http://polar-reaches-7121.herokuapp.com/polls/<%= @poll.id %>',
+          picture: 'http://polar-reaches-7121.herokuapp.com/assets/asquslogo.jpg',
+          name: 'PDP Poll',
+          caption: '<%= @poll.title %>',
+          description: 'Click for more information!'
+        };
+
+        function callback(response) {
+          document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+        }
+
+        FB.ui(obj, callback);
+      }
+    
+    </script>
+
+<!-- _______________________________________________________________
+____________________________________________________________________
+____________________________________________________________________
+______________________Facebook feed test end________________________ -->
+
+
 <% if current_user %>
 <p id="notice"><%= notice %></p>
 
@@ -41,24 +80,7 @@
 
 <%= link_to 'Back', polls_path %>
 
-<script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '264822796973610', // App ID
-        status     : true, // check login status
-        cookie     : true, // enable cookies to allow the server to access the session
-        xfbml      : true  // parse XFBML
-      });
-    };
 
-    // Load the SDK Asynchronously
-    (function(d){
-      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-      js = d.createElement('script'); js.id = id; js.async = true;
-      js.src = "//connect.facebook.net/en_US/all.js";
-      d.getElementsByTagName('head')[0].appendChild(js);
-    }(document));
-  </script>
 <fb:like href="http://polar-reaches-7121.herokuapp.com/polls/1" send="true" width="450" show_faces="false"></fb:like>
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
