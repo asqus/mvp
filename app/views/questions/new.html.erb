@@ -1,10 +1,12 @@
-<div class="q_form_block">
+<div class="row">
+<div class="span7 q_form_block">
   <% if params[:office] %>
     <% @office = Official.find(params[:office]) %> 
-    <h1>Ask <%= @office.name %> a question</h1>
+    <h1>Ask <%= @office.name %>, <%= @office.position %>, a question</h1>
     <%= render 'form' %>
   <% else %>
     <h1>No rep selected!</h1>
   <% end %>
+</div>
 </div>
 
