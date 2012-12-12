@@ -1,47 +1,4 @@
-<% content_for :head do %>
-  <title>Population Density</title>
-  
-  <%= javascript_include_tag "polymaps" %>
-  <%= stylesheet_link_tag "example" %>
-  <%= stylesheet_link_tag "population" %>
- 
-  <style type="text/css">
 
-@import url("example.css");
-@import url("population.css");
-
-body {
-  background: #FFFFFF;
-}
-
-.layer path {
-  fill: none;
-  vector-effect: non-scaling-stroke;
-}
-
-#county path {
-  stroke: rgb(192, 192, 192);
-  stroke-opacity: .25;
-  shape-rendering: crispEdges;
-}
-
-#state path {
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
-
-#copy {
-  color: #000;
-  opacity: .5;
-}
-
-#copy a {
-  color: #000;
-}
-
-    </style>
-  
-<% end %>
 
 <div id="fb-root"></div>
   <script>
@@ -63,11 +20,7 @@ body {
     }(document));
   </script>
 <fb:like href="http://polar-reaches-7121.herokuapp.com/polls/1" send="true" width="450" show_faces="false"></fb:like>
-<body id="map">
-   <%= javascript_include_tag "population" %>
-   
 
-</body>
 
 
 
