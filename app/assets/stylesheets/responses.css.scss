@@ -6,11 +6,15 @@
 
 .q_h_title {
   font-size: 30px;
-  line-height: 40px;
-  padding-bottom: 20px;
+  line-height: 30px;
+  padding-bottom: 10px;
 }
 .q_h_body {
   font-size: 25px;
   line-height: 30px;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
+}
+
+.r_form_body textarea {
+  width: 500px;
 }

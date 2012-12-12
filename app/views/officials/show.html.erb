@@ -38,6 +38,15 @@
       <%= will_paginate @questions %>
     <% end %>
   </div>
+  <div class="span8 questionList">
+    <% if @official.polls.any? %>
+      <h3>Polls (<%= @official.polls.count %>)</h3>
+      <ol class="polls">
+        <%= render @polls %>
+      </ol>
+      <%= will_paginate @polls %>
+    <% end %>
+  </div>
 </div>
 <% if @official.id == 3 %>
 <a class="twitter-timeline" href="https://twitter.com/kuntzand" data-widget-id="278563681300774912">Tweets by @kuntzand</a>
