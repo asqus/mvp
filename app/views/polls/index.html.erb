@@ -29,11 +29,11 @@
 <% @polls.each do |poll| %>
   <% @official = Official.find(poll.official_id) %>
   <% if @official.district_id == 3 %>
-    <div class="p_block index nat">
+    <div class="q_block index nat extra">
   <% elsif @official.district_id == 2 %>
-    <div class="p_block index state">
+    <div class="q_block index state extra">
   <% else %>
-    <div class="p_block index city">
+    <div class="q_block index city extra">
   <% end %>
     <div class="p_vote_form"><%= render 'polls/vote_states/vote_forms', poll: poll %></div>
     <div class="p_title"><%= link_to poll.title, poll %></div>
