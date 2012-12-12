@@ -532,6 +532,113 @@ P5 = Poll.create!({ :user => Debbie,
           :poll_options_set_id => YesOrNo.id
           })
 
+UpRelation.create!({
+          :user_id => AJack.id,
+          :poll_id => P4.id,
+          :updown => true
+
+  })
+
+UpRelation.create!({
+          :user_id => GWash.id,
+          :poll_id => P4.id,
+          :updown => true
+
+  })
+
+UpRelation.create!({
+          :user_id => BFrank.id,
+          :poll_id => P4.id,
+          :updown => true
+
+  })
+
+UpRelation.create!({
+          :user_id => Ted.id,
+          :poll_id => P4.id,
+          :updown => true
+
+  })
+
+UpRelation.create!({
+          :user_id => AJack.id,
+          :poll_id => P3.id,
+          :updown => true
+
+  })
+
+UpRelation.create!({
+          :user_id => GWash.id,
+          :poll_id => P3.id,
+          :updown => true
+
+  })
+
+UpRelation.create!({
+          :user_id => BFrank.id,
+          :poll_id => P3.id,
+          :updown => true
+
+  })
+
+UpRelation.create!({
+          :user_id => BFrank.id,
+          :poll_id => P2.id,
+          :updown => true
+
+  })
+
+UpRelation.create!({
+          :user_id => Ted.id,
+          :poll_id => P2.id,
+          :updown => true
+
+  })
+
+UpRelation.create!({
+          :user_id => U1.id,
+          :poll_id => P2.id,
+          :updown => true
+
+  })
+UpRelation.create!({
+          :user_id => U2.id,
+          :poll_id => P1.id,
+          :updown => true
+
+  })
+UpRelation.create!({
+          :user_id => U3.id,
+          :poll_id => P1.id,
+          :updown => true
+
+  })
+UpRelation.create!({
+          :user_id => U4.id,
+          :poll_id => P1.id,
+          :updown => true
+
+  })
+UpRelation.create!({
+          :user_id => U5.id,
+          :poll_id => P1.id,
+          :updown => true
+
+  })
+UpRelation.create!({
+          :user_id => U6.id,
+          :poll_id => P1.id,
+          :updown => true
+
+  })
+
+UpRelation.create!({
+          :user_id => AJack.id,
+          :poll_id => P1.id,
+          :updown => false
+
+  })
+
 (Poll.first.id).times { |i|
   50.times{ |j|
     v = rand(PollOptionsSet.find(Poll.find(i+1).poll_options_set_id).num_options)
