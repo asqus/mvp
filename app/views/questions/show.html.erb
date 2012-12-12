@@ -9,7 +9,7 @@
   <meta property="og:description" content="<%= @question.body %>" /> 
   <meta property="og:url" content="http://polar-reaches-7121.herokuapp.com/questions/<%= @question.id %>" />
 <% end %>
-
+<% if current_user %>
 
   <script type="text/javascript">
   function postQuestion()
@@ -84,7 +84,7 @@
 <!-- __________________________________________________________
 _______________________________________________________________
 _______________________________________________________________ -->
-<% if current_user %>
+
 <p id="notice"><%= notice %></p>
 
 <div class="q_block">

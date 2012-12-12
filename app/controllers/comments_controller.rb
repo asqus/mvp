@@ -7,11 +7,9 @@ class CommentsController < ApplicationController
     if(params[:comment][:content] == "")
       return
     end
+    
     if @comment.save
-      respond_to do |format|
-       format.js { render 'questions/show' }
-       format.html{ redirect_to @commentable }
-      end
+      render :partial => "questions/showComments.js"
     else
       render :action => 'new'
     end

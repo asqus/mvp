@@ -7,6 +7,8 @@
         <div class="o_picture"><%= image_tag "john.jpg" %></div>
       <% elsif (@official.name == "Rick Snyder") %>
         <div class="o_picture"><%= image_tag "rick.jpg" %></div>
+      <% elsif (@official.name == "Andrew Kuntz") %>
+        <div class="o_picture"><%= image_tag "andrew.JPG" %></div>
       <% else %>
         <div class="o_picture"><%= image_tag "fb_user.png" %></div>
       <% end %>
@@ -23,6 +25,8 @@
     </p>
     <% if (current_user.official_id != @official.id) %>
       <%= link_to 'Ask Question', new_question_path({ :office => @official.id }), :class => 'btn btn-primary' %>
+    <% else %>
+      <%= link_to 'New Poll', new_poll_path({ :office => current_user.official_id }), :class => 'btn btn-large btn-primary' %>
     <% end %>
   </div>
   <div class="span8 questionList">
@@ -34,8 +38,22 @@
       <%= will_paginate @questions %>
     <% end %>
   </div>
+  <div class="span8 questionList">
+    <% if @official.polls.any? %>
+      <h3>Polls (<%= @official.polls.count %>)</h3>
+      <ol class="polls">
+        <%= render @polls %>
+      </ol>
+      <%= will_paginate @polls %>
+    <% end %>
+  </div>
 </div>
 <% if @official.id == 3 %>
+<a class="twitter-timeline" href="https://twitter.com/kuntzand" data-widget-id="278563681300774912">Tweets by @kuntzand</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<% elsif @official.id == 4 %>
 <a class="twitter-timeline" href="https://twitter.com/repjustinamash" data-widget-id="277945311668879360">Tweets by @repjustinamash</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
 <% end %>

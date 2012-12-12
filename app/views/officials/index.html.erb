@@ -7,8 +7,17 @@
     <%= link_to official do %>
       <% if (official.name == "John Hiefjte") %>
         <div class="o_picture"><%= image_tag "john.jpg" %></div>
+      <% elsif (official.name == "Andrew Kuntz") %>
+        <div class="o_picture"><%= image_tag "andrew.JPG" %></div>
+      <% elsif (official.name == "Sabra Briere") %>
+        <div class="o_picture"><%= image_tag "sabra.jpg" %></div>
+      <% elsif (official.name == "Sumi Kailasapathy") %>
+        <div class="o_picture"><%= image_tag "sumi.jpg" %></div>
+      <% elsif (official.name == "Stephen Kunselman") %>
+        <div class="o_picture"><%= image_tag "stephen.jpg" %></div>
       <% elsif (official.name == "Rick Snyder") %>
         <div class="o_picture"><%= image_tag "rick.jpg" %></div>
+     
       <% else %>
         <div class="o_picture"><%= image_tag "fb_user.png" %></div>
       <% end %>
@@ -29,8 +38,18 @@
     <%= link_to official do %>
       <% if (official.name == "John Hiefjte") %>
         <div class="o_picture"><%= image_tag "john.jpg" %></div>
+      <% elsif (official.name == "Jase Bolger") %>
+        <div class="o_picture"><%= image_tag "jase.jpg" %></div>
       <% elsif (official.name == "Rick Snyder") %>
         <div class="o_picture"><%= image_tag "rick.jpg" %></div>
+      <% elsif (official.name == "Justin Amash") %>
+        <div class="o_picture"><%= image_tag "amash.jpg" %></div>
+      <% elsif (official.name == "Dan Benishek") %>
+        <div class="o_picture"><%= image_tag "dan.JPG" %></div>
+      <% elsif (official.name == "Jeff Irwin") %>
+        <div class="o_picture"><%= image_tag "irwin.jpg" %></div>
+      <% elsif (official.name == "Rebekah Warren") %>
+        <div class="o_picture"><%= image_tag "rebekah.jpg" %></div>
       <% else %>
         <div class="o_picture"><%= image_tag "fb_user.png" %></div>
       <% end %>
@@ -48,7 +67,15 @@
 <% @officials3.each do |official| %>
   <div class="official_block">
     <%= link_to official do %>
+    <% if (official.name == "Barack Obama") %>
+        <div class="o_picture"><%= image_tag "obama.jpg" %></div>
+    <% elsif (official.name == "Carl Levin") %>
+        <div class="o_picture"><%= image_tag "carl.jpg" %></div>
+    <% elsif (official.name == "Debbie Stabenow") %>
+        <div class="o_picture"><%= image_tag "debbie.jpg" %></div>
+    <% else %>
     <div class="o_picture"><%= image_tag "fb_user.png" %></div>
+    <% end %> 
     <% end %>
     <h3>
       <%= official.position %>
