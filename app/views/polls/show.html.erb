@@ -14,7 +14,22 @@
 <meta name= "twitter:image" content="http://polar-reaches-7121.herokuapp.com/assets/asquslogo.jpg" /> 
 
 <% end %>
-
+<script type="text/javascript">
+  function postPoll()
+  {
+      FB.api(
+        '/me/asqus-mvp:answer',
+        'post',
+        { poll: 'http://polar-reaches-7121.herokuapp.com/polls/<%= @poll.id %>' },
+        function(response) {
+           if (!response || response.error) {
+              alert('Error occured');
+           } else {
+              alert('You successfully posted to Facebook! Action ID: ' + response.id);
+           }
+        });
+  }
+  </script>
 <!-- _______________________________________________________________
 ____________________________________________________________________
 ____________________________________________________________________
@@ -87,22 +102,7 @@ ______________________Facebook feed test end________________________ -->
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
 
-<script type="text/javascript">
-  function postPoll()
-  {
-      FB.api(
-        '/me/asqus-mvp:answer',
-        'post',
-        { poll: 'http://polar-reaches-7121.herokuapp.com/polls/<%= @poll.id %>' },
-        function(response) {
-           if (!response || response.error) {
-              alert('Error occured');
-           } else {
-              alert('You successfully posted to Facebook! Action ID: ' + response.id);
-           }
-        });
-  }
-  </script>
+
 
   <% if current_user.official_id == nil %>
   <form>
