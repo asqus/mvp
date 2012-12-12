@@ -1,4 +1,6 @@
 <li>
+  <span class="off_show_rating"><%= (UpRelation.where("updown = ? AND poll_id = ?", true, poll.id).count - 
+			UpRelation.where("updown= ? AND poll_id = ?", false, poll.id).count) %></span>
   <span class="title"><%= link_to poll.title, poll %></span>
   <span class="body"><%= poll.body %></span>
   <span class="timestamp">

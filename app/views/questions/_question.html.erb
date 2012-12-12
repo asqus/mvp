@@ -1,4 +1,5 @@
 <li>
+  <span class="off_show_rating"><%= question.up_cache.to_i - question.down_cache.to_i %></span>
   <span class="title"><%= link_to question.title, question %></span>
   <span class="body"><%= question.body %></span>
   <span class="timestamp">

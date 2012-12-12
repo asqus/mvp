@@ -1,7 +1,7 @@
 <% provide(:title, @official.name) %>
-<div class="row">
+<div class="row-fluid standard_block">
 
-  <div class="official_show_block span8">
+  <div class="span3 official_show_block">
     <p id="notice"><%= notice %></p>
       <% if (@official.name == "John Hiefjte") %>
         <div class="o_picture"><%= image_tag "john.jpg" %></div>
@@ -29,7 +29,7 @@
       <%= link_to 'New Poll', new_poll_path({ :office => current_user.official_id }), :class => 'btn btn-large btn-primary' %>
     <% end %>
   </div>
-  <div class="span8 questionList">
+  <div class="span9 questionList">
     <% if @official.questions.any? %>
       <h3>Questions (<%= @official.questions.count %>)</h3>
       <ol class="questions">
@@ -38,7 +38,7 @@
       <%= will_paginate @questions %>
     <% end %>
   </div>
-  <div class="span8 questionList">
+  <div class="span9 questionList">
     <% if @official.polls.any? %>
       <h3>Polls (<%= @official.polls.count %>)</h3>
       <ol class="polls">

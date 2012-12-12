@@ -1,4 +1,5 @@
-<div class="p_form_block">
+<div class="row">
+  <div class="span7 standard_block">
   <% if params[:office] %>
     <% @office = Official.find(params[:office]) %> 
     <h1>Create a new poll</h1>
@@ -6,4 +7,5 @@
   <% else %>
     <h1>No rep selected!</h1>
   <% end %>
+  </div>
 </div>

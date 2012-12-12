@@ -39,7 +39,15 @@ ______________________Facebook feed test________________________ -->
 
 <div id='fb-root'></div>
     <script src='http://connect.facebook.net/en_US/all.js'></script>
-    <p><a class="btn" onclick='postToFeed(); return false;'>Ask your constituents on Facebook!</a></p>
+    <p style="color: red;
+    font-size: 20px;
+    font-weight: 800;">Ask your constituents on:</p>
+    <p><a class="btn" onclick='postToFeed(); return false;'>Facebook</a></p>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" 
+data-text="New poll: <%= @poll.title %>">Tweet</a>
+
+
     <p id='msg'></p>
 
     <script> 
@@ -76,6 +84,9 @@ ______________________Facebook feed test end________________________ -->
 
 <p id="notice"><%= notice %></p>
 
+<div class="p_block">
+
+<div class="p_vote_form"><%= render 'polls/vote_states/vote_forms', poll: @poll %></div>
 <div class="p_title">
   <%= @poll.title %>
 </div>
@@ -85,6 +96,14 @@ ______________________Facebook feed test end________________________ -->
 <div id="answers" class="p_answer_set">
   <%= render 'up_relations/renderPollAnswers', poll: @poll %>
 </div>
+<div class=""><h>Asked by:  </h>
+      <%= link_to(Official.find(@poll.official_id)) do %>
+      <%= Official.find(@poll.official_id).name %>, the
+      <%= Official.find(@poll.official_id).position %>
+      <% end %>
+</div>
+</div>
+
 <div id="chart" class="p_chart_hidden"></div>
 
 <h1>Comments</h1>
@@ -94,7 +113,6 @@ ______________________Facebook feed test end________________________ -->
 
 <%= render :partial => "comments/new", :locals => { :commentable => @poll }%><br/>
 
-<%= link_to 'Back', polls_path %>
 
 
 <fb:like href="http://polar-reaches-7121.herokuapp.com/polls/1" send="true" width="450" show_faces="false"></fb:like>
@@ -110,6 +128,8 @@ data-text="New poll: <%= @poll.title %>">Tweet</a>
     <input type="button" value="Say you answered this on Facebook!" onclick="postPoll()" />
   </form>
   <% end %>
+
+</div>
 
 <% else %>
 <% if flash[:notice] %>

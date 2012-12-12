@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-<div class="row">
+<div class="row standard_block">
 
   <div class="user_show_block span8">
     <p id="notice"><%= notice %></p>
@@ -39,6 +39,7 @@
     <% end %>
   </div>
 </div>
+<div class="fb_stuff standard_block">
 <% if (current_user.id == @user.id) %>
 <% if @user.authentications %>
  <% unless @user.authentications.empty? %>
@@ -67,8 +68,8 @@
   
 
 
-
 <div class="clear"></div>
 <% else %>
 
 <% end %>
+</div>

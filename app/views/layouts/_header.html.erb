@@ -6,9 +6,21 @@
           <div class="nav_logo_image">
           <%= image_tag "header_logo.png" %>
           </div>
-          <div class="nav_logo_text">
-            Political Dialogue Platform
-          </div>
+          <% if signed_in? %>
+            <% if current_user.official_id %>
+              <div class="nav_logo_text">
+                PDP Rep Interface
+              </div>
+            <% else %>
+              <div class="nav_logo_text">
+                Political Dialogue Platform
+              </div>
+            <% end %>
+          <% else %>
+            <div class="nav_logo_text">
+              Political Dialogue Platform
+            </div>
+          <% end %>
         <% end %>
       </div>
       <nav>
