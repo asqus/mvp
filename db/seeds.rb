@@ -7,14 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 YesOrNo = PollOptionsSet.create(
-    :set_type => 'binary',
+    :set_type => 'Yes/No',
     :num_options => 2,
     :options => " { \"0\": \"No\", \"1\": \"Yes\" } "
   )
 
 AgreeScale = 
   PollOptionsSet.create(
-    :set_type => 'multiple',
+    :set_type => 'Agree Scale',
     :num_options => 5,
     :options => "  { \"0\": \"Strongly Disagree\", \"1\": \"Disagree\", \"2\": \"Neutral\", \"3\": \"Agree\", \"4\": \"Strongly Agree\"}  "
   )
