@@ -28,7 +28,7 @@
 <h1>Your Recent Polls</h1>
 <% @polls.each do |poll| %>
   <% @official = Official.find(poll.official_id) %>
-  <div class="q_ablock extra">
+  <div class="p_block">
     <div class="p_vote_form"><%= render 'polls/vote_states/vote_forms', poll: poll %></div>
     <div class="p_title"><%= link_to poll.title, poll %></div>
     <div class="p_body"><%= raw(poll.body) %></div>
