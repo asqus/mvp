@@ -17,7 +17,8 @@ class OfficialsController < ApplicationController
   def show
     @official = Official.find(params[:id])
     @questions = @official.questions.paginate(page: params[:page])
-
+    @polls = @official.polls.paginate(page: params[:page])
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @official }

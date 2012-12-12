@@ -89,9 +89,8 @@ body {
         <%= link_to(User.find(poll.user_id)) do %>
         <%= User.find(poll.user_id).name %>
         <% end %>
-    
+        <fb:like href="http://polar-reaches-7121.herokuapp.com/polls/<%= poll.id %>" send="true" width="450" show_faces="false"></fb:like>
     </div>
-    <fb:like href="http://polar-reaches-7121.herokuapp.com/polls/<%= poll.id %>" send="true" width="450" show_faces="false"></fb:like>
   </div>
 
 <% end %>
